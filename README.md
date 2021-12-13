@@ -16,11 +16,11 @@
 
 ## TBOT Charger top.
 
-![TBOT Charger Top.]()
+![TBOT Charger Top.](https://github.com/tronixio/robot-tbot/blob/main/pics/tbot-charger-top.png)
 
 ## TBOT Charger bottom.
 
-![TBOT Charger Bottom.]()
+![TBOT Charger Bottom.](https://github.com/tronixio/robot-tbot/blob/main/pics/tbot-charger-bottom.png)
 
 ## TBOT Front HC-SR04 Schematic.
 
@@ -28,11 +28,11 @@
 
 ## TBOT Front HC-SR04 top.
 
-![TBOT Front HC-SR04 Top.]()
+![TBOT Front HC-SR04 Top.](https://github.com/tronixio/robot-tbot/blob/main/pics/hc-sr04-top.png)
 
 ## TBOT Front HC-SR04 bottom.
 
-![TBOT Front HC-SR04 Bottom.]()
+![TBOT Front HC-SR04 Bottom.](https://github.com/tronixio/robot-tbot/blob/main/pics/hc-sr04-bottom.png)
 
 ## TBOT Front GP2Y Schematic.
 
@@ -40,11 +40,11 @@
 
 ## TBOT Front GP2Y top.
 
-![TBOT Front GP2Y Top.]()
+![TBOT Front GP2Y Top.](https://github.com/tronixio/robot-tbot/blob/main/pics/gp2y-top.png)
 
 ## TBOT Front GP2Y bottom.
 
-![TBOT Front GP2Y Bottom.]()
+![TBOT Front GP2Y Bottom.](https://github.com/tronixio/robot-tbot/blob/main/pics/gp2y-bottom.png)
 
 ## Notes.
 
