@@ -10,9 +10,11 @@
 - [PARALLAX 1" Tail Whell Ball.](https://www.parallax.com/product/700-00009)
 - [PARALLAX Feedback 360 High Speed Servo.](https://www.parallax.com/product/900-00360)
 
-## TBOT Charger Schematic.
+## TBOT All Schematic.
 
-- [Charger 2x18650.](https://github.com/tronixio/robot-tbot/blob/main/assets/tbot-charger.pdf)
+- [Schematic Charger 2x18650.](https://github.com/tronixio/robot-tbot/blob/main/assets/tbot-charger.pdf)
+- [Schematic Front HC-SR04.](https://github.com/tronixio/robot-tbot/blob/main/assets/tbot-front-hcsr04.pdf)
+- [Schematic Front GP2Y.](https://github.com/tronixio/robot-tbot/blob/main/assets/tbot-front-gp2y.pdf)
 
 ## TBOT Charger top.
 
@@ -22,10 +24,6 @@
 
 ![TBOT Charger Bottom.](https://github.com/tronixio/robot-tbot/blob/main/pics/tbot-charger-bottom.png)
 
-## TBOT Front HC-SR04 Schematic.
-
-- [Front HC-SR04.](https://github.com/tronixio/robot-tbot/blob/main/assets/tbot-front-hcsr04.pdf)
-
 ## TBOT Front HC-SR04 top.
 
 ![TBOT Front HC-SR04 Top.](https://github.com/tronixio/robot-tbot/blob/main/pics/hc-sr04-top.png)
@@ -33,10 +31,6 @@
 ## TBOT Front HC-SR04 bottom.
 
 ![TBOT Front HC-SR04 Bottom.](https://github.com/tronixio/robot-tbot/blob/main/pics/hc-sr04-bottom.png)
-
-## TBOT Front GP2Y Schematic.
-
-- [Front GP2Y.](https://github.com/tronixio/robot-tbot/blob/main/assets/tbot-front-gp2y.pdf)
 
 ## TBOT Front GP2Y top.
 
