@@ -12,7 +12,7 @@
 
 ## TBOT Charger Schematic.
 
-- [Charger 2x18650.]()
+- [Charger 2x18650.](https://github.com/tronixio/robot-tbot/blob/main/assets/tbot-charger.pdf)
 
 ## TBOT Charger top.
 
@@ -24,7 +24,7 @@
 
 ## TBOT Front HC-SR04 Schematic.
 
-- [Front HC-SR04.]()
+- [Front HC-SR04.](https://github.com/tronixio/robot-tbot/blob/main/assets/tbot-front-hcsr04.pdf)
 
 ## TBOT Front HC-SR04 top.
 
@@ -36,7 +36,7 @@
 
 ## TBOT Front GP2Y Schematic.
 
-- [Front GP2Y.]()
+- [Front GP2Y.](https://github.com/tronixio/robot-tbot/blob/main/assets/tbot-front-gp2y.pdf)
 
 ## TBOT Front GP2Y top.
 
