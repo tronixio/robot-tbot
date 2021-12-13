@@ -12,6 +12,7 @@
 
 ## TBOT All Schematic.
 
+- [TODO - Schematic MCU PIC 8-Bit]()
 - [Schematic Charger 2x18650.](https://github.com/tronixio/robot-tbot/blob/main/assets/tbot-charger.pdf)
 - [Schematic Front HC-SR04.](https://github.com/tronixio/robot-tbot/blob/main/assets/tbot-front-hcsr04.pdf)
 - [Schematic Front GP2Y.](https://github.com/tronixio/robot-tbot/blob/main/assets/tbot-front-gp2y.pdf)
