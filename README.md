@@ -10,11 +10,11 @@
 - [PARALLAX 1" Tail Whell Ball.](https://www.parallax.com/product/700-00009)
 - [PARALLAX Feedback 360 High Speed Servo.](https://www.parallax.com/product/900-00360)
 
-## TBOT All Schematic.
+## TBOT All Schematics.
 
 - [Schematic MCU PIC-8BIT.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/mcu/pdf/schematic.pdf)
 - [Schematic Charger 2x18650.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/charger/pdf/schematic.pdf)
-- [Schematic Front GP2Y.](https://github.com/tronixio/robot-tbot/blob/blob/main/Kicad/front-gp2y/pdf/schematic.pdf)
+- [Schematic Front GP2Y.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-gp2y/pdf/schematic.pdf)
 - [Schematic Front HC-SR04.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/pdf/schematic.pdf)
 - [Schematic IR Line Folllow.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/pdf/schematic.pdf)
 
