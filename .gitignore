@@ -3,3 +3,13 @@
 *.kicad_prl
 *.kicad_sch-bak
 Kicad/*/fp-info-cache
+MplabX/PICAS-P16F1778-TBOT.X/Makefile
+MplabX/PICAS-P16F1778-TBOT.X/build/
+MplabX/PICAS-P16F1778-TBOT.X/disassembly/
+MplabX/PICAS-P16F1778-TBOT.X/dist/
+MplabX/PICAS-P16F1778-TBOT.X/nbproject/
+MplabX/XC8-P16F1778-TBOT.X/Makefile
+MplabX/XC8-P16F1778-TBOT.X/build/
+MplabX/XC8-P16F1778-TBOT.X/disassembly/
+MplabX/XC8-P16F1778-TBOT.X/dist/
+MplabX/XC8-P16F1778-TBOT.X/nbproject/
