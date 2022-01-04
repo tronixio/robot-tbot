@@ -1,2 +1,5 @@
-
 .DS_Store
+*.zip
+*.kicad_prl
+*.kicad_sch-bak
+Kicad/*/fp-info-cache
