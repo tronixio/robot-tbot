@@ -6,7 +6,7 @@ Docs/
 Kicad/*/gerber/
 Kicad/*/*-backups/
 Kicad/*/fp-info-cache
-MplabX/PICAS-P16F1778-TBOT.X/main.s
+#MplabX/PICAS-P16F1778-TBOT.X/main.s
 MplabX/PICAS-P16F1778-TBOT.X/Makefile
 MplabX/PICAS-P16F1778-TBOT.X/build/
 MplabX/PICAS-P16F1778-TBOT.X/disassembly/
