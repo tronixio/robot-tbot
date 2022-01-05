@@ -274,16 +274,6 @@ void main(void)
     uint8_t au8Buffer[4], u8Rx;
     while(1){
        tbot_batteryCheck();
-       
-//        if(PIR1bits.RCIF){
-//           u8Rx = eusart_readCharacter();
-//           eusart_writeCharacter(u8Rx);
-//           if(u8Rx == ASCII_CR)
-//               eusart_writeString(au8Ready);
-//        }
-       
-       LATA ^= (1 << LED_1);
-        __delay_ms(200);
     }
 }
 
