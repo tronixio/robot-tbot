@@ -1721,7 +1721,7 @@
     (effects (font (size 1.5 1.5) (thickness 0.2)) (justify right mirror))
   )
   (gr_text "JLCJLCJLCJLC" (at 139 72) (layer "B.SilkS") (tstamp 2d2c2e43-4b5f-4c01-86af-036a4cb77c93)
-    (effects (font (size 1 1) (thickness 0.1)) (justify mirror))
+    (effects (font (size 0.8 0.8) (thickness 0.1)) (justify mirror))
   )
   (gr_text "www.tronix.io" (at 162 47.5) (layer "B.SilkS") (tstamp 5ce9fb17-a7fa-435f-a3f0-ea21127cfc62)
     (effects (font (size 1.5 1.5) (thickness 0.2)) (justify left mirror))
