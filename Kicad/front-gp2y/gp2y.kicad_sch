@@ -741,7 +741,7 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
-  (global_label "GP2Y_OUT" (shape input) (at 177.8 83.82 0)
+  (global_label "GP2Y_OUT" (shape output) (at 177.8 83.82 0)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 71d29af5-e4ae-49e3-8e2b-3c01d8d083f9)
     (property "Intersheet References" "${INTERSHEET_REFS}" (id 0) (at 187.3614 83.7406 0)
