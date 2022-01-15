@@ -788,7 +788,7 @@
     (uuid 1a77c1b2-80b0-4f74-8fd2-5e555a65243f)
   )
   (wire (pts (xy 139.7 45.72) (xy 139.7 55.88))
-    (stroke (width 0) (type solid) (color 255 154 39 1))
+    (stroke (width 0) (type solid) (color 0 0 0 0))
     (uuid 2d05c7a1-f8f0-49e7-870e-038228cf8771)
   )
   (wire (pts (xy 185.42 59.69) (xy 185.42 63.5))
