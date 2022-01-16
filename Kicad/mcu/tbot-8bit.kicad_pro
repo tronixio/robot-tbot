@@ -33,9 +33,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 1.5,
-          "height": 2.5,
-          "width": 2.5
+          "drill": 0.8,
+          "height": 1.75,
+          "width": 1.2
         },
         "silk_line_width": 0.19999999999999998,
         "silk_text_italic": false,
@@ -462,20 +462,17 @@
           "Net-(IC401-Pad2)",
           "Net-(IC401-Pad3)",
           "Net-(IC401-Pad4)",
-          "Net-(K405-Pad3)",
           "Net-(K408-Pad3)",
           "Net-(LED201-Pad2)",
           "Net-(LED401-Pad2)",
           "Net-(LED402-Pad1)",
           "Net-(LED403-Pad1)",
           "Net-(R402-Pad1)",
-          "Net-(R403-Pad1)",
           "unconnected-(IC401-Pad10)",
           "unconnected-(IC401-Pad7)",
           "unconnected-(IC401-Pad8)",
           "unconnected-(IC401-Pad9)",
           "unconnected-(K302-Pad6)",
-          "unconnected-(K406-Pad4)",
           "~{MCLR}"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
