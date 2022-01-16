@@ -1427,7 +1427,7 @@
     (uuid fa778469-5f3b-4da8-8d82-33dc20eeaa93)
   )
 
-  (symbol (lib_id "tronixio:POWER-+5V") (at 167.64 40.64 0)
+  (symbol (lib_id "tronixio:POWER-+5V") (at 167.64 40.64 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 025cab87-098a-4d03-86df-adc6193b0ed1)
     (property "Reference" "#PWR0308" (id 0) (at 172.72 38.1 0)
@@ -1448,7 +1448,7 @@
     (pin "1" (uuid 058a172f-f49e-4d71-8ed4-f9f40f1e45c2))
   )
 
-  (symbol (lib_id "tronixio:ALPS-SKRPAC") (at 78.74 175.26 90)
+  (symbol (lib_id "tronixio:ALPS-SKRPAC") (at 78.74 175.26 90) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 0fca357c-e004-4aa7-81c8-25e847d92adb)
     (property "Reference" "S301" (id 0) (at 75.565 171.45 90)
@@ -1472,7 +1472,7 @@
     (pin "4" (uuid c4e951f8-eb64-473e-81aa-e7138ad4c785))
   )
 
-  (symbol (lib_id "tronixio:C-1206") (at 167.64 88.9 0)
+  (symbol (lib_id "tronixio:C-1206") (at 167.64 88.9 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 1aa876e1-6866-4758-b442-85188b82fe69)
     (property "Reference" "C302" (id 0) (at 168.275 86.36 0)
@@ -1491,7 +1491,7 @@
     (pin "2" (uuid 69ab6b4d-c52e-4536-9a6e-a5793a54d73b))
   )
 
-  (symbol (lib_id "tronixio:HARWIN-254-M-1X14-VERTICAL") (at 210.82 49.53 0)
+  (symbol (lib_id "tronixio:HARWIN-254-M-1X14-VERTICAL") (at 210.82 49.53 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 34e6f7d5-5154-444d-991d-b7a132876d17)
     (property "Reference" "K303" (id 0) (at 210.82 46.99 0)
@@ -1525,7 +1525,7 @@
     (pin "9" (uuid 115a2d7c-56c9-4693-88a8-2e7520f0ca1c))
   )
 
-  (symbol (lib_id "tronixio:C-1206") (at 86.36 175.26 0)
+  (symbol (lib_id "tronixio:C-1206") (at 86.36 175.26 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 48c82116-ce0e-427c-a200-23c083c24ceb)
     (property "Reference" "C301" (id 0) (at 86.995 172.72 0)
@@ -1544,7 +1544,7 @@
     (pin "2" (uuid 7b36e32e-4ed0-40dc-b858-ec1cb9480791))
   )
 
-  (symbol (lib_id "tronixio:POWER-GND") (at 162.56 93.98 0)
+  (symbol (lib_id "tronixio:POWER-GND") (at 162.56 93.98 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 6401dc3a-7afa-4c42-9b49-57c5f75827ad)
     (property "Reference" "#PWR0307" (id 0) (at 162.56 100.33 0)
@@ -1562,7 +1562,7 @@
     (pin "1" (uuid 858e74e7-d037-445f-8dfc-e67b98c81c81))
   )
 
-  (symbol (lib_id "tronixio:MICROCHIP-PIC16F1778-ISP") (at 144.78 66.04 0)
+  (symbol (lib_id "tronixio:MICROCHIP-PIC16F1778-ISP") (at 144.78 66.04 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 6c0dbd26-5282-4a9e-9e61-026d08c0a821)
     (property "Reference" "IC301" (id 0) (at 132.08 45.72 0)
@@ -1613,7 +1613,7 @@
     (pin "9" (uuid f389cb0c-c25d-40e7-a22e-9511fb82814a))
   )
 
-  (symbol (lib_id "tronixio:POWER-GND") (at 167.64 93.98 0)
+  (symbol (lib_id "tronixio:POWER-GND") (at 167.64 93.98 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 7ac23355-7454-4870-a975-8ed44e61eff4)
     (property "Reference" "#PWR0309" (id 0) (at 167.64 100.33 0)
@@ -1631,7 +1631,7 @@
     (pin "1" (uuid 36495af4-bc01-4114-bc41-3d8be2dc8ae5))
   )
 
-  (symbol (lib_id "tronixio:R-1206") (at 93.98 167.64 270)
+  (symbol (lib_id "tronixio:R-1206") (at 93.98 167.64 270) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 848c7c28-c91d-47bf-b249-37696b76895b)
     (property "Reference" "R302" (id 0) (at 93.98 165.1 90)
@@ -1650,7 +1650,7 @@
     (pin "2" (uuid 45c6e77f-edbb-4fa1-80f3-7c5291f17b2a))
   )
 
-  (symbol (lib_id "tronixio:POWER-+5V") (at 78.74 154.94 0)
+  (symbol (lib_id "tronixio:POWER-+5V") (at 78.74 154.94 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 897b9fb4-999f-4b4b-be60-8182d70f5116)
     (property "Reference" "#PWR0301" (id 0) (at 83.82 152.4 0)
@@ -1671,7 +1671,7 @@
     (pin "1" (uuid 7f7e974f-01b7-4fa1-83de-c1af5f0a8259))
   )
 
-  (symbol (lib_id "tronixio:POWER-GND") (at 132.08 182.88 0)
+  (symbol (lib_id "tronixio:POWER-GND") (at 132.08 182.88 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 8da08045-e3b8-49e4-b231-e69317f5cb08)
     (property "Reference" "#PWR0305" (id 0) (at 132.08 189.23 0)
@@ -1689,7 +1689,7 @@
     (pin "1" (uuid 0c94653d-09b5-4852-b216-a61639e5ac13))
   )
 
-  (symbol (lib_id "tronixio:MICROCHIP-ICSP-M-2x03") (at 137.16 172.72 0)
+  (symbol (lib_id "tronixio:MICROCHIP-ICSP-M-2x03") (at 137.16 172.72 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 96e0996a-47aa-4ebf-a288-943ab871828f)
     (property "Reference" "K302" (id 0) (at 138.43 170.18 0)
@@ -1715,7 +1715,7 @@
     (pin "6" (uuid 8fd872fd-3e21-402c-b674-c02d04aed59a))
   )
 
-  (symbol (lib_id "tronixio:POWER-GND") (at 127 93.98 0)
+  (symbol (lib_id "tronixio:POWER-GND") (at 127 93.98 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 9bb7e70a-74fa-41df-a47e-09fe67a9097e)
     (property "Reference" "#PWR0304" (id 0) (at 127 100.33 0)
@@ -1733,7 +1733,7 @@
     (pin "1" (uuid 6b12a793-0ab5-4a0f-b914-7bcd8edf41e8))
   )
 
-  (symbol (lib_id "tronixio:POWER-+5V") (at 144.78 167.64 0)
+  (symbol (lib_id "tronixio:POWER-+5V") (at 144.78 167.64 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 9dfacbc2-8d43-4a1b-981d-640f071b5575)
     (property "Reference" "#PWR0306" (id 0) (at 149.86 165.1 0)
@@ -1754,7 +1754,7 @@
     (pin "1" (uuid 1ea4afa1-8c35-4e48-b64c-f2c0247b74fb))
   )
 
-  (symbol (lib_id "tronixio:POWER-GND") (at 86.36 182.88 0)
+  (symbol (lib_id "tronixio:POWER-GND") (at 86.36 182.88 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid a313e4dd-f220-4fd0-af99-b347899d09af)
     (property "Reference" "#PWR0303" (id 0) (at 86.36 189.23 0)
@@ -1772,7 +1772,7 @@
     (pin "1" (uuid b598090a-bbb8-4b00-abbf-b094c108ac37))
   )
 
-  (symbol (lib_id "tronixio:HARWIN-254-M-1X14-VERTICAL") (at 78.74 49.53 0) (mirror y)
+  (symbol (lib_id "tronixio:HARWIN-254-M-1X14-VERTICAL") (at 78.74 49.53 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid a44e958f-b24c-4d0b-94d3-ae9cf9896255)
     (property "Reference" "K301" (id 0) (at 78.74 46.99 0)
@@ -1806,7 +1806,7 @@
     (pin "9" (uuid d17adc67-39dc-4ab5-b130-104d45d72ec0))
   )
 
-  (symbol (lib_id "tronixio:POWER-GND") (at 78.74 182.88 0)
+  (symbol (lib_id "tronixio:POWER-GND") (at 78.74 182.88 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid d3e888e6-36a3-4d0a-8a7a-331554d780a0)
     (property "Reference" "#PWR0302" (id 0) (at 78.74 189.23 0)
@@ -1824,7 +1824,7 @@
     (pin "1" (uuid 4f0357ee-e9ad-4442-9add-412a73b18369))
   )
 
-  (symbol (lib_id "tronixio:R-1206") (at 78.74 161.29 180)
+  (symbol (lib_id "tronixio:R-1206") (at 78.74 161.29 180) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid ec650f86-0478-41eb-ace7-507c2dfbaaf7)
     (property "Reference" "R301" (id 0) (at 73.66 157.48 0)
