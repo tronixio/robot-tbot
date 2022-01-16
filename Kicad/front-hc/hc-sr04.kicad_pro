@@ -460,9 +460,7 @@
         "microvia_diameter": 0.0,
         "microvia_drill": 0.0,
         "name": "POWER-05",
-        "nets": [
-          "+5V"
-        ],
+        "nets": [],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.25,
