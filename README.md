@@ -16,7 +16,7 @@
 - [Charger 2x18650.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/charger/extras/schematic.pdf)
 - [Front GP2Y.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-gp2y/extras/schematic.pdf)
 - [Front HC-SR04.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/extras/schematic.pdf)
-- [IR Line Folllow.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/pdf/schematic.pdf)
+- [IR Line Folllow.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/extras/schematic.pdf)
 
 ## TBOT MCU PIC 8Bit top.
 
@@ -52,11 +52,11 @@
 
 ## TBOT IR Line Follow top.
 
-![TBOT IR Line Follow Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/pics/top.png)
+![TBOT IR Line Follow Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/extras/top.png)
 
 ## TBOT IR Line Follow bottom.
 
-![TBOT IR Line Follow Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/pics/bottom.png)
+![TBOT IR Line Follow Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/extras/bottom.png)
 
 ## Notes.
 
