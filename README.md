@@ -12,7 +12,7 @@
 
 ## TBOT All Schematics.
 
-- [MCU PIC-8BIT.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/mcu8/pdf/schematic.pdf)
+- [MCU PIC-8BIT.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/mcu8/extras/schematic.pdf)
 - [Charger 2x18650.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/charger/extras/schematic.pdf)
 - [Front GP2Y.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-gp2y/extras/schematic.pdf)
 - [Front HC-SR04.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/extras/schematic.pdf)
@@ -20,11 +20,11 @@
 
 ## TBOT MCU PIC 8Bit top.
 
-![TBOT MCU PIC 8Bit Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/mcu8/pics/top.png)
+![TBOT MCU PIC 8Bit Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/mcu8/extras/top.png)
 
 ## TBOT MCU PIC 8Bit bottom.
 
-![TBOT MCU PIC 8Bit Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/mcu8/pics/bottom.png)
+![TBOT MCU PIC 8Bit Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/mcu8/extras/bottom.png)
 
 ## TBOT Charger top.
 

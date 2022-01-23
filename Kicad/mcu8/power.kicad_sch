@@ -952,7 +952,8 @@
     (uuid fbe52d8c-435b-4693-838c-da9807b28e97)
   )
 
-  (text "Max:\nNom:\nMin:" (at 205.74 73.66 0)
+  (text "Max: 8.4V / 4.8V.\nNom: 7.2V / 4.1V.\nMin: 6.2v / 3.5V."
+    (at 203.2 76.2 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid a9b46158-5abe-486b-9873-f0e4a86991c1)
   )
