@@ -12,10 +12,10 @@
 
 ## TBOT All Schematics.
 
-- [MCU PIC-8BIT.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/mcu8/extras/schematic.pdf)
+- [MCU PIC-8BIT.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/mcu8/pdf/schematic.pdf)
 - [Charger 2x18650.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/charger/extras/schematic.pdf)
-- [Front GP2Y.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-gp2y/pdf/schematic.pdf)
-- [Front HC-SR04.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/pdf/schematic.pdf)
+- [Front GP2Y.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-gp2y/extras/schematic.pdf)
+- [Front HC-SR04.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/extras/schematic.pdf)
 - [IR Line Folllow.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/pdf/schematic.pdf)
 
 ## TBOT MCU PIC 8Bit top.
@@ -44,11 +44,11 @@
 
 ## TBOT Front HC-SR04 top.
 
-![TBOT Front HC-SR04 Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/pics/top.png)
+![TBOT Front HC-SR04 Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/extras/top.png)
 
 ## TBOT Front HC-SR04 bottom.
 
-![TBOT Front HC-SR04 Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/pics/bottom.png)
+![TBOT Front HC-SR04 Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/extras/bottom.png)
 
 ## TBOT IR Line Follow top.
 
