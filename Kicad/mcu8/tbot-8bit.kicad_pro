@@ -458,21 +458,6 @@
         "nets": [
           "+5V",
           "GND",
-          "Net-(C402-Pad1)",
-          "Net-(IC401-Pad2)",
-          "Net-(IC401-Pad3)",
-          "Net-(IC401-Pad4)",
-          "Net-(K408-Pad3)",
-          "Net-(LED201-Pad2)",
-          "Net-(LED401-Pad2)",
-          "Net-(LED402-Pad1)",
-          "Net-(LED403-Pad1)",
-          "Net-(R402-Pad1)",
-          "unconnected-(IC401-Pad10)",
-          "unconnected-(IC401-Pad7)",
-          "unconnected-(IC401-Pad8)",
-          "unconnected-(IC401-Pad9)",
-          "unconnected-(K302-Pad6)",
           "~{MCLR}"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
@@ -602,10 +587,6 @@
     [
       "9c91caeb-16bc-4916-868d-9f9002ce0a61",
       ""
-    ],
-    [
-      "6dca117b-1aaa-49ac-ac49-257b60ed2b71",
-      "Power"
     ],
     [
       "6012b3a0-2f30-4458-8240-bd443182c6c0",
