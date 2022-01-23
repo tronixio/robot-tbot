@@ -6,9 +6,9 @@
 - Continuous RC Servos Motors.
 - Power 2xCells 18650 Lithium Ion Rechargeable Batteries, with embedded charger.
 - [PARALLAX Small Robot Chassis.](https://www.parallax.com/product/700-00022)
+- [PARALLAX Feedback 360 High Speed Servo.](https://www.parallax.com/product/900-00360)
 - [PARALLAX Small Robot Whell and Tire.](https://www.parallax.com/product/28114)
 - [PARALLAX 1" Tail Whell Ball.](https://www.parallax.com/product/700-00009)
-- [PARALLAX Feedback 360 High Speed Servo.](https://www.parallax.com/product/900-00360)
 
 ## TBOT All Schematics.
 
