@@ -5,7 +5,7 @@
   (paper "A4")
 
   (title_block
-    (title "Diagram")
+    (title "Power")
     (date "01/2022")
     (rev "A")
     (comment 1 "TBOT - MCU PIC-8Bit")
@@ -2208,8 +2208,8 @@
 
   (sheet_instances
     (path "/" (page "1"))
-    (path "/6012b3a0-2f30-4458-8240-bd443182c6c0" (page "3"))
-    (path "/56bd3a46-de12-45e9-9566-afec966f2cad" (page "4"))
+    (path "/6012b3a0-2f30-4458-8240-bd443182c6c0" (page "2"))
+    (path "/56bd3a46-de12-45e9-9566-afec966f2cad" (page "3"))
   )
 
   (symbol_instances
