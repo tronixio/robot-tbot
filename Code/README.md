@@ -1,12 +1,19 @@
 # ROBOT - TBOT 2 Wheels.
 
-## Check Code.
+## Code.
 
-<!-- - [TODO - Configuration](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration.s) -->
+- [Configuration](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration.s)
+
 <!-- - [TODO - EUSART](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart.s) -->
 <!-- - [TODO - ADC](https://github.com/tronixio/robot-tbot/blob/main/Code/adc.s) -->
 <!-- - [TODO - RC Servo](https://github.com/tronixio/robot-tbot/blob/main/Code/rc-servo.s) -->
 <!-- - [TODO - GP2Y](https://github.com/tronixio/robot-tbot/blob/main/Code/gp2y.s) -->
+
+## Configuration.
+
+- PIC-AS Linker > Custom linker options: -preset_vec=0000h, -pcinit=0005h.
+
+![MPLABX Configuration](./extras/configuration.png)
 
 ## Notes.
 
