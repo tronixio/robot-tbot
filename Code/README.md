@@ -4,8 +4,8 @@
 
 - [Configuration](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration.s)
 - [EUSART TX](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart.s)
+- [ADC Battery](https://github.com/tronixio/robot-tbot/blob/main/Code/adc.s)
 
-<!-- - [TODO - ADC](https://github.com/tronixio/robot-tbot/blob/main/Code/adc.s) -->
 <!-- - [TODO - RC Servo](https://github.com/tronixio/robot-tbot/blob/main/Code/rc-servo.s) -->
 <!-- - [TODO - GP2Y](https://github.com/tronixio/robot-tbot/blob/main/Code/gp2y.s) -->
 
