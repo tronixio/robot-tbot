@@ -25,6 +25,8 @@ CONFIG LVP=ON
 
 ; TBOT - v0.1.
 
+; EUSART TX Battery value.
+
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
 ascii:	    DS  3
