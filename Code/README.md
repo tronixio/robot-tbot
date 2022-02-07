@@ -11,15 +11,9 @@
 
 ## Configuration.
 
-- PIC-AS Linker > Custom linker options: -preset_vec=0000h, -pcinit=0005h.
-
-![MPLABX Configuration](./extras/configuration.png)
-
-## EUSART TX.
-
 - PIC-AS Linker > Custom linker options: -preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h.
 
-![MPLABX EUSART](./extras/eusart.png)
+![MPLABX Configuration](./extras/configuration.png)
 
 ## Notes.
 
