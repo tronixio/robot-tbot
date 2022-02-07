@@ -3,8 +3,8 @@
 ## Code.
 
 - [Configuration](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration.s)
+- [EUSART TX](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart.s)
 
-<!-- - [TODO - EUSART](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart.s) -->
 <!-- - [TODO - ADC](https://github.com/tronixio/robot-tbot/blob/main/Code/adc.s) -->
 <!-- - [TODO - RC Servo](https://github.com/tronixio/robot-tbot/blob/main/Code/rc-servo.s) -->
 <!-- - [TODO - GP2Y](https://github.com/tronixio/robot-tbot/blob/main/Code/gp2y.s) -->
@@ -14,6 +14,12 @@
 - PIC-AS Linker > Custom linker options: -preset_vec=0000h, -pcinit=0005h.
 
 ![MPLABX Configuration](./extras/configuration.png)
+
+## EUSART TX.
+
+- PIC-AS Linker > Custom linker options: -preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h.
+
+![MPLABX EUSART](./extras/eusart.png)
 
 ## Notes.
 
