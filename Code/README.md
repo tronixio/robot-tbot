@@ -15,6 +15,7 @@
 
 ![MPLABX Configuration](./extras/configuration.png)
 
+
 ## Notes.
 
 - TODO : Work in progress, prototype was not good, hardware, PCB and code can be rework.
