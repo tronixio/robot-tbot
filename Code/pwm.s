@@ -26,7 +26,7 @@ CONFIG LVP=ON
 ; TBOT - v0.1.
 
 ; PWM RC Servo & Interrupt Emergency Stop.
-; Forward 1 second, Backward 1 second, Loop.
+; Forward 1 second, Stop, Backward 1 second, Stop, Loop.
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
