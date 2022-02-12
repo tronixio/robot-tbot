@@ -26,7 +26,7 @@ CONFIG LVP=ON
 ; TBOT - v0.1.
 
 ; PWM RC Servo & Interrupt Emergency Stop.
-; Forward 1 second, Backward 1 second, Loop.
+; Forward 1 second, Stop, Backward 1 second, Stop, Loop.
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
@@ -77,7 +77,7 @@ delay:  DS  3
 ; H5/L220 - 1.5ms - @8MHz.
 ; H5/L20  - 1.3ms - @8MHz.
 #define SERVO_STOP_H	5
-#define SERVO_STOP_L	218
+#define SERVO_STOP_L	220
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
@@ -353,7 +353,6 @@ isr:
     MOVLW   5
     CALL    _delay
     BRA	    $-8
-
 
 ; Functions
 _delay:
