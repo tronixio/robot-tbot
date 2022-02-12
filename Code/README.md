@@ -5,13 +5,16 @@
 - [Configuration](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration.s)
 - [EUSART TX](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart.s)
 - [ADC Battery](https://github.com/tronixio/robot-tbot/blob/main/Code/adc.s)
+- [PWM RC Servo & Interrupts Emergency](https://github.com/tronixio/robot-tbot/blob/main/Code/pwm.s)
 
-<!-- - [TODO - RC Servo](https://github.com/tronixio/robot-tbot/blob/main/Code/rc-servo.s) -->
 <!-- - [TODO - GP2Y](https://github.com/tronixio/robot-tbot/blob/main/Code/gp2y.s) -->
 
-## Configuration.
+## MPLABX Linker Configuration.
 
-- PIC-AS Linker > Custom linker options: -preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h.
+- PIC-AS Linker > Custom linker options:
+  - For Configuration: `-preset_vec=0000h, -pcinit=0005h`
+  - For EUSART TX & ADC Battery: `-preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h`
+  - For PWM RC Servo & Interrupts Emergency: `-preset_vec=0000h, -pintentry=0004h, -pcinit=0005h`
 
 ![MPLABX Configuration](./extras/configuration.png)
 
