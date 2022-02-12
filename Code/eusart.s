@@ -21,7 +21,7 @@ CONFIG LVP=ON
 ; PIC16F1778 - Compile with PIC-AS(v2.35).
 ; PIC16F1778 - @8MHz Internal Oscillator.
 ; -preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h.
-; 1 instruction 495ns.
+; Instruction 495ns @8MHz.
 
 ; TBOT - v0.1.
 
