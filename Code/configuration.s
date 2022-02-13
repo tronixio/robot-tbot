@@ -59,9 +59,6 @@ CONFIG LVP=ON
 #define	BANK28  0x1C
 #define	BANK29  0x1D
 
-; User Definition.
-; LED Debug.
-#define	LED_DEBUG	0x6
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
