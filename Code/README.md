@@ -4,9 +4,9 @@
 
 - [Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration.s)
 - [EUSART TX - Display Welcome Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart.s)
-- [ADC/TIMER0 - Read Battery.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc.s)
+- [ADC/TIMER0 - Read & Display Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc.s)
 - [PWM - RC Servo Forward & Backward.](https://github.com/tronixio/robot-tbot/blob/main/Code/pwm.s)
-- [INT0 - Emergency.](https://github.com/tronixio/robot-tbot/blob/main/Code/int0.s)
+- [INT0 - Emergency Switch & LED.](https://github.com/tronixio/robot-tbot/blob/main/Code/int0.s)
 - [IOC - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/Code/gp2y0d21yk.s)
 
 ## MPLABX Linker Configuration.
