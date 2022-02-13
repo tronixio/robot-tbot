@@ -60,100 +60,104 @@ CONFIG LVP=ON
 #define	BANK28  0x1C
 #define	BANK29  0x1D
 
+; User Definition.
+; Debug LED.
+#define	LED_DEBUG	0x6
+
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
 resetVect:
-    goto    main
+    GOTO    main
 
 ; Main.
 PSECT cinit,class=CODE,space=0,delta=2
 main:
     ; MCU Initialization.
     ; Internal Oscillator Settings.
-    movlb   BANK1
-    movlw   0b00000110
-    movwf   OSCTUNE
-    movlw   0x70
-    movwf   OSCCON
-    btfss   HFIOFR
-    bra	    $-1
+    MOVLB   BANK1
+    MOVLW   0b00000110
+    MOVWF   OSCTUNE
+    MOVLW   0x70
+    MOVWF   OSCCON
+    BTFSS   HFIOFR
+    BRA	    $-1
     ; Ports Settings.
     ; PORT Data Register.
-    movlb   BANK0
-    movlw   0b00000000
-    movwf   PORTA
-    movlw   0b00000000
-    movwf   PORTB
-    movlw   0b00000000
-    movwf   PORTC
-    movlw   0b00000000
-    movwf   PORTE
+    MOVLB   BANK0
+    MOVLW   0b00000000
+    MOVWF   PORTA
+    MOVLW   0b00000000
+    MOVWF   PORTB
+    MOVLW   0b00000000
+    MOVWF   PORTC
+    MOVLW   0b00000000
+    MOVWF   PORTE
     ; TRIS Data Direction.
-    movlb   BANK1
-    movlw   0b00100000
-    movwf   TRISA
-    movlw   0b00001001
-    movwf   TRISB
-    movlw   0b00000000
-    movwf   TRISC
-    movlw   0b00000000
-    movwf   TRISE
+    MOVLB   BANK1
+    MOVLW   0b00100000
+    MOVWF   TRISA
+    MOVLW   0b00001001
+    MOVWF   TRISB
+    MOVLW   0b00000000
+    MOVWF   TRISC
+    MOVLW   0b00000000
+    MOVWF   TRISE
     ; LATCH Outputs.
-    movlb   BANK2
-    movlw   0b00000000
-    movwf   LATA
-    movlw   0b00000000
-    movwf   LATB
-    movlw   0b00000000
-    movwf   LATC
+    MOVLB   BANK2
+    MOVLW   0b00000000
+    MOVWF   LATA
+    MOVLW   0b00000000
+    MOVWF   LATB
+    MOVLW   0b00000000
+    MOVWF   LATC
     ; ANSEL Analog.
-    movlb   BANK3
-    movlw   0b00000000
-    movwf   ANSELA
-    movlw   0b00001000
-    movwf   ANSELB
-    movlw   0b00000000
-    movwf   ANSELC
+    MOVLB   BANK3
+    MOVLW   0b00000000
+    MOVWF   ANSELA
+    MOVLW   0b00001000
+    MOVWF   ANSELB
+    MOVLW   0b00000000
+    MOVWF   ANSELC
     ; WPU Weak Pull-up.
-    movlb   BANK4
-    movlw   0b00000000
-    movwf   WPUA
-    movlw   0b00000000
-    movwf   WPUB
-    movlw   0b00000000
-    movwf   WPUC
-    movlw   0b00000000
-    movwf   WPUE
+    MOVLB   BANK4
+    MOVLW   0b00000000
+    MOVWF   WPUA
+    MOVLW   0b00000000
+    MOVWF   WPUB
+    MOVLW   0b00000000
+    MOVWF   WPUC
+    MOVLW   0b00000000
+    MOVWF   WPUE
     ; ODCON Open-drain.
-    movlb   BANK5
-    movlw   0b00000000
-    movwf   ODCONA
-    movlw   0b00000000
-    movwf   ODCONB
-    movlw   0b00000000
-    movwf   ODCONC
+    MOVLB   BANK5
+    MOVLW   0b00000000
+    MOVWF   ODCONA
+    MOVLW   0b00000000
+    MOVWF   ODCONB
+    MOVLW   0b00000000
+    MOVWF   ODCONC
     ; SRLCON Slew Rate.
-    movlb   BANK6
-    movlw   0b11111111
-    movwf   SLRCONA
-    movlw   0b11111111
-    movwf   SLRCONB
-    movlw   0b11111111
-    movwf   SLRCONC
+    MOVLB   BANK6
+    MOVLW   0b11111111
+    MOVWF   SLRCONA
+    MOVLW   0b11111111
+    MOVWF   SLRCONB
+    MOVLW   0b11111111
+    MOVWF   SLRCONC
     ; INLVL Input Level.
-    movlb   BANK7
-    movlw   0b00000000
-    movwf   INLVLA
-    movlw   0b00000000
-    movwf   INLVLB
-    movlw   0b00000000
-    movwf   INLVLC
+    MOVLB   BANK7
+    MOVLW   0b00000000
+    MOVWF   INLVLA
+    MOVLW   0b00000000
+    MOVWF   INLVLB
+    MOVLW   0b00000000
+    MOVWF   INLVLC
     ; HIDRVB High Drive.
-    movlb   BANK8
-    movlw   0b00000000
-    movwf   HIDRVB
+    MOVLB   BANK8
+    MOVLW   0b00000000
+    MOVWF   HIDRVB
 
 loop:
-    bra	    $
+    BRA	    $
 
     END	    resetVect
