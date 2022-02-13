@@ -332,8 +332,7 @@ loop:
 
     BRA	    loop
 
-
-; ISR
+;  Interrupt Service Routine.
 isr:
     ; Interrupt Emergency ?
     BTFSS   INTF
@@ -355,7 +354,7 @@ isr:
     CALL    _delay
     BRA	    $-8
 
-; Functions
+; Functions.
 _delay:
     MOVLB   BANK0
     MOVWF   delay + 2
