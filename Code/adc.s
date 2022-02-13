@@ -23,9 +23,8 @@ CONFIG LVP=ON
 ; -preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h.
 ; Instruction ~500ns @8MHz.
 
-; TBOT.
-
-; EUSART TX - ADC Battery value.
+; TBOT - ADC Battery.
+; EUSART TX - Display Battery value.
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
@@ -67,7 +66,7 @@ stringPTR:  DS  2
 #define	BANK29  0x1D
 
 ; User Definition.
-; Debug LED.
+; LED Debug.
 #define	LED_DEBUG	0x6
 
 ; Reset Vector.
