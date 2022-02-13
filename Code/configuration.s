@@ -23,8 +23,7 @@ CONFIG LVP=ON
 ; -preset_vec=0000h, -pcinit=0005h.
 ; Instruction ~500ns @8MHz.
 
-; TBOT.
-
+; TBOT - Configuration.
 ; MCU.RA6 -> OSCILLOSCOPE.PROBE.A
 
 ; MCU Definitions.
@@ -61,7 +60,7 @@ CONFIG LVP=ON
 #define	BANK29  0x1D
 
 ; User Definition.
-; Debug LED.
+; LED Debug.
 #define	LED_DEBUG	0x6
 
 ; Reset Vector.
