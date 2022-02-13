@@ -62,6 +62,7 @@ delay:  DS  3
 #define	BANK27  0x1B
 #define	BANK28  0x1C
 #define	BANK29  0x1D
+#define	BANK30  0x1E
 
 ; User Definition.
 ; LED Debug.
