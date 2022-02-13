@@ -18,45 +18,45 @@
 - [Front HC-SR04.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/extras/schematic.pdf)
 - [IR Line Folllow.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/extras/schematic.pdf)
 
-## TBOT MCU PIC 8Bit top.
+## TBOT MCU PIC 8Bit Top.
 
-![TBOT MCU PIC 8Bit Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/mcu8/extras/top.png)
+![TBOT MCU PIC 8Bit Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/mcu8/extras/Top.png)
 
-## TBOT MCU PIC 8Bit bottom.
+## TBOT MCU PIC 8Bit Bottom.
 
-![TBOT MCU PIC 8Bit Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/mcu8/extras/bottom.png)
+![TBOT MCU PIC 8Bit Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/mcu8/extras/Bottom.png)
 
-## TBOT Charger top.
+## TBOT Charger Top.
 
-![TBOT Charger Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/charger/extras/top.png)
+![TBOT Charger Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/charger/extras/Top.png)
 
-## TBOT Charger bottom.
+## TBOT Charger Bottom.
 
-![TBOT Charger Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/charger/extras/bottom.png)
+![TBOT Charger Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/charger/extras/Bottom.png)
 
-## TBOT Front GP2Y top.
+## TBOT Front GP2Y Top.
 
-![TBOT Front GP2Y Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-gp2y/extras/top.png)
+![TBOT Front GP2Y Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-gp2y/extras/Top.png)
 
-## TBOT Front GP2Y bottom.
+## TBOT Front GP2Y Bottom.
 
-![TBOT Front GP2Y Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-gp2y/extras/bottom.png)
+![TBOT Front GP2Y Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-gp2y/extras/Bottom.png)
 
-## TBOT Front HC-SR04 top.
+## TBOT Front HC-SR04 Top.
 
-![TBOT Front HC-SR04 Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/extras/top.png)
+![TBOT Front HC-SR04 Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/extras/Top.png)
 
-## TBOT Front HC-SR04 bottom.
+## TBOT Front HC-SR04 Bottom.
 
-![TBOT Front HC-SR04 Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/extras/bottom.png)
+![TBOT Front HC-SR04 Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/extras/Bottom.png)
 
-## TBOT IR Line Follow top.
+## TBOT IR Line Follow Top.
 
-![TBOT IR Line Follow Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/extras/top.png)
+![TBOT IR Line Follow Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/extras/Top.png)
 
-## TBOT IR Line Follow bottom.
+## TBOT IR Line Follow Bottom.
 
-![TBOT IR Line Follow Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/extras/bottom.png)
+![TBOT IR Line Follow Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/extras/Bottom.png)
 
 ## Notes.
 
