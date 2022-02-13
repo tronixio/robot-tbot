@@ -63,6 +63,7 @@ stringPTR:  DS  2
 #define	BANK28  0x1C
 #define	BANK29  0x1D
 #define	BANK30  0x1E
+#define	BANK31  0x1F
 
 ; User Definition.
 ; LED Debug.
