@@ -232,7 +232,7 @@ main:
 loop:
     BRA	    $
 
-; Functions
+; Functions.
 _eusartTX:
     MOVLB   BANK3
     MOVWF   TX1REG
