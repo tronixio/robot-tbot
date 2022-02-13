@@ -194,7 +194,7 @@ main:
 loop:
     BRA	    $
 
-; ISR
+;  Interrupt Service Routine.
 isr:
     ; Interrupt On Change ?
     BTFSS   IOCIF
@@ -215,7 +215,7 @@ isr:
     BCF	    IOCIF
     RETFIE
 
-; Functions
+; Functions.
 _delay:
     MOVLW   160
     MOVWF   delay + 1
