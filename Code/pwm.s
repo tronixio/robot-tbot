@@ -20,12 +20,11 @@ CONFIG LVP=ON
 #include <xc.inc>
 ; PIC16F1778 - Compile with PIC-AS(v2.35).
 ; PIC16F1778 - @8MHz Internal Oscillator.
-; -preset_vec=0000h, -pintentry=0004h, -pcinit=0005h.
+; -preset_vec=0000h, -pcinit=0005h.
 ; Instruction ~500ns @8MHz.
 
 ; TBOT - PWM.
-; RC Servo & Interrupt Emergency Stop.
-; Forward 1 second, Stop, Backward 1 second, Stop, Loop.
+; RC Servo - Forward 1 second, Stop, Backward 1 second, Stop.
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
@@ -67,8 +66,6 @@ delay:  DS  3
 ; User Definition.
 ; LED Debug.
 #define	LED_DEBUG	0x6
-; Emergency.
-#define EMERGENCY	0x0
 ; RC Servo.
 ; Frequency 50Hz - @8MHz.
 #define SERVO_PERIOD_H	78
@@ -84,11 +81,6 @@ delay:  DS  3
 PSECT reset_vec,class=CODE,space=0,delta=2
 resetVect:
     GOTO    main
-
-; ISR Vector.
-PSECT intentry,class=CODE,space=0,delta=2
-interruptVector:
-    GOTO    isr
 
 ; Main.
 PSECT cinit,class=CODE,space=0,delta=2
@@ -203,8 +195,8 @@ main:
 
     ; PWM6 Settings.
     MOVLB   BANK27
-    CRLF    PWM6PHL
-    CRLF    PWM6PHH
+    CLRF    PWM6PHL
+    CLRF    PWM6PHH
     MOVLW   SERVO_STOP_L
     MOVWF   PWM6DCL
     MOVLW   SERVO_STOP_H
@@ -213,10 +205,10 @@ main:
     MOVWF   PWM6PRL
     MOVLW   SERVO_PERIOD_H
     MOVWF   PWM6PRH
-    CRLF    PWM6OFL
-    CRLF    PWM6OFH
-    CRLF    PWM6TMRL
-    CRLF    PWM6TMRH
+    CLRF    PWM6OFL
+    CLRF    PWM6OFH
+    CLRF    PWM6TMRL
+    CLRF    PWM6TMRH
     MOVLW   0x0C
     MOVWF   PWM6CON
     MOVLW   0x00
@@ -234,8 +226,8 @@ main:
 
     ; PWM11 Settings.
     MOVLB   BANK27
-    CRLF    PWM11PHL
-    CRLF    PWM11PHH
+    CLRF    PWM11PHL
+    CLRF    PWM11PHH
     MOVLW   SERVO_STOP_L
     MOVWF   PWM11DCL
     MOVLW   SERVO_STOP_H
@@ -244,10 +236,10 @@ main:
     MOVWF   PWM11PRL
     MOVLW   SERVO_PERIOD_H
     MOVWF   PWM11PRH
-    CRLF    PWM11OFL
-    CRLF    PWM11OFH
-    CRLF    PWM11TMRL
-    CRLF    PWM11TMRH
+    CLRF    PWM11OFL
+    CLRF    PWM11OFH
+    CLRF    PWM11TMRL
+    CLRF    PWM11TMRH
     MOVLW   0x0C
     MOVWF   PWM11CON
     MOVLW   0x00
@@ -262,12 +254,6 @@ main:
     MOVWF   PWM11OFCON
     BSF	    PWM11LD
     BSF	    PWM11EN
-
-    ; INTERRUPTS Settings.
-    BSF	    INTE
-    BCF	    INTF
-    ; INTERRUPTS Enabled.
-    BSF	    GIE
 
 loop:
     ; Forward.
@@ -331,28 +317,6 @@ loop:
     call    _delay
 
     BRA	    loop
-
-;  Interrupt Service Routine.
-isr:
-    ; Interrupt Emergency ?
-    BTFSS   INTF
-    RETFIE
-    BCF	    GIE
-    ; PWM6/11 Disable.
-    MOVLB   BANK27
-    CRLF    PWMEN
-    ; LED Emergency Blink.
-    MOVLB   BANK2
-    BCF	    LATB, EMERGENCY
-    MOVLB   BANK1
-    BCF	    TRISB, EMERGENCY
-    MOVLW   1
-    CALL    _delay
-    MOVLB   BANK1
-    BSF	    TRISB, EMERGENCY
-    MOVLW   5
-    CALL    _delay
-    BRA	    $-8
 
 ; Functions.
 _delay:
