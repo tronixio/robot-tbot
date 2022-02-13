@@ -23,9 +23,8 @@ CONFIG LVP=ON
 ; -preset_vec=0000h, -pintentry=0004h, -pcinit=0005h.
 ; Instruction ~500ns @8MHz.
 
-; TBOT.
-
-; PWM RC Servo & Interrupt Emergency Stop.
+; TBOT - PWM.
+; RC Servo & Interrupt Emergency Stop.
 ; Forward 1 second, Stop, Backward 1 second, Stop, Loop.
 
 ; GPR BANK0.
@@ -66,7 +65,7 @@ delay:  DS  3
 #define	BANK29  0x1D
 
 ; User Definition.
-; Debug LED.
+; LED Debug.
 #define	LED_DEBUG	0x6
 ; Emergency.
 #define EMERGENCY	0x0
