@@ -23,7 +23,7 @@ CONFIG LVP=ON
 ; -preset_vec=0000h, -pintentry=0004h, -pcinit=0005h.
 ; Instruction ~500ns @8MHz.
 
-; TBOT - v0.1.
+; TBOT.
 
 ; PWM RC Servo & Interrupt Emergency Stop.
 ; Forward 1 second, Stop, Backward 1 second, Stop, Loop.
@@ -66,6 +66,8 @@ delay:  DS  3
 #define	BANK29  0x1D
 
 ; User Definition.
+; Debug LED.
+#define	LED_DEBUG	0x6
 ; Emergency.
 #define EMERGENCY	0x0
 ; RC Servo.
@@ -82,185 +84,185 @@ delay:  DS  3
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
 resetVect:
-    goto    main
+    GOTO    main
 
 ; ISR Vector.
 PSECT intentry,class=CODE,space=0,delta=2
 interruptVector:
-    goto    isr
+    GOTO    isr
 
 ; Main.
 PSECT cinit,class=CODE,space=0,delta=2
 main:
     ; MCU Initialization.
     ; Internal Oscillator Settings.
-    movlb   BANK1
-    movlw   0b00000110
-    movwf   OSCTUNE
-    movlw   0x70
-    movwf   OSCCON
-    btfss   HFIOFR
-    bra	    $-1
+    MOVLB   BANK1
+    MOVLW   0b00000110
+    MOVWF   OSCTUNE
+    MOVLW   0x70
+    MOVWF   OSCCON
+    BTFSS   HFIOFR
+    BRA	    $-1
     ; Ports Settings.
     ; PORT Data Register.
-    movlb   BANK0
-    movlw   0b00000000
-    movwf   PORTA
-    movlw   0b00000000
-    movwf   PORTB
-    movlw   0b00000000
-    movwf   PORTC
-    movlw   0b00000000
-    movwf   PORTE
+    MOVLB   BANK0
+    MOVLW   0b00000000
+    MOVWF   PORTA
+    MOVLW   0b00000000
+    MOVWF   PORTB
+    MOVLW   0b00000000
+    MOVWF   PORTC
+    MOVLW   0b00000000
+    MOVWF   PORTE
     ; TRIS Data Direction.
-    movlb   BANK1
-    movlw   0b00100000
-    movwf   TRISA
-    movlw   0b00001001
-    movwf   TRISB
-    movlw   0b00000000
-    movwf   TRISC
-    movlw   0b00000000
-    movwf   TRISE
+    MOVLB   BANK1
+    MOVLW   0b00100000
+    MOVWF   TRISA
+    MOVLW   0b00001001
+    MOVWF   TRISB
+    MOVLW   0b00000000
+    MOVWF   TRISC
+    MOVLW   0b00000000
+    MOVWF   TRISE
     ; LATCH Outputs.
-    movlb   BANK2
-    movlw   0b00000000
-    movwf   LATA
-    movlw   0b00000000
-    movwf   LATB
-    movlw   0b00000000
-    movwf   LATC
+    MOVLB   BANK2
+    MOVLW   0b00000000
+    MOVWF   LATA
+    MOVLW   0b00000000
+    MOVWF   LATB
+    MOVLW   0b00000000
+    MOVWF   LATC
     ; ANSEL Analog.
-    movlb   BANK3
-    movlw   0b00000000
-    movwf   ANSELA
-    movlw   0b00001000
-    movwf   ANSELB
-    movlw   0b00000000
-    movwf   ANSELC
+    MOVLB   BANK3
+    MOVLW   0b00000000
+    MOVWF   ANSELA
+    MOVLW   0b00001000
+    MOVWF   ANSELB
+    MOVLW   0b00000000
+    MOVWF   ANSELC
     ; WPU Weak Pull-up.
-    movlb   BANK4
-    movlw   0b00000000
-    movwf   WPUA
-    movlw   0b00000000
-    movwf   WPUB
-    movlw   0b00000000
-    movwf   WPUC
-    movlw   0b00000000
-    movwf   WPUE
+    MOVLB   BANK4
+    MOVLW   0b00000000
+    MOVWF   WPUA
+    MOVLW   0b00000000
+    MOVWF   WPUB
+    MOVLW   0b00000000
+    MOVWF   WPUC
+    MOVLW   0b00000000
+    MOVWF   WPUE
     ; ODCON Open-drain.
-    movlb   BANK5
-    movlw   0b00000000
-    movwf   ODCONA
-    movlw   0b00000000
-    movwf   ODCONB
-    movlw   0b00000000
-    movwf   ODCONC
+    MOVLB   BANK5
+    MOVLW   0b00000000
+    MOVWF   ODCONA
+    MOVLW   0b00000000
+    MOVWF   ODCONB
+    MOVLW   0b00000000
+    MOVWF   ODCONC
     ; SRLCON Slew Rate.
-    movlb   BANK6
-    movlw   0b11111111
-    movwf   SLRCONA
-    movlw   0b11011111
-    movwf   SLRCONB
-    movlw   0b11011111
-    movwf   SLRCONC
+    MOVLB   BANK6
+    MOVLW   0b11111111
+    MOVWF   SLRCONA
+    MOVLW   0b11011111
+    MOVWF   SLRCONB
+    MOVLW   0b11011111
+    MOVWF   SLRCONC
     ; INLVL Input Level.
-    movlb   BANK7
-    movlw   0b00000000
-    movwf   INLVLA
-    movlw   0b00000000
-    movwf   INLVLB
-    movlw   0b00000000
-    movwf   INLVLC
+    MOVLB   BANK7
+    MOVLW   0b00000000
+    MOVWF   INLVLA
+    MOVLW   0b00000000
+    MOVWF   INLVLB
+    MOVLW   0b00000000
+    MOVWF   INLVLC
     ; HIDRVB High Drive.
-    movlb   BANK8
-    movlw   0b00000000
-    movwf   HIDRVB
+    MOVLB   BANK8
+    MOVLW   0b00000000
+    MOVWF   HIDRVB
     ; PPS Settings.
     ; PPS Write Enable.
-    movlb   BANK28
-    movlw   0x55
-    movwf   PPSLOCK
-    movlw   0xAA
-    movwf   PPSLOCK
-    bcf	    PPSLOCK, 0x0
+    MOVLB   BANK28
+    MOVLW   0x55
+    MOVWF   PPSLOCK
+    MOVLW   0xAA
+    MOVWF   PPSLOCK
+    BCF	    PPSLOCK, 0x0
     ; PPS Outputs.
-    movlb   BANK29
+    MOVLB   BANK29
     ; RB5 - PWM11.
-    movlw   0x1F
-    movwf   RB5PPS
+    MOVLW   0x1F
+    MOVWF   RB5PPS
     ; RC5 - PWM6.
-    movlw   0x1E
-    movwf   RC5PPS
+    MOVLW   0x1E
+    MOVWF   RC5PPS
     ; PPS Write Disable.
-    movlb   BANK28
-    movlw   0x55
-    movwf   PPSLOCK
-    movlw   0xAA
-    movwf   PPSLOCK
-    bsf	    PPSLOCK, 0x0
+    MOVLB   BANK28
+    MOVLW   0x55
+    MOVWF   PPSLOCK
+    MOVLW   0xAA
+    MOVWF   PPSLOCK
+    BSF	    PPSLOCK, 0x0
 
     ; PWM6 Settings.
-    movlb   BANK27
-    clrf    PWM6PHL
-    clrf    PWM6PHH
-    movlw   SERVO_STOP_L
-    movwf   PWM6DCL
-    movlw   SERVO_STOP_H
-    movwf   PWM6DCH
-    movlw   SERVO_PERIOD_L
-    movwf   PWM6PRL
-    movlw   SERVO_PERIOD_H
-    movwf   PWM6PRH
-    clrf    PWM6OFL
-    clrf    PWM6OFH
-    clrf    PWM6TMRL
-    clrf    PWM6TMRH
-    movlw   0x0C
-    movwf   PWM6CON
-    movlw   0x00
-    movwf   PWM6INTE
-    movlw   0x00
-    movwf   PWM6INTF
-    movlw   0x20
-    movwf   PWM6CLKCON
-    movlw   0x00
-    movwf   PWM6LDCON
-    movlw   0x00
-    movwf   PWM6OFCON
-    bsf	    PWM6LD
-    bsf	    PWM6EN
+    MOVLB   BANK27
+    CRLF    PWM6PHL
+    CRLF    PWM6PHH
+    MOVLW   SERVO_STOP_L
+    MOVWF   PWM6DCL
+    MOVLW   SERVO_STOP_H
+    MOVWF   PWM6DCH
+    MOVLW   SERVO_PERIOD_L
+    MOVWF   PWM6PRL
+    MOVLW   SERVO_PERIOD_H
+    MOVWF   PWM6PRH
+    CRLF    PWM6OFL
+    CRLF    PWM6OFH
+    CRLF    PWM6TMRL
+    CRLF    PWM6TMRH
+    MOVLW   0x0C
+    MOVWF   PWM6CON
+    MOVLW   0x00
+    MOVWF   PWM6INTE
+    MOVLW   0x00
+    MOVWF   PWM6INTF
+    MOVLW   0x20
+    MOVWF   PWM6CLKCON
+    MOVLW   0x00
+    MOVWF   PWM6LDCON
+    MOVLW   0x00
+    MOVWF   PWM6OFCON
+    BSF	    PWM6LD
+    BSF	    PWM6EN
 
     ; PWM11 Settings.
-    movlb   BANK27
-    clrf    PWM11PHL
-    clrf    PWM11PHH
-    movlw   SERVO_STOP_L
-    movwf   PWM11DCL
-    movlw   SERVO_STOP_H
-    movwf   PWM11DCH
-    movlw   SERVO_PERIOD_L
-    movwf   PWM11PRL
-    movlw   SERVO_PERIOD_H
-    movwf   PWM11PRH
-    clrf    PWM11OFL
-    clrf    PWM11OFH
-    clrf    PWM11TMRL
-    clrf    PWM11TMRH
-    movlw   0x0C
-    movwf   PWM11CON
-    movlw   0x00
-    movwf   PWM11INTE
-    movlw   0x00
-    movwf   PWM11INTF
-    movlw   0x20
-    movwf   PWM11CLKCON
-    movlw   0x00
-    movwf   PWM11LDCON
-    movlw   0x00
-    movwf   PWM11OFCON
-    bsf	    PWM11LD
-    bsf	    PWM11EN
+    MOVLB   BANK27
+    CRLF    PWM11PHL
+    CRLF    PWM11PHH
+    MOVLW   SERVO_STOP_L
+    MOVWF   PWM11DCL
+    MOVLW   SERVO_STOP_H
+    MOVWF   PWM11DCH
+    MOVLW   SERVO_PERIOD_L
+    MOVWF   PWM11PRL
+    MOVLW   SERVO_PERIOD_H
+    MOVWF   PWM11PRH
+    CRLF    PWM11OFL
+    CRLF    PWM11OFH
+    CRLF    PWM11TMRL
+    CRLF    PWM11TMRH
+    MOVLW   0x0C
+    MOVWF   PWM11CON
+    MOVLW   0x00
+    MOVWF   PWM11INTE
+    MOVLW   0x00
+    MOVWF   PWM11INTF
+    MOVLW   0x20
+    MOVWF   PWM11CLKCON
+    MOVLW   0x00
+    MOVWF   PWM11LDCON
+    MOVLW   0x00
+    MOVWF   PWM11OFCON
+    BSF	    PWM11LD
+    BSF	    PWM11EN
 
     ; INTERRUPTS Settings.
     BSF	    INTE
@@ -270,66 +272,66 @@ main:
 
 loop:
     ; Forward.
-    movlb   BANK27
-    movlw   20
-    movwf   PWM6DCL
-    movlw   5
-    movwf   PWM6DCH
-    movlw   165
-    movwf   PWM11DCL
-    movlw   6
-    movwf   PWM11DCH
-    movlw   0x6
-    movwf   PWMLD
-    movlw   10
+    MOVLB   BANK27
+    MOVLW   20
+    MOVWF   PWM6DCL
+    MOVLW   5
+    MOVWF   PWM6DCH
+    MOVLW   165
+    MOVWF   PWM11DCL
+    MOVLW   6
+    MOVWF   PWM11DCH
+    MOVLW   0x6
+    MOVWF   PWMLD
+    MOVLW   10
     call    _delay
 
     ; Stop.
-    movlb   BANK27
-    movlw   SERVO_STOP_L
-    movwf   PWM6DCL
-    movlw   SERVO_STOP_H
-    movwf   PWM6DCH
-    movlw   SERVO_STOP_L
-    movwf   PWM11DCL
-    movlw   SERVO_STOP_H
-    movwf   PWM11DCH
-    movlw   0x6
-    movwf   PWMLD
-    movlw   10
+    MOVLB   BANK27
+    MOVLW   SERVO_STOP_L
+    MOVWF   PWM6DCL
+    MOVLW   SERVO_STOP_H
+    MOVWF   PWM6DCH
+    MOVLW   SERVO_STOP_L
+    MOVWF   PWM11DCL
+    MOVLW   SERVO_STOP_H
+    MOVWF   PWM11DCH
+    MOVLW   0x6
+    MOVWF   PWMLD
+    MOVLW   10
     call    _delay
 
     ; Backward.
-    movlb   BANK27
-    movlw   165
-    movwf   PWM6DCL
-    movlw   6
-    movwf   PWM6DCH
-    movlw   20
-    movwf   PWM11DCL
-    movlw   5
-    movwf   PWM11DCH
-    movlw   0x6
-    movwf   PWMLD
-    movlw   10
+    MOVLB   BANK27
+    MOVLW   165
+    MOVWF   PWM6DCL
+    MOVLW   6
+    MOVWF   PWM6DCH
+    MOVLW   20
+    MOVWF   PWM11DCL
+    MOVLW   5
+    MOVWF   PWM11DCH
+    MOVLW   0x6
+    MOVWF   PWMLD
+    MOVLW   10
     call    _delay
 
     ; Stop.
-    movlb   BANK27
-    movlw   SERVO_STOP_L
-    movwf   PWM6DCL
-    movlw   SERVO_STOP_H
-    movwf   PWM6DCH
-    movlw   SERVO_STOP_L
-    movwf   PWM11DCL
-    movlw   SERVO_STOP_H
-    movwf   PWM11DCH
-    movlw   0x6
-    movwf   PWMLD
-    movlw   10
+    MOVLB   BANK27
+    MOVLW   SERVO_STOP_L
+    MOVWF   PWM6DCL
+    MOVLW   SERVO_STOP_H
+    MOVWF   PWM6DCH
+    MOVLW   SERVO_STOP_L
+    MOVWF   PWM11DCL
+    MOVLW   SERVO_STOP_H
+    MOVWF   PWM11DCH
+    MOVLW   0x6
+    MOVWF   PWMLD
+    MOVLW   10
     call    _delay
 
-    bra	    loop
+    BRA	    loop
 
 
 ; ISR
@@ -340,7 +342,7 @@ isr:
     BCF	    GIE
     ; PWM6/11 Disable.
     MOVLB   BANK27
-    CLRF    PWMEN
+    CRLF    PWMEN
     ; LED Emergency Blink.
     MOVLB   BANK2
     BCF	    LATB, EMERGENCY
@@ -356,19 +358,18 @@ isr:
 
 ; Functions
 _delay:
-    movlb   BANK0
-    movwf   delay + 2
-    movlw   255
-    movwf   delay + 1
-    movlw   255
-    movwf   delay
-    decfsz  delay, F
-    bra	    $-1
-    decfsz  delay + 1, F
-    bra	    $-5
-    decfsz  delay + 2, F
-    bra	    $-7
-    return
-
+    MOVLB   BANK0
+    MOVWF   delay + 2
+    MOVLW   255
+    MOVWF   delay + 1
+    MOVLW   255
+    MOVWF   delay
+    DECFSZ  delay, F
+    BRA	    $-1
+    DECFSZ  delay + 1, F
+    BRA	    $-5
+    DECFSZ  delay + 2, F
+    BRA	    $-7
+    RETURN
 
     END	    resetVect
