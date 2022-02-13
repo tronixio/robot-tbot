@@ -23,12 +23,12 @@ CONFIG LVP=ON
 ; -preset_vec=0000h, -pintentry=0004h, -pcinit=0005h.
 ; Instruction ~500ns @8MHz.
 
-; TBOT - IOC - Interrupt On Change.
-; Sensor Sharp GP2Y0D21YK - Rising & Falling Edge Detection.
+; TBOT - INT0.
+; Emergency Switch & LED.
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
-delay:  DS  2
+delay:  DS  3
 
 ; MCU Definitions.
 ; BANKS.
@@ -66,9 +66,8 @@ delay:  DS  2
 ; User Definition.
 ; LED Debug.
 #define	LED_DEBUG	0x6
-; Sharp GP2Y0D21YK.
-#define GP2Y0D21_ENABLE	0x0
-#define GP2Y0D21_OUT	0x1
+; Emergency.
+#define EMERGENCY	0x0
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
@@ -109,7 +108,7 @@ main:
     MOVWF   TRISA
     MOVLW   0b00001001
     MOVWF   TRISB
-    MOVLW   0b00000010
+    MOVLW   0b00000000
     MOVWF   TRISC
     MOVLW   0b00000000
     MOVWF   TRISE
@@ -135,7 +134,7 @@ main:
     MOVWF   WPUA
     MOVLW   0b00000000
     MOVWF   WPUB
-    MOVLW   0b00000010
+    MOVLW   0b00000000
     MOVWF   WPUC
     MOVLW   0b00000000
     MOVWF   WPUE
@@ -151,9 +150,9 @@ main:
     MOVLB   BANK6
     MOVLW   0b11111111
     MOVWF   SLRCONA
-    MOVLW   0b11111111
+    MOVLW   0b11011111
     MOVWF   SLRCONB
-    MOVLW   0b11111111
+    MOVLW   0b11011111
     MOVWF   SLRCONC
     ; INLVL Input Level.
     MOVLB   BANK7
@@ -168,56 +167,39 @@ main:
     MOVLW   0b00000000
     MOVWF   HIDRVB
 
-    ; OPTION REG Settings.
-    ; WPU Enabled.
-    MOVLB   BANK1
-    MOVLW   0b01111111
-    MOVWF   OPTION_REG
-
-    ; GP2Y0D21 Settings.
-    MOVLB   BANK2
-    BSF	    LATC, GP2Y0D21_ENABLE
-    ; Wait ~60ms.
-    CALL    _delay
-    ; IOC Settings.
-    MOVLB   BANK7
-    BSF	    IOCCP, GP2Y0D21_OUT
-    BSF	    IOCCN, GP2Y0D21_OUT
-    CLRF    IOCCF
-
     ; INTERRUPTS Settings.
-    BSF	    IOCIE
-    BCF	    IOCIF
+    BSF	    INTE
+    BCF	    INTF
     ; INTERRUPTS Enabled.
     BSF	    GIE
 
 loop:
     BRA	    $
 
-;  Interrupt Service Routine.
+; Interrupt Service Routine.
 isr:
-    ; Interrupt On Change ?
-    BTFSS   IOCIF
+    ; Interrupt Emergency ?
+    BTFSS   INTF
     RETFIE
-    MOVLB   BANK7
-    BTFSS   IOCCF, GP2Y0D21_OUT
-    RETFIE
-    MOVLB   BANK0
-    BTFSC   LATC, GP2Y0D21_OUT
-    BRA	    $+4
+    BCF	    GIE
+    ; LED Emergency Blink.
     MOVLB   BANK2
-    BCF	    LATA, LED_DEBUG
-    BRA	    $+3
-    MOVLB   BANK2
-    BSF	    LATA, LED_DEBUG
-    MOVLB   BANK7
-    BCF	    IOCCF, GP2Y0D21_OUT
-    BCF	    IOCIF
-    RETFIE
+    BCF	    LATB, EMERGENCY
+    MOVLB   BANK1
+    BCF	    TRISB, EMERGENCY
+    MOVLW   1
+    CALL    _delay
+    MOVLB   BANK1
+    BSF	    TRISB, EMERGENCY
+    MOVLW   5
+    CALL    _delay
+    BRA	    $-8
 
 ; Functions.
 _delay:
-    MOVLW   160
+    MOVLB   BANK0
+    MOVWF   delay + 2
+    MOVLW   255
     MOVWF   delay + 1
     MOVLW   255
     MOVWF   delay
@@ -225,6 +207,8 @@ _delay:
     BRA	    $-1
     DECFSZ  delay + 1, F
     BRA	    $-5
+    DECFSZ  delay + 2, F
+    BRA	    $-7
     RETURN
 
     END	    resetVect
