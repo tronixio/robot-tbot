@@ -23,7 +23,7 @@ CONFIG LVP=ON
 ; -preset_vec=0000h, -pcinit=0005h.
 ; Instruction ~500ns @8MHz.
 
-; TBOT - v0.1.
+; TBOT.
 
 ; MCU.RA6 -> OSCILLOSCOPE.PROBE.A
 
