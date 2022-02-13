@@ -23,9 +23,7 @@ CONFIG LVP=ON
 ; -preset_vec=0000h, -pintentry=0004h, -pcinit=0005h.
 ; Instruction ~500ns @8MHz.
 
-; TBOT.
-
-; IOC - Interrupt On Change.
+; TBOT - IOC - Interrupt On Change.
 ; Sensor Sharp GP2Y0D21YK - Rising & Falling Edge Detection.
 
 ; GPR BANK0.
@@ -66,7 +64,7 @@ delay:  DS  2
 #define	BANK29  0x1D
 
 ; User Definition.
-; Debug LED.
+; LED Debug.
 #define	LED_DEBUG	0x6
 ; Sharp GP2Y0D21YK.
 #define GP2Y0D21_ENABLE	0x0
