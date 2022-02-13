@@ -68,7 +68,7 @@ delay:  DS  2
 #define	LED_DEBUG	0x6
 ; Sharp GP2Y0D21YK.
 #define GP2Y0D21_ENABLE	0x0
-#define GP2Y0D21_OUT	0x1
+#define GP2Y0D21_OUT	0x2
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
@@ -109,7 +109,7 @@ main:
     MOVWF   TRISA
     MOVLW   0b00001001
     MOVWF   TRISB
-    MOVLW   0b00000010
+    MOVLW   0b00000100
     MOVWF   TRISC
     MOVLW   0b00000000
     MOVWF   TRISE
@@ -135,7 +135,7 @@ main:
     MOVWF   WPUA
     MOVLW   0b00000000
     MOVWF   WPUB
-    MOVLW   0b00000010
+    MOVLW   0b00000100
     MOVWF   WPUC
     MOVLW   0b00000000
     MOVWF   WPUE
