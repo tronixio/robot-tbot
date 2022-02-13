@@ -59,7 +59,6 @@ CONFIG LVP=ON
 #define	BANK28  0x1C
 #define	BANK29  0x1D
 
-
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
 resetVect:
