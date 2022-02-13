@@ -23,7 +23,7 @@ CONFIG LVP=ON
 ; -preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h.
 ; Instruction ~500ns @8MHz.
 
-; TBOT - ADC - TIMER0.
+; TBOT - ADC/TIMER0.
 ; EUSART TX - Display Battery value.
 
 ; GPR BANK0.
