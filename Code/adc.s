@@ -257,7 +257,7 @@ loop:
     CALL    _debugBattery
     BRA	    loop
 
-; Functions
+; Functions.
 _delay:
     MOVLB   BANK0
     MOVWF   delay + 2
