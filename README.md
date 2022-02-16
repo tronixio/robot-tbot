@@ -29,9 +29,9 @@
 
 ## Firmware.
 
-- [Sharp GP2Y0D21YK.]()
-- [Sharp GP2Y0A21YK.]()
-- [HC SR04.]()
+- [TBOT Firmware - Sharp GP2Y0D21YK.]()
+- [TBOT Firmware - Sharp GP2Y0A21YK.]()
+- [TBOT Firmware - HC SR04.]()
 
 ## TBOT MCU PIC 8Bit Top.
 
