@@ -1,12 +1,14 @@
-# PWM.
+# PWM - 16-BIT Pulse-Width Modulation Module.
 
 ## Code.
 
-- [PWM - RC Servo Forward & Backward.](https://github.com/tronixio/robot-tbot/blob/main/Code/pwm/pwm.s)
+- [PWM 16-BIT - RC Servo Forward & Backward.](https://github.com/tronixio/robot-tbot/blob/main/Code/pwm/pwm.s)
 
+<!--
 - Oscilloscope Probe A
 
 ![Oscilloscope](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK.png)
+-->
 
 ## MPLABX Linker Configuration.
 
