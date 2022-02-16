@@ -2,21 +2,12 @@
 
 ## Code.
 
-- [Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration.s)
-- [EUSART TX - Display Welcome Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart.s)
-- [ADC/TIMER0 - Read & Display Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc.s)
-- [PWM - RC Servo Forward & Backward.](https://github.com/tronixio/robot-tbot/blob/main/Code/pwm.s)
-- [INT0 - Emergency Switch & LED.](https://github.com/tronixio/robot-tbot/blob/main/Code/int0.s)
-- [IOC - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/Code/gp2y0d21yk.s)
-
-## MPLABX Linker Configuration.
-
-- PIC-AS Linker > Custom linker options:
-  - For Configuration & PWM: `-preset_vec=0000h, -pcinit=0005h`
-  - For EUSART TX & ADC/TIMER0: `-preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h`
-  - For INT0 & IOC: `-preset_vec=0000h, -pintentry=0004h, -pcinit=0005h`
-
-![MPLABX Configuration](./extras/configuration.png)
+- [MCU Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration/README.md)
+- [EUSART TX - Display Welcome Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart/README.md)
+- [ADC/TIMER0 - Read & Display Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc/README.md)
+- [PWM - RC Servo Forward & Backward.](https://github.com/tronixio/robot-tbot/blob/main/Code/pwm/README.md)
+- [INT0 - Emergency Switch & LED.](https://github.com/tronixio/robot-tbot/blob/main/Code/int0/README.md)
+- [IOC - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/Code/gp2y0d21yk/README.md)
 
 ## Notes.
 
