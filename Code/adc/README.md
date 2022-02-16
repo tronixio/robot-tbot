@@ -4,9 +4,11 @@
 
 - [ADC/TIMER0 - Read & Display Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc/adc.s)
 
+<!--
 - Oscilloscope Probe A
 
 ![Oscilloscope](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK.png)
+-->
 
 ## MPLABX Linker Configuration.
 
