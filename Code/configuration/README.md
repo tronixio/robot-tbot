@@ -1,8 +1,8 @@
-# MCU Configuration.
+# MCU & GPIO Configuration.
 
 ## Code.
 
-- [MCU Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration/configuration.s)
+- [MCU & GPIO Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration/configuration.s)
 
 <!--
 - Oscilloscope Probe A
