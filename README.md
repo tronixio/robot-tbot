@@ -18,7 +18,7 @@
 - [Front HC-SR04.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/extras/schematic.pdf)
 - [IR Line Folllow.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/extras/schematic.pdf)
 
-## Code.
+## Code - PIC16F1778.
 
 - [MCU & GPIO Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration/)
 - [EUSART TX - Display Welcome Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart/)
