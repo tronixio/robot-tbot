@@ -4,9 +4,11 @@
 
 - [EUSART TX - Display Welcome Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart/eusart.s)
 
+<!--
 - Oscilloscope Probe A
 
 ![Oscilloscope](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK.png)
+-->
 
 ## MPLABX Linker Configuration.
 
