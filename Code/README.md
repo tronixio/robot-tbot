@@ -2,7 +2,7 @@
 
 ## Code.
 
-1. [MCU Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration/)
+1. [MCU & GPIO Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration/)
 2. [EUSART TX - Display Welcome Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart/)
 3. [ADC/TIMER0 - Read & Display Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc/)
 4. [PWM 16-Bit - RC Servo Forward & Backward.](https://github.com/tronixio/robot-tbot/blob/main/Code/pwm/)
