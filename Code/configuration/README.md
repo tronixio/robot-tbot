@@ -4,9 +4,11 @@
 
 - [MCU Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration/configuration.s)
 
+<!--
 - Oscilloscope Probe A
 
 ![Oscilloscope](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK.png)
+-->
 
 ## MPLABX Linker Configuration.
 
