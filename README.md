@@ -18,6 +18,21 @@
 - [Front HC-SR04.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/extras/schematic.pdf)
 - [IR Line Folllow.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/extras/schematic.pdf)
 
+## Code.
+
+- [MCU & GPIO Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration/)
+- [EUSART TX - Display Welcome Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart/)
+- [ADC/TIMER0 - Read & Display Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc/)
+- [PWM 16-Bit - RC Servo Forward & Backward.](https://github.com/tronixio/robot-tbot/blob/main/Code/pwm/)
+- [INT0 - Emergency Switch & LED.](https://github.com/tronixio/robot-tbot/blob/main/Code/int0/)
+- [IOC - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/Code/gp2y0d21yk/)
+
+## Firmware.
+
+- [Sharp GP2Y0D21YK.]()
+- [Sharp GP2Y0A21YK.]()
+- [HC SR04.]()
+
 ## TBOT MCU PIC 8Bit Top.
 
 ![TBOT MCU PIC 8Bit Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/mcu8/extras/top.png)
