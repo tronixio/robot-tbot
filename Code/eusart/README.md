@@ -1,4 +1,4 @@
-# EUSART TX.
+# EUSART - Enhanced Universal Synchronous Asynchronous Receiver Transmitter.
 
 ## Code.
 
