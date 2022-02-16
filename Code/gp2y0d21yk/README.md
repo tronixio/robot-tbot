@@ -1,4 +1,4 @@
-# Interrupts - IOC.
+# IOC - Interrupt-On-Change.
 
 ## Code.
 
