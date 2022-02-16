@@ -4,9 +4,11 @@
 
 - [INT0 - Emergency Switch & LED.](https://github.com/tronixio/robot-tbot/blob/main/Code/int0/int0.s)
 
+<!--
 - Oscilloscope Probe A
 
 ![Oscilloscope](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK.png)
+-->
 
 ## MPLABX Linker Configuration.
 
