@@ -4,11 +4,9 @@
 
 - [MCU & GPIO Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration/configuration.s)
 
-<!--
-- Oscilloscope Probe A
+- MCU.RA6 -> Oscilloscope Probe A
 
-![Oscilloscope](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK.png)
--->
+![MCU.RA6](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00000.png)
 
 ## MPLABX Linker Configuration.
 
