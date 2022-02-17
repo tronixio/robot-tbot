@@ -12,6 +12,12 @@
 <img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00001.png">
 </p>
 
+## Terminal.
+
+<p align="center">
+<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-0.png">
+</p>
+
 ## MPLABX Linker Configuration.
 
 - PIC-AS Linker > Custom linker options:
