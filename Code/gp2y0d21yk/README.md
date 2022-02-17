@@ -4,12 +4,6 @@
 
 - [IOC - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/Code/gp2y0d21yk/gp2y0d21yk.s)
 
-<!--
-- Oscilloscope Probe A
-
-![Oscilloscope](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK.png)
--->
-
 ## MPLABX Linker Configuration.
 
 - PIC-AS Linker > Custom linker options:
