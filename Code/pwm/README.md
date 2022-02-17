@@ -4,6 +4,8 @@
 
 - [PWM 16-BIT - RC Servo Forward & Backward.](https://github.com/tronixio/robot-tbot/blob/main/Code/pwm/pwm.s)
 
+## Oscilloscope.
+
 - STOP
   - MCU.RC5.PWM.6  -> Oscilloscope Probe A
   - MCU.RB5.PWM.11 -> Oscilloscope Probe B
