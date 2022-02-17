@@ -6,7 +6,9 @@
 
 - MCU.RA6 -> Oscilloscope Probe A
 
-![MCU.RA6](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00000.png)
+<p align="center">
+<img alt="MCU.RA6" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00000.png">
+</p>
 
 ## MPLABX Linker Configuration.
 
