@@ -4,6 +4,8 @@
 
 - [EUSART TX - Display Welcome Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart/eusart.s)
 
+## Oscilloscope.
+
 - MCU.RB6.EUSART.TX -> Oscilloscope Probe A
 
 <p align="center">
