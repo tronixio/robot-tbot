@@ -17,9 +17,7 @@
 - PIC-AS Linker > Custom linker options:
   - For Configuration & PWM: `-preset_vec=0000h, -pcinit=0005h`
 
-<p align="center">
-<img alt="MPLABX Configuration" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/configuration-0.png">
-</p>
+![MPLABX Configuration](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/configuration-0.png)
 
 ## Notes.
 
