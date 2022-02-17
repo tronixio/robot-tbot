@@ -27,6 +27,10 @@
 
 ![PWM.6 - PWM.11](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00004.png)
 
+<p align="center">
+  <img src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00004.png">
+</p>
+
 ## MPLABX Linker Configuration.
 
 - PIC-AS Linker > Custom linker options:
