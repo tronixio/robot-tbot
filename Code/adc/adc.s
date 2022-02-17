@@ -1,4 +1,4 @@
-; Configuration Registers.
+RETURN; Configuration Registers.
 CONFIG FOSC=INTOSC
 CONFIG WDTE=OFF
 CONFIG PWRTE=OFF
@@ -273,7 +273,7 @@ _delay:
     BRA	    $-5
     DECFSZ  delay + 2, F
     BRA	    $-7
-    RETRUN
+    RETURN
 
 _eusartTX:
     MOVLB   BANK3
@@ -281,7 +281,7 @@ _eusartTX:
     MOVLB   BANK0
     BTFSS   TXIF
     BRA	    $-1
-    RETRUN
+    RETURN
 
 _eusartTXString:
     MOVF    stringPTR, W
@@ -292,7 +292,7 @@ _eusartTXString:
     MOVIW   FSR0++
     ANDLW   0xFF
     BTFSC   ZERO
-    RETRUN
+    RETURN
     CALL    _eusartTX
     BRA	    $-5
 
@@ -307,7 +307,7 @@ _hex2ascii:
     ANDLW   0x0F
     CALL    $+3
     MOVWF   ascii
-    RETRUN
+    RETURN
     ; Decimal or Alpha ?
     SUBLW   0x09
     BTFSS   CARRY
@@ -316,12 +316,12 @@ _hex2ascii:
     MOVF    ascii + 2, W
     ANDLW   0x0F
     ADDLW   0x30
-    RETRUN
+    RETURN
     ; Alpha (A...F) add 0x37.
     MOVF    ascii + 2, W
     ANDLW   0x0F
     ADDLW   'A' - 0x0A
-    RETRUN
+    RETURN
 
 _debugBattery:
     MOVLW   10
@@ -342,7 +342,7 @@ _debugBattery:
     SWAPF   ADRESH, W
     CALL    _hex2ascii
     CALL    _eusartTX
-    RETRUN
+    RETURN
 
 ; FPM Strings.
 PSECT stringtext,class=STRCODE,space=0,delta=2
