@@ -6,7 +6,9 @@
 
 - MCU.RB6.EUSART.TX -> Oscilloscope Probe A
 
-![MCU.RB6.EUSART.TX](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00001.png)
+<p align="center">
+<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00001.png">
+</p>
 
 ## MPLABX Linker Configuration.
 
