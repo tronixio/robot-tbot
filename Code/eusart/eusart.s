@@ -28,6 +28,7 @@ CONFIG LVP=ON
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
+delay:	    DS	3
 stringPTR:  DS  2
 
 ; MCU Definitions.
@@ -232,9 +233,32 @@ main:
     CALL    _eusartTXString
 
 loop:
-    BRA	    $
+    MOVLB   BANK0
+    MOVLW   HIGH stringREADY + 0x80
+    MOVWF   stringPTR
+    MOVLW   LOW stringREADY
+    MOVWF   stringPTR + 1
+    CALL    _eusartTXString
+    MOVLW   10
+    CALL    _delay
+    BRA	    loop
 
 ; Functions.
+_delay:
+    MOVLB   BANK0
+    MOVWF   delay + 2
+    MOVLW   255
+    MOVWF   delay + 1
+    MOVLW   255
+    MOVWF   delay
+    DECFSZ  delay, F
+    BRA	    $-1
+    DECFSZ  delay + 1, F
+    BRA	    $-5
+    DECFSZ  delay + 2, F
+    BRA	    $-7
+    RETURN
+
 _eusartTX:
     MOVLB   BANK3
     MOVWF   TX1REG
