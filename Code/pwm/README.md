@@ -6,7 +6,7 @@
 
 ## Oscilloscope.
 
-- STOP
+- *STOP*
   - MCU.RC5.PWM.6  -> Oscilloscope Probe A
   - MCU.RB5.PWM.11 -> Oscilloscope Probe B
 
