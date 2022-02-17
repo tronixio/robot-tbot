@@ -1,4 +1,4 @@
-RETURN; Configuration Registers.
+; Configuration Registers.
 CONFIG FOSC=INTOSC
 CONFIG WDTE=OFF
 CONFIG PWRTE=OFF
