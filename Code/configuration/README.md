@@ -4,6 +4,8 @@
 
 - [MCU & GPIO Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration/configuration.s)
 
+## Oscilloscope.
+
 - MCU.RA6 -> Oscilloscope Probe A
 
 <p align="center">
