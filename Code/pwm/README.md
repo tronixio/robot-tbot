@@ -11,24 +11,26 @@
 - MCU.RC5.PWM.6  -> Oscilloscope Probe A
 - MCU.RB5.PWM.11 -> Oscilloscope Probe B
 
-![PWM.6 - PWM.11](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00002.png)
+<p align="center">
+<img alt="PWM.6 - PWM.11" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00002.png">
+</p>
 
 ### Forward.
 
 - MCU.RC5.PWM.6  -> Oscilloscope Probe A
 - MCU.RB5.PWM.11 -> Oscilloscope Probe B
 
-![PWM.6 - PWM.11](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00003.png)
+<p align="center">
+<img alt="PWM.6 - PWM.11" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00003.png">
+</p>
 
 ### Backward.
 
 - MCU.RC5.PWM.6  -> Oscilloscope Probe A
 - MCU.RB5.PWM.11 -> Oscilloscope Probe B
 
-![PWM.6 - PWM.11](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00004.png)
-
 <p align="center">
-  <img src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00004.png">
+<img alt="PWM.6 - PWM.11" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00004.png">
 </p>
 
 ## MPLABX Linker Configuration.
