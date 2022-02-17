@@ -11,6 +11,12 @@
 
 ![MPLABX Configuration](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/configuration-1.png)
 
+## Terminal.
+
+<p align="center">
+<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-1.png">
+</p>
+
 ## Notes.
 
 - TODO : Work in progress, prototype was not good, hardware, PCB and code can be rework.
