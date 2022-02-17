@@ -4,18 +4,18 @@
 
 - [ADC/TIMER0 - Read & Display Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc/adc.s)
 
+## Terminal.
+
+<p align="center">
+<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-1.png">
+</p>
+
 ## MPLABX Linker Configuration.
 
 - PIC-AS Linker > Custom linker options:
   - For Configuration & PWM: `-preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h`
 
 ![MPLABX Configuration](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/configuration-1.png)
-
-## Terminal.
-
-<p align="center">
-<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-1.png">
-</p>
 
 ## Notes.
 
