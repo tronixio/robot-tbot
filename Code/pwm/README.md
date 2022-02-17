@@ -6,9 +6,10 @@
 
 ## Oscilloscope.
 
-- *STOP*
-  - MCU.RC5.PWM.6  -> Oscilloscope Probe A
-  - MCU.RB5.PWM.11 -> Oscilloscope Probe B
+### Stop.
+
+- MCU.RC5.PWM.6  -> Oscilloscope Probe A
+- MCU.RB5.PWM.11 -> Oscilloscope Probe B
 
 ![PWM.6 - PWM.11](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00002.png)
 
