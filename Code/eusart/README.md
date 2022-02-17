@@ -4,11 +4,9 @@
 
 - [EUSART TX - Display Welcome Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart/eusart.s)
 
-<!--
-- Oscilloscope Probe A
+- MCU.RB6.EUSART.TX -> Oscilloscope Probe A
 
-![Oscilloscope](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK.png)
--->
+![MCU.RB6.EUSART.TX](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00001.png)
 
 ## MPLABX Linker Configuration.
 
