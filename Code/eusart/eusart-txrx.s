@@ -25,7 +25,7 @@ CONFIG LVP=ON
 
 ; TBOT - EUSART TX/RX.
 ; Display Welcome Strings.
-; Echo Rx Character.
+; Echo RX Character.
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
