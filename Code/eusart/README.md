@@ -2,8 +2,8 @@
 
 ## Code.
 
-- [EUSART TX - Display Welcome Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart/eusart.s)
-- [EUSART RX/TX - Echo Rx Character.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart/eusart-rxtx.s)
+- [EUSART TX - Display Welcome Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart/eusart-tx.s)
+- [EUSART TX/RX - Echo Rx Character.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart/eusart-txrx.s)
 
 ## Oscilloscope.
 
@@ -25,13 +25,13 @@
 - EUSART TX - Display Welcome Strings.
 
 <p align="center">
-<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-0.png">
+<img alt="EUSART TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-0.png">
 </p>
 
-- EUSART RX/TX - Echo Rx Character.
+- EUSART TX/RX - Echo Rx Character.
 
 <p align="center">
-<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-1.png">
+<img alt="EUSART TX/RX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-1.png">
 </p>
 
 ## MPLABX Linker Configuration.
