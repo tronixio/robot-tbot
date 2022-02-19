@@ -1,17 +1,34 @@
 # EUSART - Enhanced Universal Synchronous Asynchronous Receiver Transmitter.
 
-## Code.
+## EUSART - TX.
+
+### Code.
 
 - [EUSART TX - Display Welcome Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart/eusart-tx.s)
-- [EUSART TX/RX - Echo Rx Character.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart/eusart-txrx.s)
 
-## Oscilloscope.
+### Oscilloscope.
 
 - MCU.RB6.EUSART.TX -> Oscilloscope Probe A
 
 <p align="center">
 <img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00001.png">
 </p>
+
+### Terminal.
+
+- EUSART TX - Display Welcome Strings.
+
+<p align="center">
+<img alt="EUSART TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-0.png">
+</p>
+
+## EUSART - TX/RX.
+
+### Code.
+
+- [EUSART TX/RX - Echo RX Character.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart/eusart-txrx.s)
+
+### Oscilloscope.
 
 - MCU.RB7.EUSART.RX -> Oscilloscope Probe A
 - MCU.RB6.EUSART.TX -> Oscilloscope Probe B
@@ -20,13 +37,7 @@
 <img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00002.png">
 </p>
 
-## Terminal.
-
-- EUSART TX - Display Welcome Strings.
-
-<p align="center">
-<img alt="EUSART TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-0.png">
-</p>
+### Terminal.
 
 - EUSART TX/RX - Echo RX Character.
 
