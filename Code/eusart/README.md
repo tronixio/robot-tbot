@@ -31,7 +31,7 @@
 - EUSART RX/TX - Echo Rx Character.
 
 <p align="center">
-<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-2.png">
+<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-1.png">
 </p>
 
 ## MPLABX Linker Configuration.
