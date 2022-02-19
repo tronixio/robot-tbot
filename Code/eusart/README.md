@@ -28,7 +28,7 @@
 <img alt="EUSART TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-0.png">
 </p>
 
-- EUSART TX/RX - Echo Rx Character.
+- EUSART TX/RX - Echo RX Character.
 
 <p align="center">
 <img alt="EUSART TX/RX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-1.png">
