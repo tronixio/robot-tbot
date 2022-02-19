@@ -22,6 +22,14 @@
 
 ## Terminal.
 
+- EUSART TX - Display Welcome Strings.
+
+<p align="center">
+<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-0.png">
+</p>
+
+- EUSART RX/TX - Echo Rx Character.
+
 <p align="center">
 <img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-2.png">
 </p>
