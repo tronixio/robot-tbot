@@ -17,7 +17,7 @@
 - MCU.RB6.EUSART.TX -> Oscilloscope Probe B
 
 <p align="center">
-<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00005.png">
+<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00002.png">
 </p>
 
 ## Terminal.
