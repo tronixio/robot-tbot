@@ -24,12 +24,7 @@ CONFIG LVP=ON
 ; Instruction ~500ns @8MHz.
 
 ; TBOT - EUSART TX.
-; Display Welcome Strings.
-
-; GPR BANK0.
-PSECT cstackBANK0,class=BANK0,space=1,delta=1
-delay:	    DS	3
-stringPTR:  DS  2
+; Display Strings.
 
 ; MCU Definitions.
 ; BANKS.
@@ -65,6 +60,9 @@ stringPTR:  DS  2
 #define	BANK29  0x1D
 #define	BANK30  0x1E
 #define	BANK31  0x1F
+; SFR STATUS Bits.
+#define	C	0x0
+#define	Z	0x2
 
 ; User Definition.
 ; LED Debug.
@@ -200,65 +198,16 @@ main:
     ; EUSART Enable.
     BSF	    SPEN
 
-    ; EUSART String TRONIX.
-    MOVLB   BANK0
-    MOVLW   HIGH stringTRONIX + 0x80
-    MOVWF   stringPTR
-    MOVLW   LOW stringTRONIX
-    MOVWF   stringPTR + 1
-    CALL    _eusartTXString
-
-    ; EUSART String URL.
-    MOVLB   BANK0
-    MOVLW   HIGH stringURL + 0x80
-    MOVWF   stringPTR
-    MOVLW   LOW stringURL
-    MOVWF   stringPTR + 1
-    CALL    _eusartTXString
-
-    ; EUSART String TBOT.
-    MOVLB   BANK0
-    MOVLW   HIGH stringTBOT + 0x80
-    MOVWF   stringPTR
-    MOVLW   LOW stringTBOT
-    MOVWF   stringPTR + 1
-    CALL    _eusartTXString
-
-    ; EUSART String READY.
-    MOVLB   BANK0
-    MOVLW   HIGH stringREADY + 0x80
-    MOVWF   stringPTR
-    MOVLW   LOW stringREADY
-    MOVWF   stringPTR + 1
-    CALL    _eusartTXString
+    ; EUSART Display Strings.
+    CALL    _writeStringTRONIX
+    CALL    _writeStringURL
+    CALL    _writeStringTBOT
+    CALL    _writeStringREADY
 
 loop:
-    MOVLB   BANK0
-    MOVLW   HIGH stringREADY + 0x80
-    MOVWF   stringPTR
-    MOVLW   LOW stringREADY
-    MOVWF   stringPTR + 1
-    CALL    _eusartTXString
-    MOVLW   10
-    CALL    _delay
-    BRA	    loop
+    BRA	    $
 
 ; Functions.
-_delay:
-    MOVLB   BANK0
-    MOVWF   delay + 2
-    MOVLW   255
-    MOVWF   delay + 1
-    MOVLW   255
-    MOVWF   delay
-    DECFSZ  delay, F
-    BRA	    $-1
-    DECFSZ  delay + 1, F
-    BRA	    $-5
-    DECFSZ  delay + 2, F
-    BRA	    $-7
-    RETURN
-
 _eusartTX:
     MOVLB   BANK3
     MOVWF   TX1REG
@@ -268,17 +217,44 @@ _eusartTX:
     RETURN
 
 _eusartTXString:
-    MOVF    stringPTR, W
-    MOVWF   FSR0H
-    MOVF    stringPTR + 1, W
-    MOVWF   FSR0L
-    MOVWI   0 [FSR0]
-    MOVIW   FSR0++
+    MOVIW   FSR1++
     ANDLW   0xFF
-    BTFSC   ZERO
+    BTFSC   STATUS, Z
     RETURN
     CALL    _eusartTX
     BRA	    $-5
+
+_writeStringREADY:
+    MOVLW   HIGH stringREADY + 0x80
+    MOVWF   FSR1H
+    MOVLW   LOW stringREADY
+    MOVWF   FSR1L
+    CALL    _eusartTXString
+    RETURN
+
+_writeStringTBOT:
+    MOVLW   HIGH stringTBOT + 0x80
+    MOVWF   FSR1H
+    MOVLW   LOW stringTBOT
+    MOVWF   FSR1L
+    CALL    _eusartTXString
+    RETURN
+
+_writeStringTRONIX:
+    MOVLW   HIGH stringTRONIX + 0x80
+    MOVWF   FSR1H
+    MOVLW   LOW stringTRONIX
+    MOVWF   FSR1L
+    CALL    _eusartTXString
+    RETURN
+
+_writeStringURL:
+    MOVLW   HIGH stringURL + 0x80
+    MOVWF   FSR1H
+    MOVLW   LOW stringURL
+    MOVWF   FSR1L
+    CALL    _eusartTXString
+    RETURN
 
 ; FPM Strings.
 PSECT stringtext,class=STRCODE,space=0,delta=2
