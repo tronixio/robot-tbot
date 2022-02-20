@@ -23,7 +23,7 @@
 - [MCU & GPIO Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration/)
 - [EUSART TX - Display Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart-tx/)
 - [EUSART TX/RX - Echo RX Character.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart-txrx/)
-- [ADC/TIMER0 - Read & Display Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc/)
+- [ADC/TIMER0 - Read, Display & Check Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc/)
 - [PWM 16-Bit - RC Servo Forward & Backward.](https://github.com/tronixio/robot-tbot/blob/main/Code/pwm/)
 - [INT0 - Emergency Switch & LED.](https://github.com/tronixio/robot-tbot/blob/main/Code/int0/)
 - [IOC - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/Code/gp2y0d21yk/)
