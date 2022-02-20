@@ -194,7 +194,7 @@ main:
     BSF	    PPSLOCK, 0x0
 
     ; ADC Settings.
-    ; TIMER0 Overflow Trigger.
+    ; TIMER0 Overflow Trigger Source.
     ; Left Justified, FOSC/16.
     MOVLB   BANK9
     CLRF    ADRESL
