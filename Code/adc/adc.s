@@ -33,7 +33,7 @@ CONFIG LVP=ON
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
-ascii:	    DS  1
+ascii:	    DS  4
 delay:	    DS  3
 
 ; MCU Definitions.
@@ -290,11 +290,14 @@ _hex2ascii:
     MOVLB   BANK0
     MOVWF   ascii
     ANDLW   0x0F
-    CALL    $+6
+    CALL    $+9
+    MOVWF   ascii + 2
     SWAPF   ascii, F
     MOVF    ascii, W
     ANDLW   0x0F
-    CALL    $+2
+    CALL    $+4
+    MOVWF   ascii + 1
+    CLRF    ascii + 3
     RETURN
     ; Decimal or Alpha ?
     SUBLW   0x09
@@ -329,11 +332,14 @@ _debugBattery:
     MOVLB   BANK9
     MOVF    ADRESH, W
     CALL    _hex2ascii
-    CALL    _eusartTX
-    MOVLB   BANK9
-    SWAPF   ADRESH, W
-    CALL    _hex2ascii
-    CALL    _eusartTX
+    CALL    _writeStringASCII
+    RETURN
+
+_writeStringASCII:
+    CLRF    FSR1H
+    MOVLW   ascii + 1
+    MOVWF   FSR1L
+    CALL    _eusartTXString
     RETURN
 
 _writeStringREADY:
