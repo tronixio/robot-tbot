@@ -194,7 +194,7 @@ main:
     BSF	    PPSLOCK, 0x0
 
     ; ADC Settings.
-    ; TIMER0 Overflow Trigger Source.
+    ; TIMER0 Overflow Trigger.
     ; Left Justified, FOSC/16.
     MOVLB   BANK9
     CLRF    ADRESL
@@ -316,9 +316,13 @@ _hex2ascii:
 _debugBattery:
     MOVLW   10
     CALL    _delay
-    MOVLW   0xd
+    MOVLW   0xD
     CALL    _eusartTX
-    MOVLW   0xa
+    MOVLW   0xA
+    CALL    _eusartTX
+    MOVLW   '>'
+    CALL    _eusartTX
+    MOVLW   0x20
     CALL    _eusartTX
     MOVLW   '0'
     CALL    _eusartTX
