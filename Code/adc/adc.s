@@ -24,13 +24,17 @@ CONFIG LVP=ON
 ; Instruction ~500ns @8MHz.
 
 ; TBOT - ADC/TIMER0.
+; ADC - Read Battery Voltage.
+; TIMER0 - ADC Auto-convertion Trigger Source.
 ; EUSART TX - Display Battery value.
+
+; Battery Voltage: 8V4 -> 0x7F.
+; Battery Voltage: 6V2 -> 0xB7.
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
 ascii:	    DS  3
 delay:	    DS  3
-stringPTR:  DS  2
 
 ; MCU Definitions.
 ; BANKS.
@@ -73,6 +77,8 @@ stringPTR:  DS  2
 ; User Definition.
 ; LED Debug.
 #define	LED_DEBUG	0x6
+; Battery Definitions.
+#define	BATTERY_LOW	0xB7
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
@@ -188,7 +194,7 @@ main:
     BSF	    PPSLOCK, 0x0
 
     ; ADC Settings.
-    ; TIMER0 Overflow.
+    ; TIMER0 Overflow Trigger.
     ; Left Justified, FOSC/16.
     MOVLB   BANK9
     CLRF    ADRESL
@@ -216,9 +222,9 @@ main:
     MOVWF   TX1STA
     MOVLW   0x00
     MOVWF   BAUD1CON
-
     ; EUSART Enable.
     BSF	    SPEN
+
     ; OPTION REG Settings.
     ; WPU Enabled.
     ; TIMER0 ~15Hz.
@@ -226,40 +232,26 @@ main:
     MOVLW   0b01010111
     MOVWF   OPTION_REG
 
-    ; EUSART String TRONIX.
-    MOVLB   BANK0
-    MOVLW   HIGH stringTRONIX + 0x80
-    MOVWF   stringPTR
-    MOVLW   LOW stringTRONIX
-    MOVWF   stringPTR + 1
-    CALL    _eusartTXString
-
-    ; EUSART String URL.
-    MOVLB   BANK0
-    MOVLW   HIGH stringURL + 0x80
-    MOVWF   stringPTR
-    MOVLW   LOW stringURL
-    MOVWF   stringPTR + 1
-    CALL    _eusartTXString
-
-    ; EUSART String TBOT.
-    MOVLB   BANK0
-    MOVLW   HIGH stringTBOT + 0x80
-    MOVWF   stringPTR
-    MOVLW   LOW stringTBOT
-    MOVWF   stringPTR + 1
-    CALL    _eusartTXString
-
-    ; EUSART String READY.
-    MOVLB   BANK0
-    MOVLW   HIGH stringREADY + 0x80
-    MOVWF   stringPTR
-    MOVLW   LOW stringREADY
-    MOVWF   stringPTR + 1
-    CALL    _eusartTXString
+    ; EUSART Display Strings.
+    CALL    _writeStringTRONIX
+    CALL    _writeStringURL
+    CALL    _writeStringTBOT
+    CALL    _writeStringREADY
 
 loop:
     CALL    _debugBattery
+
+    ; Check Battery Voltage Low.
+    MOVLW   BATTERY_LOW
+    MOVLB   BANK9
+    SUBWF   ADRESH, W
+    BTFSC   STATUS, C
+    BRA	    $+4
+    MOVLB   BANK2
+    BSF	    LATA, LED_DEBUG
+    BRA	    loop
+    MOVLB   BANK2
+    BCF	    LATA, LED_DEBUG
     BRA	    loop
 
 ; Functions.
@@ -287,14 +279,9 @@ _eusartTX:
     RETURN
 
 _eusartTXString:
-    MOVF    stringPTR, W
-    MOVWF   FSR0H
-    MOVF    stringPTR + 1, W
-    MOVWF   FSR0L
-    MOVWI   0 [FSR0]
-    MOVIW   FSR0++
+    MOVIW   FSR1++
     ANDLW   0xFF
-    BTFSC   ZERO
+    BTFSC   STATUS, Z
     RETURN
     CALL    _eusartTX
     BRA	    $-5
@@ -313,7 +300,7 @@ _hex2ascii:
     RETURN
     ; Decimal or Alpha ?
     SUBLW   0x09
-    BTFSS   CARRY
+    BTFSS   STATUS, C
     BRA	    $+5
     ; Decimal (0...9) add 0x30.
     MOVF    ascii + 2, W
@@ -345,6 +332,38 @@ _debugBattery:
     SWAPF   ADRESH, W
     CALL    _hex2ascii
     CALL    _eusartTX
+    RETURN
+
+_writeStringREADY:
+    MOVLW   HIGH stringREADY + 0x80
+    MOVWF   FSR1H
+    MOVLW   LOW stringREADY
+    MOVWF   FSR1L
+    CALL    _eusartTXString
+    RETURN
+
+_writeStringTBOT:
+    MOVLW   HIGH stringTBOT + 0x80
+    MOVWF   FSR1H
+    MOVLW   LOW stringTBOT
+    MOVWF   FSR1L
+    CALL    _eusartTXString
+    RETURN
+
+_writeStringTRONIX:
+    MOVLW   HIGH stringTRONIX + 0x80
+    MOVWF   FSR1H
+    MOVLW   LOW stringTRONIX
+    MOVWF   FSR1L
+    CALL    _eusartTXString
+    RETURN
+
+_writeStringURL:
+    MOVLW   HIGH stringURL + 0x80
+    MOVWF   FSR1H
+    MOVLW   LOW stringURL
+    MOVWF   FSR1L
+    CALL    _eusartTXString
     RETURN
 
 ; FPM Strings.
