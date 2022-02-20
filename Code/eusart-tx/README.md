@@ -2,7 +2,7 @@
 
 ## Code.
 
-- [EUSART TX - Display Welcome Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart-tx/eusart.s)
+- [EUSART TX - Display Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart-tx/eusart.s)
 
 ## Oscilloscope.
 
@@ -14,7 +14,7 @@
 
 ## Terminal.
 
-- EUSART TX - Display Welcome Strings.
+- EUSART TX - Display Strings.
 
 <p align="center">
 <img alt="EUSART TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-0.png">
