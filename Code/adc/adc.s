@@ -66,6 +66,9 @@ stringPTR:  DS  2
 #define	BANK29  0x1D
 #define	BANK30  0x1E
 #define	BANK31  0x1F
+; SFR STATUS Bits.
+#define	C	0x0
+#define	Z	0x2
 
 ; User Definition.
 ; LED Debug.
