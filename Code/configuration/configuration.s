@@ -60,6 +60,9 @@ CONFIG LVP=ON
 #define	BANK29  0x1D
 #define	BANK30  0x1E
 #define	BANK31  0x1F
+; SFR STATUS Bits.
+#define	C	0x0
+#define	Z	0x2
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
