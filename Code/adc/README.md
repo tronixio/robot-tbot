@@ -2,7 +2,7 @@
 
 ## Code.
 
-- [ADC/TIMER0 - Read & Display Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc/adc.s)
+- [ADC/TIMER0 - Read, Display & Check Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc/adc.s)
 
 ## Terminal.
 
