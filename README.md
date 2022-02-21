@@ -28,9 +28,12 @@
 - [INT0 - Emergency Switch & LED.](https://github.com/tronixio/robot-tbot/blob/main/Code/int0/)
 - [IOC - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/Code/gp2y0d21yk/)
 
-<!--
-## Firmware.
 
+## Firmware - PIC16F1778.
+
+- [TBOT Firmware - DEBUG.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/XC8-P16F1778-TBOT-DEBUG.X)
+
+<!--
 - [TBOT Firmware - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/PICAS-P16F1778-GP2Y0D21YK.X)
 - [TBOT Firmware - Sharp GP2Y0A21YK.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/PICAS-P16F1778-GP2Y0A21YK.X)
 - [TBOT Firmware - HC SR04.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/PICAS-P16F1778-HCSR04.X)
