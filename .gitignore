@@ -7,7 +7,7 @@ Kicad/*/gerber/
 Kicad/*/*-backups/
 Kicad/*/fp-info-cache
 # DEBUG
-MplabX/XC8-P16F1778-TBOT-DEBUG.X/main.c
+#MplabX/XC8-P16F1778-TBOT-DEBUG.X/main.c
 MplabX/XC8-P16F1778-TBOT-DEBUG.X/Makefile
 MplabX/XC8-P16F1778-TBOT-DEBUG.X/build/
 MplabX/XC8-P16F1778-TBOT-DEBUG.X/disassembly/
