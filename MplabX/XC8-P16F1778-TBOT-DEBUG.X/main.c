@@ -14,11 +14,12 @@
 // v0.1 - xx/2022.
 
 // TBOT - Rev.A.
+
 // Debug:
-//  (B)attery: .
-//  (L)ED: Toggle Debug LED.
+//  (B)attery: Read Battery Value.
+//  (L)ED: Toggle Debug LED On / Off.
 //  (M)otors: Toggle RC Servos Start / Stop.
-//  (S)ensors: .
+//  (S)ensors: Read Sensor.
 
 // Definitions.
 //// ASCII Characters.
@@ -55,14 +56,15 @@ void u16toa(uint16_t u16Data, uint8_t * au8Buffer, uint8_t u8Base);
 // Strings.
 const uint8_t au8Battery[] = " - Battery ";
 const uint8_t au8LED[] = " - LED Toggle";
-const uint8_t au8Tbot[] = "\r\nTBOT - v0.1 - Firmware Debug.";
-const uint8_t au8Tronix[] = "\r\n\r\nTronix I/O.";
-const uint8_t au8WWW[] = "\r\nwww.tronix.io";
+const uint8_t au8Menu[] = "\r\n\r\n- (B)attery\r\n- (L)ED\r\n- (M)otors\r\n- (S)ensors";
 const uint8_t au8RCServo[] = " - RC Servo Toggle";
 const uint8_t au8Ready[] = "\r\n\r\nREADY> ";
 const uint8_t au8Sensor[] = " - Sensor ";
 const uint8_t au8SensorObstacle[] = "Obstacle";
 const uint8_t au8SensorNOObstacle[] = "No Obstacle";
+const uint8_t au8Tbot[] = "\r\nTBOT - v0.1 - Firmware Debug";
+const uint8_t au8Tronix[] = "\r\n\r\nTronix I/O.";
+const uint8_t au8WWW[] = "\r\nwww.tronix.io";
 
 // Main.
 void main(void)
@@ -191,13 +193,13 @@ void main(void)
 
     // GP2Y0D21 Settings.
     GP2Y0D21_ENABLE = 0b1;
-    // Wait ~60ms.
     __delay_ms(60);
 
     // Display Strings.
     eusart_writeString(au8Tronix);
     eusart_writeString(au8WWW);
     eusart_writeString(au8Tbot);
+    eusart_writeString(au8Menu);
     eusart_writeString(au8Ready);
 
     uint8_t u8Rx;
