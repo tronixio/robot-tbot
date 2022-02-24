@@ -179,7 +179,7 @@ main:
     MOVLW   0b01111111
     MOVWF   OPTION_REG
 
-    ; GP2Y0D21 Settings.
+    ; GP2Y0D21 Enable.
     MOVLB   BANK2
     BSF	    LATC, GP2Y0D21_ENABLE
     ; Wait ~60ms.
