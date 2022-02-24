@@ -191,7 +191,7 @@ void main(void)
     PWM11LDCONbits.LDA = 0b1;
     PWM11CONbits.EN = 0b0;
 
-    // GP2Y0D21 Settings.
+    // GP2Y0D21 Enable.
     GP2Y0D21_ENABLE = 0b1;
     __delay_ms(60);
 
