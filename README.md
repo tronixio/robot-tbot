@@ -31,7 +31,7 @@
 
 ## Firmware - PIC16F1778.
 
-- [TBOT Firmware - DEBUG.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/XC8-P16F1778-TBOT-DEBUG.X)
+- [Firmware DEBUG.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/XC8-P16F1778-TBOT-DEBUG.X)
 
 <!--
 - [TBOT Firmware - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/PICAS-P16F1778-GP2Y0D21YK.X)
