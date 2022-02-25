@@ -28,7 +28,7 @@ CONFIG LVP=ON
 ; TIMER0 - ADC Auto-convertion Trigger Source.
 ; EUSART TX - Display Battery value.
 
-; Battery Voltage: 8V4 -> 0x7F.
+; Battery Voltage: 8V4 -> 0xF7.
 ; Battery Voltage: 6V2 -> 0xB7.
 
 ; GPR BANK0.
