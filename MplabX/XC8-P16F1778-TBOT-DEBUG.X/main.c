@@ -9,7 +9,7 @@
 
 #include <xc.h>
 #include <stdint.h>
-// PIC16F1778 - Compile with XC8(v2.35).
+// PIC16F1778 - Compile with XC8(v2.36).
 // PIC16F1778 - @8MHz Internal Oscillator.
 // v0.1 - xx/2022.
 
@@ -20,6 +20,9 @@
 //  (L)ED: Toggle Debug LED On / Off.
 //  (M)otors: Toggle RC Servos Start / Stop.
 //  (S)ensors: Read Sensor.
+
+// Battery Voltage: 8V4 -> 0xF7 (247).
+// Battery Voltage: 6V2 -> 0xB7 (183).
 
 // Definitions.
 //// ASCII Characters.
