@@ -18,7 +18,7 @@ CONFIG LPBOR=OFF
 CONFIG LVP=ON
 
 #include <xc.inc>
-; PIC16F1778 - Compile with PIC-AS(v2.35).
+; PIC16F1778 - Compile with PIC-AS(v2.36).
 ; PIC16F1778 - @8MHz Internal Oscillator.
 ; -preset_vec=0000h, -pintentry=0004h, -pcinit=0005h.
 ; Instruction ~500ns @8MHz.
@@ -70,9 +70,9 @@ delay:  DS  3
 
 ; User Definition.
 ; LED Debug.
-#define	LED_DEBUG	0x6
+#define	LED_DEBUG   0x6
 ; Emergency.
-#define EMERGENCY	0x0
+#define EMERGENCY   0x0
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
@@ -109,9 +109,9 @@ main:
     MOVWF   PORTE
     ; TRIS Data Direction.
     MOVLB   BANK1
-    MOVLW   0b00100000
+    MOVLW   0b00000000
     MOVWF   TRISA
-    MOVLW   0b00001001
+    MOVLW   0b10001001
     MOVWF   TRISB
     MOVLW   0b00000000
     MOVWF   TRISC
