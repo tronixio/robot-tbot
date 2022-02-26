@@ -18,6 +18,7 @@
 
 // Debug:
 //  (B)attery: Read Battery Value.
+//  (E)mergency: Toggle LED on / Off.
 //  (L)ED: Toggle Debug LED On / Off.
 //  (M)otors: Toggle RC Servos Start / Stop.
 //  (S)ensors: Read Sensor.
@@ -29,6 +30,7 @@
 //// ASCII Characters.
 #define ASCII_CR            0x0D
 #define ASCII_B             0x42
+#define ASCII_E             0x45
 #define ASCII_L             0x4C
 #define ASCII_M             0x4D
 #define ASCII_S             0x53
@@ -59,8 +61,9 @@ void u16toa(uint16_t u16Data, uint8_t * au8Buffer, uint8_t u8Base);
 
 // Strings.
 const uint8_t au8Battery[] = " - Battery ";
+const uint8_t au8Emergency[] = " - Emergency LED ";
 const uint8_t au8LED[] = " - LED ";
-const uint8_t au8Menu[] = "\r\n\r\n- (B)attery\r\n- (L)ED\r\n- (M)otors\r\n- (S)ensors";
+const uint8_t au8Menu[] = "\r\n\r\n- (B)attery\r\n- (E)mergency\r\n- (L)ED\r\n- (M)otors\r\n- (S)ensors";
 const uint8_t au8OFF[] = "OFF";
 const uint8_t au8ON[] = "ON";
 const uint8_t au8RCServo[] = " - RC Servo ";
@@ -213,6 +216,11 @@ void main(void)
     uint8_t u8Rx;
     uint8_t au8Buffer[6];
     while(1){
+        // Emergency Switch.
+        if(!PORTBbits.RB0)
+            LED_DEBUG = 0b1;
+
+        // EUSART Menu.
         if(PIR1bits.RCIF){
             u8Rx = eusart_readCharacter();
             eusart_writeCharacter(u8Rx);
@@ -222,6 +230,14 @@ void main(void)
                 u16toa(ADRESH, au8Buffer, 10);
                 eusart_writeString(au8Buffer);
             }
+            // LED Emergency.
+            if(u8Rx == ASCII_E){
+                eusart_writeString(au8Emergency);
+                TRISBbits.TRISB0 = ~TRISBbits.TRISB0;
+                if(!TRISBbits.TRISB0)
+                    eusart_writeString(au8ON);
+                else
+                    eusart_writeString(au8OFF);            }
             // LED Debug Toggle.
             if(u8Rx == ASCII_L){
                 LED_DEBUG = ~LED_DEBUG;
