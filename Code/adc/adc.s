@@ -34,7 +34,7 @@ CONFIG LVP=ON
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
 ascii:	    DS  4
-delay:	    DS  3
+delay:	    DS  2
 
 ; MCU Definitions.
 ; BANKS.
@@ -257,17 +257,16 @@ loop:
 ; Functions.
 _delay:
     MOVLB   BANK0
-    MOVWF   delay + 2
-    MOVLW   255
     MOVWF   delay + 1
     MOVLW   255
     MOVWF   delay
-    DECFSZ  delay, F
+    MOVLW   255
+    DECFSZ  WREG, F
     BRA	    $-1
+    DECFSZ  delay, F
+    BRA	    $-4
     DECFSZ  delay + 1, F
-    BRA	    $-5
-    DECFSZ  delay + 2, F
-    BRA	    $-7
+    BRA	    $-6
     RETURN
 
 _eusartTX:
