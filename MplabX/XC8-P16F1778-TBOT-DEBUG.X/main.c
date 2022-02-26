@@ -9,6 +9,7 @@
 
 #include <xc.h>
 #include <stdint.h>
+#include <pic16f1778.h>
 // PIC16F1778 - Compile with XC8(v2.36).
 // PIC16F1778 - @8MHz Internal Oscillator.
 // v0.1 - xx/2022.
@@ -58,13 +59,17 @@ void u16toa(uint16_t u16Data, uint8_t * au8Buffer, uint8_t u8Base);
 
 // Strings.
 const uint8_t au8Battery[] = " - Battery ";
-const uint8_t au8LED[] = " - LED Toggle";
+const uint8_t au8LED[] = " - LED ";
 const uint8_t au8Menu[] = "\r\n\r\n- (B)attery\r\n- (L)ED\r\n- (M)otors\r\n- (S)ensors";
-const uint8_t au8RCServo[] = " - RC Servo Toggle";
+const uint8_t au8OFF[] = "OFF";
+const uint8_t au8ON[] = "ON";
+const uint8_t au8RCServo[] = " - RC Servo ";
 const uint8_t au8Ready[] = "\r\n\r\nREADY> ";
 const uint8_t au8Sensor[] = " - Sensor ";
 const uint8_t au8SensorObstacle[] = "Obstacle";
 const uint8_t au8SensorNOObstacle[] = "No Obstacle";
+const uint8_t au8START[] = "Start";
+const uint8_t au8STOP[] = "Stop";
 const uint8_t au8Tbot[] = "\r\nTBOT - v0.1 - Firmware Debug";
 const uint8_t au8Tronix[] = "\r\n\r\nTronix I/O.";
 const uint8_t au8WWW[] = "\r\nwww.tronix.io";
@@ -216,20 +221,25 @@ void main(void)
                 eusart_writeString(au8Battery);
                 u16toa(ADRESH, au8Buffer, 10);
                 eusart_writeString(au8Buffer);
-                eusart_writeString(au8Ready);
             }
             // LED Debug Toggle.
             if(u8Rx == ASCII_L){
                 LED_DEBUG = ~LED_DEBUG;
                 eusart_writeString(au8LED);
-                eusart_writeString(au8Ready);
+                if(PORTAbits.RA6)
+                    eusart_writeString(au8ON);
+                else
+                    eusart_writeString(au8OFF);
             }
             // Motors Toggle.
             if(u8Rx == ASCII_M){
                 PWM6CONbits.EN = ~PWM6CONbits.EN;
                 PWM11CONbits.EN = ~PWM11CONbits.EN;
                 eusart_writeString(au8RCServo);
-                eusart_writeString(au8Ready);
+                if(PWM11CONbits.EN)
+                    eusart_writeString(au8START);
+                else
+                    eusart_writeString(au8STOP);
             }
             // Sensor Read.
             if(u8Rx == ASCII_S){
@@ -239,8 +249,8 @@ void main(void)
                 }else{
                     eusart_writeString(au8SensorNOObstacle);
                 }
-                eusart_writeString(au8Ready);
             }
+            eusart_writeString(au8Ready);
         }
     }
 }
