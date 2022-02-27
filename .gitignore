@@ -8,7 +8,6 @@ Kicad/*/*-backups/
 Kicad/*/fp-info-cache
 
 # PIC-AS
-#MplabX/PICAS-P16F1778-GP2Y0D21YK.X/main.s
 MplabX/PICAS-P16F1778-GP2Y0D21YK.X/Makefile
 MplabX/PICAS-P16F1778-GP2Y0D21YK.X/build/
 MplabX/PICAS-P16F1778-GP2Y0D21YK.X/disassembly/
