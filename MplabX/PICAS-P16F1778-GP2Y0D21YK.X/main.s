@@ -91,7 +91,7 @@ delay:  DS  1
 ; H5/L220 - 1.5ms - @8MHz.
 ; H5/L20  - 1.3ms - @8MHz.
 #define SERVO_STOP_H	5
-#define SERVO_STOP_L	250
+#define SERVO_STOP_L	255
 ; Sharp GP2Y0D21YK.
 #define GP2Y0D21_ENABLE 0x0
 #define GP2Y0D21_OUT    0x2
