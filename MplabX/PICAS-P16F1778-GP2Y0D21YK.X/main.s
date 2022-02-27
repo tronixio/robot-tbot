@@ -5,7 +5,7 @@ CONFIG PWRTE=OFF
 CONFIG MCLRE=ON
 CONFIG CP=OFF
 CONFIG BOREN=OFF
-CONFIG CLKOUTEN=ON
+CONFIG CLKOUTEN=OFF
 CONFIG IESO=OFF
 CONFIG FCMEN=OFF
 CONFIG WRT=OFF
@@ -36,6 +36,10 @@ CONFIG LVP=ON
 ; MCU.RC0  -> GP2Y0D21YK.ENABLE
 ; MCU.RC2 <-  GP2Y0D21YK.OUT
 ; MCU.RC5  -> PWM6.RC.SERVO
+
+; GPR BANK0.
+PSECT cstackBANK0,class=BANK0,space=1,delta=1
+delay:  DS  1
 
 ; MCU Definitions.
 ; BANKS.
@@ -75,10 +79,32 @@ CONFIG LVP=ON
 #define	C	0x0
 #define	Z	0x2
 
+; User Definition.
+; LED Debug.
+#define	LED_DEBUG	0x6
+; RC Servo.
+; Frequency 50Hz - @8MHz.
+#define SERVO_PERIOD_H	78
+#define SERVO_PERIOD_L	30
+; Duty Cycle.
+; H6/L165 - 1.7ms - @8MHz.
+; H5/L220 - 1.5ms - @8MHz.
+; H5/L20  - 1.3ms - @8MHz.
+#define SERVO_STOP_H	5
+#define SERVO_STOP_L	250
+; Sharp GP2Y0D21YK.
+#define GP2Y0D21_ENABLE 0x0
+#define GP2Y0D21_OUT    0x2
+
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
 resetVect:
     GOTO    main
+
+; ISR Vector.
+PSECT intentry,class=CODE,space=0,delta=2
+interruptVector:
+    GOTO    isr
 
 ; Main.
 PSECT cinit,class=CODE,space=0,delta=2
@@ -109,7 +135,7 @@ main:
     MOVWF   TRISA
     MOVLW   0b10001001
     MOVWF   TRISB
-    MOVLW   0b00000000
+    MOVLW   0b00000100
     MOVWF   TRISC
     MOVLW   0b00000000
     MOVWF   TRISE
@@ -135,7 +161,7 @@ main:
     MOVWF   WPUA
     MOVLW   0b00000000
     MOVWF   WPUB
-    MOVLW   0b00000000
+    MOVLW   0b00000100
     MOVWF   WPUC
     MOVLW   0b00000000
     MOVWF   WPUE
@@ -167,8 +193,142 @@ main:
     MOVLB   BANK8
     MOVLW   0b00000000
     MOVWF   HIDRVB
+    ; PPS Settings.
+    ; PPS Write Enable.
+    MOVLB   BANK28
+    MOVLW   0x55
+    MOVWF   PPSLOCK
+    MOVLW   0xAA
+    MOVWF   PPSLOCK
+    BCF	    PPSLOCK, 0x0
+    ; PPS Outputs.
+    MOVLB   BANK29
+    ; RB5 - PWM11.
+    MOVLW   0x1F
+    MOVWF   RB5PPS
+    ; RC5 - PWM6.
+    MOVLW   0x1E
+    MOVWF   RC5PPS
+    ; PPS Write Disable.
+    MOVLB   BANK28
+    MOVLW   0x55
+    MOVWF   PPSLOCK
+    MOVLW   0xAA
+    MOVWF   PPSLOCK
+    BSF	    PPSLOCK, 0x0
+
+    ; PWM6 Settings.
+    MOVLB   BANK27
+    CLRF    PWM6PHL
+    CLRF    PWM6PHH
+    MOVLW   SERVO_STOP_L
+    MOVWF   PWM6DCL
+    MOVLW   SERVO_STOP_H
+    MOVWF   PWM6DCH
+    MOVLW   SERVO_PERIOD_L
+    MOVWF   PWM6PRL
+    MOVLW   SERVO_PERIOD_H
+    MOVWF   PWM6PRH
+    CLRF    PWM6OFL
+    CLRF    PWM6OFH
+    CLRF    PWM6TMRL
+    CLRF    PWM6TMRH
+    MOVLW   0x0C
+    MOVWF   PWM6CON
+    MOVLW   0x00
+    MOVWF   PWM6INTE
+    MOVLW   0x00
+    MOVWF   PWM6INTF
+    MOVLW   0x20
+    MOVWF   PWM6CLKCON
+    MOVLW   0x00
+    MOVWF   PWM6LDCON
+    MOVLW   0x00
+    MOVWF   PWM6OFCON
+    BSF	    PWM6LD
+    BSF	    PWM6EN
+
+    ; PWM11 Settings.
+    MOVLB   BANK27
+    CLRF    PWM11PHL
+    CLRF    PWM11PHH
+    MOVLW   SERVO_STOP_L
+    MOVWF   PWM11DCL
+    MOVLW   SERVO_STOP_H
+    MOVWF   PWM11DCH
+    MOVLW   SERVO_PERIOD_L
+    MOVWF   PWM11PRL
+    MOVLW   SERVO_PERIOD_H
+    MOVWF   PWM11PRH
+    CLRF    PWM11OFL
+    CLRF    PWM11OFH
+    CLRF    PWM11TMRL
+    CLRF    PWM11TMRH
+    MOVLW   0x0C
+    MOVWF   PWM11CON
+    MOVLW   0x00
+    MOVWF   PWM11INTE
+    MOVLW   0x00
+    MOVWF   PWM11INTF
+    MOVLW   0x20
+    MOVWF   PWM11CLKCON
+    MOVLW   0x00
+    MOVWF   PWM11LDCON
+    MOVLW   0x00
+    MOVWF   PWM11OFCON
+    BSF	    PWM11LD
+    BSF	    PWM11EN
+
+    ; OPTION REG Settings.
+    ; WPU Enabled.
+    MOVLB   BANK1
+    MOVLW   0b01111111
+    MOVWF   OPTION_REG
+
+    ; GP2Y0D21 Enable.
+    MOVLB   BANK2
+    BSF	    LATC, GP2Y0D21_ENABLE
+    ; Wait ~60ms.
+    CALL    _delay
+    ; IOC Settings.
+    MOVLB   BANK7
+    BSF	    IOCCP, GP2Y0D21_OUT
+    CLRF    IOCCF
+
+    ; INTERRUPTS Settings.
+    BSF	    IOCIE
+    BCF	    IOCIF
+    ; INTERRUPTS Enabled.
+    BSF	    GIE
 
 loop:
     BRA	    $
+
+; Interrupt Service Routine.
+isr:
+    ; Interrupt On Change ?
+    BTFSS   IOCIF
+    RETFIE
+    MOVLB   BANK7
+    BTFSS   IOCCF, GP2Y0D21_OUT
+    RETFIE
+    MOVLB   BANK27
+    CLRF    PWMEN
+    MOVLB   BANK2
+    BSF	    LATA, LED_DEBUG
+    BCF	    IOCCF, GP2Y0D21_OUT
+    BCF	    IOCIF
+    RETFIE
+
+; Functions.
+_delay:
+    MOVLW   160
+    MOVWF   delay
+    MOVLW   255
+    DECFSZ  WREG, F
+    BRA	$-1
+    DECFSZ  delay, F
+    BRA	$-4
+    RETURN
 
     END	    resetVect
