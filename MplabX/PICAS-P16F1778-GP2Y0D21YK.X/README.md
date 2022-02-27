@@ -2,7 +2,7 @@
 
 ## Code.
 
-- [PIC16F1778 - PIC-AS Firmware SHARP GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/MplabX/XC8-P16F1778-DEBUG.X/main.c)
+- [PIC16F1778 - PIC-AS Firmware SHARP GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/MplabX/PICAS-P16F1778-GP2Y0D21YK.X/main.s)
 
 ## MPLABX Linker Configuration.
 
