@@ -125,10 +125,13 @@ void main(void)
     INTCONbits.GIE = 0b0;
 
     while(1){
+        
+        if(0xdf>ADRESH){
         LED_1 = 0;
         __delay_ms(200);
         LED_1 = 1;
         __delay_ms(200);
+        }
     }
 }
 
