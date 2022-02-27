@@ -2,7 +2,7 @@
 
 ## Code.
 
-- [PIC16F1778 - Firmware Debug.](https://github.com/tronixio/robot-tbot/blob/main/MplabX/XC8-P16F1778-DEBUG.X/main.c)
+- [PIC16F1778 - XC8 Firmware Debug.](https://github.com/tronixio/robot-tbot/blob/main/MplabX/XC8-P16F1778-DEBUG.X/main.c)
 
 ## Terminal.
 
