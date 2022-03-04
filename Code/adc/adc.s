@@ -82,7 +82,7 @@ delay:	    DS  2
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
-resetVect:
+resetVector:
     GOTO    main
 
 ; Main.
@@ -252,6 +252,7 @@ loop:
     BRA	    loop
     MOVLB   BANK2
     BCF	    LATA, LED_DEBUG
+
     BRA	    loop
 
 ; Functions.
@@ -387,4 +388,4 @@ stringTRONIX:
 stringURL:
     DB  0xD, 0xA, 'w','w','w','.','t','r','o','n','i','x','.','c','o','m', 0x0
 
-    END	    resetVect
+    END	    resetVector
