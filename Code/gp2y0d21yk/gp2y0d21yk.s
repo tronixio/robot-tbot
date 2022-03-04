@@ -72,12 +72,13 @@ delay:  DS  1
 ; LED Debug.
 #define	LED_DEBUG       0x6
 ; Sharp GP2Y0D21YK.
+#define GP2Y0D21_60MS   160
 #define GP2Y0D21_ENABLE 0x0
 #define GP2Y0D21_OUT    0x2
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
-resetVect:
+resetVector:
     GOTO    main
 
 ; ISR Vector.
@@ -183,6 +184,7 @@ main:
     MOVLB   BANK2
     BSF	    LATC, GP2Y0D21_ENABLE
     ; Wait ~60ms.
+    MOVLW   GP2Y0D21_60MS
     CALL    _delay
     ; IOC Settings.
     MOVLB   BANK7
@@ -222,7 +224,7 @@ isr:
 
 ; Functions.
 _delay:
-    MOVLW   160
+    MOVLB   BANK0
     MOVWF   delay
     MOVLW   255
     DECFSZ  WREG, F
@@ -231,4 +233,4 @@ _delay:
     BRA	$-4
     RETURN
 
-    END	    resetVect
+    END	    resetVector
