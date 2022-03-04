@@ -84,7 +84,7 @@ delay:  DS  2
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
-resetVect:
+resetVector:
     GOTO    main
 
 ; Main.
@@ -226,6 +226,7 @@ main:
     MOVWF   PWM6LDCON
     MOVLW   0x00
     MOVWF   PWM6OFCON
+    ; PWM6 Load & Enable.
     BSF	    PWM6LD
     BSF	    PWM6EN
 
@@ -257,11 +258,12 @@ main:
     MOVWF   PWM11LDCON
     MOVLW   0x00
     MOVWF   PWM11OFCON
+    ; PWM11 Load & Enable.
     BSF	    PWM11LD
     BSF	    PWM11EN
 
 loop:
-    ; Forward.
+    ; RC Servo Forward.
     MOVLB   BANK27
     MOVLW   20
     MOVWF   PWM6DCL
@@ -274,9 +276,9 @@ loop:
     MOVLW   0x6
     MOVWF   PWMLD
     MOVLW   10
-    call    _delay
+    CALL    _delay
 
-    ; Stop.
+    ; RC Servo Stop.
     MOVLB   BANK27
     MOVLW   SERVO_STOP_L
     MOVWF   PWM6DCL
@@ -289,9 +291,9 @@ loop:
     MOVLW   0x6
     MOVWF   PWMLD
     MOVLW   10
-    call    _delay
+    CALL    _delay
 
-    ; Backward.
+    ; RC Servo Backward.
     MOVLB   BANK27
     MOVLW   165
     MOVWF   PWM6DCL
@@ -304,9 +306,9 @@ loop:
     MOVLW   0x6
     MOVWF   PWMLD
     MOVLW   10
-    call    _delay
+    CALL    _delay
 
-    ; Stop.
+    ; RC Servo Stop.
     MOVLB   BANK27
     MOVLW   SERVO_STOP_L
     MOVWF   PWM6DCL
@@ -319,7 +321,7 @@ loop:
     MOVLW   0x6
     MOVWF   PWMLD
     MOVLW   10
-    call    _delay
+    CALL    _delay
 
     BRA	    loop
 
@@ -338,4 +340,4 @@ _delay:
     BRA	    $-6
     RETURN
 
-    END	    resetVect
+    END	    resetVector
