@@ -76,7 +76,7 @@ delay:  DS  2
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
-resetVect:
+resetVector:
     GOTO    main
 
 ; ISR Vector.
@@ -215,4 +215,4 @@ _delay:
     BRA	    $-6
     RETURN
 
-    END	    resetVect
+    END	    resetVector
