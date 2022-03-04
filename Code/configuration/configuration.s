@@ -66,7 +66,7 @@ CONFIG LVP=ON
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
-resetVect:
+resetVector:
     GOTO    main
 
 ; Main.
@@ -160,4 +160,4 @@ main:
 loop:
     BRA	    $
 
-    END	    resetVect
+    END	    resetVector
