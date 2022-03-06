@@ -435,8 +435,7 @@
         "name": "CLASS-04",
         "nets": [
           "/HID/D+",
-          "/HID/D-",
-          "VUSB"
+          "/HID/D-"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
