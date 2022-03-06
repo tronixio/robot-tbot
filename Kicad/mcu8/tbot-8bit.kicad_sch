@@ -2241,9 +2241,6 @@
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/7fa60b87-d739-4e3a-9437-956fe2ce40ae"
       (reference "#PWR0416") (unit 1) (value "GND") (footprint "")
     )
-    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/3a77719b-70d8-47b1-abf2-99bf5381a615"
-      (reference "#PWR0417") (unit 1) (value "POWER-VUSB") (footprint "")
-    )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/5c387a9d-428a-46d4-af6f-a25dad1d16a1"
       (reference "#PWR0418") (unit 1) (value "GND") (footprint "")
     )
@@ -2301,11 +2298,11 @@
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/28fbb98a-04b9-4f65-84d8-a1a8de57dfb9"
       (reference "C301") (unit 1) (value "220µ/25V") (footprint "tronixio:CAPACITOR-ELECTROLYTIC-RADIAL-080-115-035")
     )
-    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/bc496a26-7c59-42af-b412-584d48b2ec4e"
-      (reference "C302") (unit 1) (value "470n") (footprint "tronixio:CAPACITOR-1206")
-    )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/f3eb9fd4-4bd3-475e-b3a2-51158de404e4"
-      (reference "C303") (unit 1) (value "100n") (footprint "tronixio:CAPACITOR-1206")
+      (reference "C302") (unit 1) (value "100n") (footprint "tronixio:CAPACITOR-1206")
+    )
+    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/bc496a26-7c59-42af-b412-584d48b2ec4e"
+      (reference "C303") (unit 1) (value "470n") (footprint "tronixio:CAPACITOR-1206")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/7e5e5a3e-c4e0-4928-8aa7-b36e04e2e0d6"
       (reference "C304") (unit 1) (value "220µ/25V") (footprint "tronixio:CAPACITOR-ELECTROLYTIC-RADIAL-080-115-035")
