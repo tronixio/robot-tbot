@@ -27,6 +27,7 @@ CONFIG LVP=ON
 ; Sensor SHARP GP2Y0D21YK.
 
 ; TODO: Stop Ramp ?
+; TODO: Rotation Rmp ?
 ; TODO: Better Delay Fonction
 ; TODO: Optimize Variables
 
@@ -49,7 +50,7 @@ counter:    DS	1
 
 ; Common RAM.
 PSECT cstackCOMM,class=COMMON,space=1,delta=1
-TBOT:   DS  1
+TBOT:	    DS  1
 
 ; MCU Definitions.
 ; BANKS.
@@ -117,8 +118,6 @@ TBOT:   DS  1
 #define GP2Y0D21_OUT	    0x2
 ; TBOT Flags.
 #define TBOT_RCSERVO	    0x0
-
-#define DEBUG 1
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
@@ -352,17 +351,17 @@ s0:
     ; SENSOR Obstacle ?
     MOVLB   BANK0
     BTFSC   PORTC, GP2Y0D21_OUT
-    BRA	    s3
+    BRA	    rcServoSTOP
     ; TIMER0 For Battery Read & Filtering.
     BTFSC   TMR0IF
-    BRA	    s1
+    BRA	    batteryRead
     ; TBOT RC Servo are Running ?
     BTFSC   TBOT, TBOT_RCSERVO
     BRA	    s0
-    BRA	    s2
+    BRA	    rcServoFWD
 
 ; Battery Read & Filtering.
-s1:
+batteryRead:
     MOVLW   BATTERY_LOW
     MOVLB   BANK9
     SUBWF   ADRESH, W
@@ -380,11 +379,7 @@ s1:
 
 ; RC Servo Forward Ramp.
 ; TODO add Sensor Detection ?
-s2:
-IF DEBUG
-    movlb   BANK2
-    bsf	    LATA, 0x6
-ENDIF
+rcServoFWD:
     MOVLB   BANK27
     MOVLW   SERVO_STOP_H
     MOVWF   PWM6DCH
@@ -392,9 +387,8 @@ ENDIF
     MOVLW   SERVO_STOP_L
     MOVWF   PWM6DCL
     MOVWF   PWM11DCL
-    MOVLW   0x06
+    MOVLW   0x6
     MOVWF   PWMLD
-    MOVWF   PWMEN
     MOVLB   BANK0
     MOVLW   SERVO_COUNTER
     MOVWF   counter
@@ -421,14 +415,10 @@ ENDIF
     INCF    PWM11DCH, F
     BRA	    $-21
     BSF	    TBOT, TBOT_RCSERVO
-IF DEBUG
-    movlb   BANK2
-    bcf	    LATA, 0x6
-ENDIF
     BRA	    s0
 
 ; RC Servo Stop.
-s3:
+rcServoSTOP:
     MOVLB   BANK27
     MOVLW   SERVO_STOP_H
     MOVWF   PWM6DCH
@@ -436,14 +426,13 @@ s3:
     MOVLW   SERVO_STOP_L
     MOVWF   PWM6DCL
     MOVWF   PWM11DCL
-    MOVLW   0x06
+    MOVLW   0x6
     MOVWF   PWMLD
     MOVLW   255 ; TODO delay
     CALL    _delay
     BCF	    TBOT, TBOT_RCSERVO
 
-; RC Servo.
-; TODO Rotation two wheel
+; RC Servo Rotation.
 ; TODO Pivoting one wheel
 s4:
     MOVLB   BANK27
