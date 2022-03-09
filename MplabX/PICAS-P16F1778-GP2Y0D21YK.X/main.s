@@ -26,7 +26,6 @@ CONFIG LVP=ON
 ; TBOT - v0.1.
 ; Sensor SHARP GP2Y0D21YK.
 
-; TODO: Stop Ramp ?
 ; TODO: Rotation Rmp ?
 ; TODO: Better Delay Fonction
 ; TODO: Optimize Variables
@@ -419,17 +418,34 @@ rcServoFWD:
 
 ; RC Servo Stop.
 rcServoSTOP:
+    MOVLB   BANK0
+    MOVLW   SERVO_COUNTER
+    MOVWF   counter
+    MOVLB   BANK0
+    DECFSZ  counter, F
+    BRA	    $+2
+    BRA	    $+22
     MOVLB   BANK27
-    MOVLW   SERVO_STOP_H
-    MOVWF   PWM6DCH
-    MOVWF   PWM11DCH
     MOVLW   SERVO_STOP_L
-    MOVWF   PWM6DCL
-    MOVWF   PWM11DCL
+    XORWF   PWM6DCL, W
+    BTFSS   STATUS, Z
+    INCF    PWM6DCL, F
+    MOVLW   SERVO_STOP_L
+    XORWF   PWM11DCL, W
+    BTFSS   STATUS, Z
+    DECF    PWM11DCL, F
     MOVLW   0x6
     MOVWF   PWMLD
-    MOVLW   255 ; TODO delay
-    CALL    _delay
+    MOVLW   4
+    CALL    _delay ; TODO delay
+    MOVLB   BANK27
+    MOVLW   0
+    XORWF   PWM11DCL, W
+    BTFSS   STATUS, Z
+    BRA	    $-21
+    DECF    PWM11DCL, F
+    DECF    PWM11DCH, F
+    BRA	    $-24
     BCF	    TBOT, TBOT_RCSERVO
 
 ; RC Servo Rotation.
