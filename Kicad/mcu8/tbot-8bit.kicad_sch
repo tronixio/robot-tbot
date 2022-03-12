@@ -1061,6 +1061,10 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 02ab3880-caf8-4cc1-af55-29c50a83928f)
   )
+  (text "DRAFT" (at 210.82 187.96 0)
+    (effects (font (size 5 5)) (justify left bottom))
+    (uuid 3cd13752-93b7-4392-bcad-a209e5ae2cdd)
+  )
 
   (global_label "RB3{slash}BATTERY_SENSE" (shape output) (at 198.12 53.34 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
