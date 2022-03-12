@@ -13,6 +13,8 @@
 ## TBOT All Schematics.
 
 - [Charger 2x18650.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/charger/extras/schematic.pdf)
+- [Front GP2Y.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-gp2y/extras/schematic.pdf)
+-
 
 ## Code - PIC16F1778.
 
