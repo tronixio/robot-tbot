@@ -43,7 +43,7 @@ CONFIG LVP=ON
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
-delay:	    DS  1
+delay:	    DS  2
 filter:	    DS	1
 counter:    DS	1
 
@@ -379,6 +379,9 @@ batteryRead:
 ; RC Servo Forward Ramp.
 ; TODO add Sensor Detection ?
 rcServoFWD:
+    MOVLB   BANK0
+    MOVLW   SERVO_COUNTER
+    MOVWF   counter
     MOVLB   BANK27
     MOVLW   SERVO_STOP_H
     MOVWF   PWM6DCH
@@ -388,9 +391,6 @@ rcServoFWD:
     MOVWF   PWM11DCL
     MOVLW   0x6
     MOVWF   PWMLD
-    MOVLB   BANK0
-    MOVLW   SERVO_COUNTER
-    MOVWF   counter
     MOVLB   BANK0
     DECFSZ  counter, F
     BRA	    $+2
@@ -448,26 +448,7 @@ rcServoSTOP:
     BRA	    $-24
     BCF	    TBOT, TBOT_RCSERVO
 
-; RC Servo Rotation.
-; TODO Pivoting one wheel
-s4:
-    MOVLB   BANK27
-    MOVLW   150
-    MOVWF   PWM6DCL
-    MOVLW   5
-    MOVWF   PWM6DCH
-    MOVLW   150
-    MOVWF   PWM11DCL
-    MOVLW   5
-    MOVWF   PWM11DCH
-    MOVLW   0x6
-    MOVWF   PWMLD
-    MOVLB   BANK0
-    BTFSC   PORTC, GP2Y0D21_OUT
-    BRA	    $-1
-    movlw   255 ; TODO delay
-    call    _delay
-    BRA	    s0
+
 
     BRA	    loop
 
@@ -489,6 +470,20 @@ _delay:
     BRA	    $-1
     DECFSZ  delay, F
     BRA	    $-4
+    RETURN
+
+_delay1:
+    MOVLB   BANK0
+    MOVWF   delay + 1
+    movlw   255
+    movwf   delay
+    MOVLW   255
+    DECFSZ  WREG, F
+    BRA	    $-1
+    DECFSZ  delay, F
+    BRA	    $-4
+    decfsz  delay + 1, F
+    bra	    $-6
     RETURN
 
 _emergency:

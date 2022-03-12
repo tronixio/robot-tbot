@@ -12,7 +12,11 @@
 
 ## TBOT All Schematics.
 
+- [TODO - MCU PIC-8BIT.](https://github.com/tronixio/robot-tbot/)
 - [Charger 2x18650.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/charger/extras/schematic.pdf)
+- [TODO - Front GP2Y.](https://github.com/tronixio/robot-tbot/)
+- [TODO - Front HC-SR04.](https://github.com/tronixio/robot-tbot/)
+- [TODO - IR Line Folllow.](https://github.com/tronixio/robot-tbot/)
 
 ## Code - PIC16F1778.
 
