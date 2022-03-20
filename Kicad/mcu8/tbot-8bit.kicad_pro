@@ -497,6 +497,7 @@
         "microvia_drill": 0.0,
         "name": "POWER-08",
         "nets": [
+          "Net-(R101-Pad2)",
           "VBAT"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
