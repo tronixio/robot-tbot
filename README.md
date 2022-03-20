@@ -57,6 +57,14 @@
 
 ![TBOT Charger Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/charger/extras/bottom.png)
 
+## TBOT IR Wheel Top.
+
+![TBOT IR Wheel Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-wheel/extras/top.png)
+
+## TBOT IR Wheel Bottom.
+
+![TBOT IR Wheel Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-wheel/extras/bottom.png)
+
 ## TBOT Front GP2Y Top.
 
 ![TBOT Front GP2Y Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-gp2y/extras/top.png)
