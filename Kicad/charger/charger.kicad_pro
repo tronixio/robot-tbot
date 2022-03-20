@@ -452,7 +452,6 @@
         "microvia_drill": 0.0,
         "name": "CLASS-05",
         "nets": [
-          "Net-(BT1-Pad1)",
           "Net-(IC1-Pad4)",
           "Net-(IC1-Pad5)",
           "Net-(IC1-Pad7)",
