@@ -349,7 +349,9 @@
   },
   "libraries": {
     "pinned_footprint_libs": [],
-    "pinned_symbol_libs": []
+    "pinned_symbol_libs": [
+      "tronixio"
+    ]
   },
   "meta": {
     "filename": "ir-line.kicad_pro",
