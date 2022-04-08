@@ -1,4 +1,4 @@
-# TBOT 2 Wheels.
+# ROBOT - TBOT 2 Wheels.
 
 ## TBOT Features.
 
@@ -94,7 +94,7 @@
     - TODO : Work in progress, prototype was not good, hardware, PCB and code can be rework.
     - DRAFT : Prototype OK, last check schematic, PCB & code can be modify.
 
-!!! example "Disclaimer"
+!!! example "DISCLAIMER"
 
     THIS CODE IS PROVIDED WITHOUT ANY WARRANTY OR GUARANTEES.
     USERS MAY USE THIS CODE FOR DEVELOPMENT AND EXAMPLE PURPOSES ONLY.
