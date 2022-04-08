@@ -1,4 +1,4 @@
-# ROBOT - TBOT 2 Wheels.
+# TBOT 2 Wheels.
 
 ## Features.
 
