@@ -1,6 +1,6 @@
-# TBOT 2 Wheels.
+# ROBOT - TBOT 2 Wheels.
 
-## Features.
+## TBOT Features.
 
 - 2 Wheels.
 - Continuous RC Servos Motors.
@@ -13,16 +13,16 @@
 ## TBOT All Schematics.
 
 - [DRAFT - MCU PIC-8BIT.](https://github.com/tronixio/robot-tbot/)
-- [Charger 2x18650.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/charger/extras/schematic.pdf)
+- [Charger 2x18650.](https://github.com/tronixio/robot-tbot/main/Kicad/charger/extras/schematic.pdf)
 - [DRAFT - IR Wheel.](https://github.com/tronixio/robot-tbot/)
-- [Front GP2Y.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-gp2y/extras/schematic.pdf)
+- [Front GP2Y.](https://github.com/tronixio/robot-tbot/main/Kicad/front-gp2y/extras/schematic.pdf)
 - [DRAFT - Front HC-SR04.](https://github.com/tronixio/robot-tbot/)
 - [DRAFT - IR Line Folllow.](https://github.com/tronixio/robot-tbot/)
 
-## Code - PIC16F1778.
+## TBOT Code - PIC16F1778.
 
-- [MCU & GPIO Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration/)
-- [EUSART TX - Display Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart-tx/)
+- [MCU & GPIO Configuration.](https://github.com/tronixio/robot-tbot/main/Code/configuration/)
+- [EUSART TX - Display Strings.](https://github.com/tronixio/robot-tbot/main/Code/eusart-tx/)
 - [EUSART TX/RX - Echo RX Character.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart-txrx/)
 - [ADC/TIMER0 - Read, Display & Check Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc/)
 - [PWM 16-Bit - RC Servo Forward & Backward.](https://github.com/tronixio/robot-tbot/blob/main/Code/pwm/)
@@ -30,10 +30,10 @@
 - [IOC - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/Code/gp2y0d21yk/)
 
 
-## Firmware - PIC16F1778.
+## TBOT Firmware.
 
-- [DRAFT - PIC-AS - Firmware SHARP GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/MplabX/PICAS-P16F1778-GP2Y0D21YK.X/)
-- [XC8 - Firmware DEBUG.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/XC8-P16F1778-DEBUG.X/)
+- [DRAFT - PIC16F1778 - PIC-AS - Firmware SHARP GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/MplabX/PICAS-P16F1778-GP2Y0D21YK.X/)
+- [PIC16F1778 - XC8 - Firmware DEBUG.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/XC8-P16F1778-DEBUG.X/)
 
 <!--
 - [TBOT Firmware - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/PICAS-P16F1778-GP2Y0D21YK.X)
@@ -43,62 +43,62 @@
 
 ## TBOT MCU PIC 8Bit Top.
 
-![TBOT MCU PIC 8Bit Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/mcu8/extras/top.png)
+![TBOT MCU PIC 8Bit Top.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/mcu8/extras/top.png)
 
 ## TBOT MCU PIC 8Bit Bottom.
 
-![TBOT MCU PIC 8Bit Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/mcu8/extras/bottom.png)
+![TBOT MCU PIC 8Bit Bottom.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/mcu8/extras/bottom.png)
 
 ## TBOT Charger Top.
 
-![TBOT Charger Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/charger/extras/top.png)
+![TBOT Charger Top.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/charger/extras/top.png)
 
 ## TBOT Charger Bottom.
 
-![TBOT Charger Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/charger/extras/bottom.png)
+![TBOT Charger Bottom.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/charger/extras/bottom.png)
 
 ## TBOT IR Wheel Top.
 
-![TBOT IR Wheel Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-wheel/extras/top.png)
+![TBOT IR Wheel Top.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/ir-wheel/extras/top.png)
 
 ## TBOT IR Wheel Bottom.
 
-![TBOT IR Wheel Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-wheel/extras/bottom.png)
+![TBOT IR Wheel Bottom.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/ir-wheel/extras/bottom.png)
 
 ## TBOT Front GP2Y Top.
 
-![TBOT Front GP2Y Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-gp2y/extras/top.png)
+![TBOT Front GP2Y Top.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/front-gp2y/extras/top.png)
 
 ## TBOT Front GP2Y Bottom.
 
-![TBOT Front GP2Y Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-gp2y/extras/bottom.png)
+![TBOT Front GP2Y Bottom.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/front-gp2y/extras/bottom.png)
 
 ## TBOT Front HC-SR04 Top.
 
-![TBOT Front HC-SR04 Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/extras/top.png)
+![TBOT Front HC-SR04 Top.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/front-hc/extras/top.png)
 
 ## TBOT Front HC-SR04 Bottom.
 
-![TBOT Front HC-SR04 Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-hc/extras/bottom.png)
+![TBOT Front HC-SR04 Bottom.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/front-hc/extras/bottom.png)
 
 ## TBOT IR Line Follow Top.
 
-![TBOT IR Line Follow Top.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/extras/top.png)
+![TBOT IR Line Follow Top.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/ir-line/extras/top.png)
 
 ## TBOT IR Line Follow Bottom.
 
-![TBOT IR Line Follow Bottom.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/ir-line/extras/bottom.png)
+![TBOT IR Line Follow Bottom.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/ir-line/extras/bottom.png)
 
-## Notes.
+!!! note
 
-- TODO : Work in progress, prototype was not good, hardware, PCB and code can be rework.
-- DRAFT : Prototype OK, last check schematic, PCB & code can be modify.
+    - TODO : Work in progress, prototype was not good, hardware, PCB and code can be rework.
+    - DRAFT : Prototype OK, last check schematic, PCB & code can be modify.
 
-## DISCLAIMER.
+!!! example "Disclaimer"
 
-THIS CODE IS PROVIDED WITHOUT ANY WARRANTY OR GUARANTEES.
-USERS MAY USE THIS CODE FOR DEVELOPMENT AND EXAMPLE PURPOSES ONLY.
-AUTHORS ARE NOT RESPONSIBLE FOR ANY ERRORS, OMISSIONS, OR DAMAGES THAT COULD
-RESULT FROM USING THIS FIRMWARE IN WHOLE OR IN PART.
+    THIS CODE IS PROVIDED WITHOUT ANY WARRANTY OR GUARANTEES.
+    USERS MAY USE THIS CODE FOR DEVELOPMENT AND EXAMPLE PURPOSES ONLY.
+    AUTHORS ARE NOT RESPONSIBLE FOR ANY ERRORS, OMISSIONS, OR DAMAGES THAT COULD
+    RESULT FROM USING THIS FIRMWARE IN WHOLE OR IN PART.
 
 ---
