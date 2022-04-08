@@ -1,4 +1,4 @@
-# ROBOT - TBOT 2 Wheels.
+# TBOT 2 Wheels.
 
 ## TBOT Features.
 
@@ -12,22 +12,22 @@
 
 ## TBOT All Schematics.
 
-- [DRAFT - MCU PIC-8BIT.](https://github.com/tronixio/robot-tbot/)
+- [DRAFT - MCU Board PIC-8BIT.](https://github.com/tronixio/robot-tbot/)
 - [Charger 2x18650.](https://github.com/tronixio/robot-tbot/main/Kicad/charger/extras/schematic.pdf)
 - [DRAFT - IR Wheel.](https://github.com/tronixio/robot-tbot/)
 - [Front GP2Y.](https://github.com/tronixio/robot-tbot/main/Kicad/front-gp2y/extras/schematic.pdf)
 - [DRAFT - Front HC-SR04.](https://github.com/tronixio/robot-tbot/)
 - [DRAFT - IR Line Folllow.](https://github.com/tronixio/robot-tbot/)
 
-## TBOT Code - PIC16F1778.
+## TBOT Code.
 
-- [MCU & GPIO Configuration.](https://github.com/tronixio/robot-tbot/main/Code/configuration/)
-- [EUSART TX - Display Strings.](https://github.com/tronixio/robot-tbot/main/Code/eusart-tx/)
-- [EUSART TX/RX - Echo RX Character.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart-txrx/)
-- [ADC/TIMER0 - Read, Display & Check Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc/)
-- [PWM 16-Bit - RC Servo Forward & Backward.](https://github.com/tronixio/robot-tbot/blob/main/Code/pwm/)
-- [INT0 - Emergency Switch & LED.](https://github.com/tronixio/robot-tbot/blob/main/Code/int0/)
-- [IOC - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/Code/gp2y0d21yk/)
+- [PIC16F1778 - MCU & GPIO Configuration.](https://github.com/tronixio/robot-tbot/main/Code/configuration/)
+- [PIC16F1778 - EUSART TX - Display Strings.](https://github.com/tronixio/robot-tbot/main/Code/eusart-tx/)
+- [PIC16F1778 - EUSART TX/RX - Echo RX Character.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart-txrx/)
+- [PIC16F1778 - ADC/TIMER0 - Read, Display & Check Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc/)
+- [PIC16F1778 - PWM 16-Bit - RC Servo Forward & Backward.](https://github.com/tronixio/robot-tbot/blob/main/Code/pwm/)
+- [PIC16F1778 - INT0 - Emergency Switch & LED.](https://github.com/tronixio/robot-tbot/blob/main/Code/int0/)
+- [PIC16F1778 - IOC - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/Code/gp2y0d21yk/)
 
 
 ## TBOT Firmware.
