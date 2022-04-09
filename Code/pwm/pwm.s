@@ -263,7 +263,7 @@ main:
     BSF	    PWM11EN
 
 loop:
-    ; RC Servo Forward.
+    ; RC Servos Forward.
     MOVLB   BANK27
     MOVLW   20
     MOVWF   PWM6DCL
@@ -278,7 +278,7 @@ loop:
     MOVLW   10
     CALL    _delay
 
-    ; RC Servo Stop.
+    ; RC Servos Stop.
     MOVLB   BANK27
     MOVLW   SERVO_STOP_L
     MOVWF   PWM6DCL
@@ -293,7 +293,7 @@ loop:
     MOVLW   10
     CALL    _delay
 
-    ; RC Servo Backward.
+    ; RC Servos Backward.
     MOVLB   BANK27
     MOVLW   165
     MOVWF   PWM6DCL
@@ -308,7 +308,7 @@ loop:
     MOVLW   10
     CALL    _delay
 
-    ; RC Servo Stop.
+    ; RC Servos Stop.
     MOVLB   BANK27
     MOVLW   SERVO_STOP_L
     MOVWF   PWM6DCL
