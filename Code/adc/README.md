@@ -1,4 +1,4 @@
-# ADC - 0-Bit Analog-to-Digital Converter.
+# ADC - 10-Bit Analog-to-Digital Converter.
 
 ## Code.
 
