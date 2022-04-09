@@ -1,4 +1,4 @@
-# MCU Configuration.
+# ADC - 0-Bit Analog-to-Digital Converter.
 
 ## Code.
 
