@@ -219,7 +219,7 @@ loop:
     CALL    _eusartRX
     CALL    _eusartTX
 
-    ; Check Carriage Return.
+    ; Carriage Return ?
     MOVLB   BANK0
     MOVLW   ASCII_CR
     XORWF   eusartRX, W
@@ -228,6 +228,7 @@ loop:
 
     ; EUSART String READY.
     CALL    _writeStringREADY
+
     BRA	    loop
 
 ; Functions.
