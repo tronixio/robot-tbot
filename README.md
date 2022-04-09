@@ -41,11 +41,11 @@
 - [TBOT Firmware - HC SR04.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/PICAS-P16F1778-HCSR04.X)
 -->
 
-## TBOT MCU PIC 8Bit Top.
+## DRAFT - TBOT MCU PIC 8Bit Top.
 
 ![TBOT MCU PIC 8Bit Top.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/mcu8/extras/top.png)
 
-## TBOT MCU PIC 8Bit Bottom.
+## DRAFT - TBOT MCU PIC 8Bit Bottom.
 
 ![TBOT MCU PIC 8Bit Bottom.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/mcu8/extras/bottom.png)
 
@@ -57,11 +57,11 @@
 
 ![TBOT Charger Bottom.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/charger/extras/bottom.png)
 
-## TBOT IR Wheel Top.
+## DRAFT - TBOT IR Wheel Top.
 
 ![TBOT IR Wheel Top.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/ir-wheel/extras/top.png)
 
-## TBOT IR Wheel Bottom.
+## DRAFT - TBOT IR Wheel Bottom.
 
 ![TBOT IR Wheel Bottom.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/ir-wheel/extras/bottom.png)
 
@@ -73,19 +73,19 @@
 
 ![TBOT Front GP2Y Bottom.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/front-gp2y/extras/bottom.png)
 
-## TBOT Front HC-SR04 Top.
+## DRAFT - TBOT Front HC-SR04 Top.
 
 ![TBOT Front HC-SR04 Top.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/front-hc/extras/top.png)
 
-## TBOT Front HC-SR04 Bottom.
+## DRAFT - TBOT Front HC-SR04 Bottom.
 
 ![TBOT Front HC-SR04 Bottom.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/front-hc/extras/bottom.png)
 
-## TBOT IR Line Follow Top.
+## DRAFT - TBOT IR Line Follow Top.
 
 ![TBOT IR Line Follow Top.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/ir-line/extras/top.png)
 
-## TBOT IR Line Follow Bottom.
+## DRAFT - TBOT IR Line Follow Bottom.
 
 ![TBOT IR Line Follow Bottom.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/ir-line/extras/bottom.png)
 
