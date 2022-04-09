@@ -21,8 +21,8 @@
 
 ## TBOT Code.
 
-- [PIC16F1778 - MCU & GPIO Configuration.](https://github.com/tronixio/robot-tbot/main/Code/configuration/)
-- [PIC16F1778 - EUSART TX - Display Strings.](https://github.com/tronixio/robot-tbot/main/Code/eusart-tx/)
+- [PIC16F1778 - MCU & GPIO Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration/)
+- [PIC16F1778 - EUSART TX - Display Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart-tx/)
 - [PIC16F1778 - EUSART TX/RX - Echo RX Character.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart-txrx/)
 - [PIC16F1778 - ADC/TIMER0 - Read, Display & Check Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc/)
 - [PIC16F1778 - PWM 16-Bit - RC Servo Forward & Backward.](https://github.com/tronixio/robot-tbot/blob/main/Code/pwm/)
