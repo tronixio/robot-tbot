@@ -26,23 +26,9 @@ CONFIG LVP=ON
 ; TBOT - v0.1.
 ; Sensor SHARP GP2Y0D21YK.
 
-; TODO: Rotation Rmp ?
 ; TODO: Better Delay Fonction
 ; TODO: Optimize Variables
 ; TODO: Faire le timming des boucles
-
-; Algo
-; Parceque l'obstacle n'est pas forcement a angle droit
-; donc pas forcement un recul de 25cm, mais angulaire
-; pour tourner (rotation / pivot), 1 seul capteur ne peut
-; pas determiner le sens de rotation (ajouter aleatoir)
-;
-; DONE - Forward Ramp
-; DONE -   Sensor Obstacle
-; DONE -   Stop Ramp
-; TODO -   Backward
-; TODO -   Turn (Pivot/Rotation)
-; DONE - Loop to Forward Ramp
 
 ; Pinout.
 ; MCU.RA6  -> LED.DEBUG - OSCILLOSCOPE.PROBE.
