@@ -2345,8 +2345,8 @@
     (path "/c08fbfd3-8364-4a63-b1e9-c40a8e38215b"
       (reference "IC101") (unit 1) (value "TLV1117-33-SOT") (footprint "tronixio:SOT-223-3")
     )
-    (path "/6012b3a0-2f30-4458-8240-bd443182c6c0/62556c86-cc9a-4f87-9ae9-460fa7f2b0de"
-      (reference "IC301") (unit 1) (value "PIC24FJxxGA002-ISP") (footprint "tronixio:DIP-28-W762")
+    (path "/6012b3a0-2f30-4458-8240-bd443182c6c0/f851dc23-a7aa-409a-9752-b640c2926160"
+      (reference "IC301") (unit 1) (value "MICROCHIP-PIC24FJ64GA102-ISP") (footprint "tronixio:DIP-28-W762")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/d0321353-b1dc-42b0-aca7-d30a423dc669"
       (reference "IC401") (unit 1) (value "MCP2221A") (footprint "tronixio:SOIC-SL-14")
