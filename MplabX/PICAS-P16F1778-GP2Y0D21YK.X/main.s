@@ -29,6 +29,20 @@ CONFIG LVP=ON
 ; TODO: Rotation Rmp ?
 ; TODO: Better Delay Fonction
 ; TODO: Optimize Variables
+; TODO: Faire le timming des boucles
+
+; Algo
+; Parceque l'obstacle n'est pas forcement a angle droit
+; donc pas forcement un recul de 25cm, mais angulaire
+; pour tourner (rotation / pivot), 1 seul capteur ne peut
+; pas determiner le sens de rotation (ajouter aleatoir)
+;
+; DONE - Forward Ramp
+; DONE -   Sensor Obstacle
+; DONE -   Stop Ramp
+; TODO -   Backward
+; TODO -   Turn (Pivot/Rotation)
+; DONE - Loop to Forward Ramp
 
 ; Pinout.
 ; MCU.RA6  -> LED.DEBUG - OSCILLOSCOPE.PROBE.
@@ -45,7 +59,7 @@ CONFIG LVP=ON
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
 delay:	    DS  2
 filter:	    DS	1
-counter:    DS	1
+speed:	    DS	1
 
 ; Common RAM.
 PSECT cstackCOMM,class=COMMON,space=1,delta=1
@@ -98,7 +112,7 @@ TBOT:	    DS  1
 ; LED Debug.
 #define	LED_DEBUG	    0x6
 ; RC Servo.
-#define	SERVO_COUNTER	    202
+#define	SERVO_SPEED	    202
 ; Frequency 50Hz - @8MHz.
 #define SERVO_PERIOD_H	    78
 #define SERVO_PERIOD_L	    30
@@ -331,6 +345,9 @@ main:
     ; Wait ~60ms.
     MOVLW   GP2Y0D21_60MS
     CALL    _delay
+    ; GP2Y0D21 Obstacle ?
+    BTFSC   PORTC, GP2Y0D21_OUT
+    BRA	    $-1
 
     ; INTERRUPTS Settings.
     BSF	    INTE
@@ -346,8 +363,7 @@ main:
     CLRF    TBOT
 
 loop:
-s0:
-    ; SENSOR Obstacle ?
+    ; GP2Y0D21 Obstacle ?
     MOVLB   BANK0
     BTFSC   PORTC, GP2Y0D21_OUT
     BRA	    rcServoSTOP
@@ -356,7 +372,7 @@ s0:
     BRA	    batteryRead
     ; TBOT RC Servo are Running ?
     BTFSC   TBOT, TBOT_RCSERVO
-    BRA	    s0
+    BRA	    loop
     BRA	    rcServoFWD
 
 ; Battery Read & Filtering.
@@ -374,25 +390,25 @@ batteryRead:
     MOVLW   BATTERY_FILTER
     MOVWF   filter
     BCF     TMR0IF
-    BRA     s0
+    BRA     loop
 
 ; RC Servo Forward Ramp.
 ; TODO add Sensor Detection ?
 rcServoFWD:
     MOVLB   BANK0
-    MOVLW   SERVO_COUNTER
-    MOVWF   counter
+    MOVLW   SERVO_SPEED
+    MOVWF   speed
     MOVLB   BANK27
-    MOVLW   SERVO_STOP_H
-    MOVWF   PWM6DCH
-    MOVWF   PWM11DCH
     MOVLW   SERVO_STOP_L
     MOVWF   PWM6DCL
     MOVWF   PWM11DCL
+    MOVLW   SERVO_STOP_H
+    MOVWF   PWM6DCH
+    MOVWF   PWM11DCH
     MOVLW   0x6
     MOVWF   PWMLD
     MOVLB   BANK0
-    DECFSZ  counter, F
+    DECFSZ  speed, F
     BRA	    $+2
     BRA	    $+19
     MOVLW   SERVO_MAX_RIGH_L
@@ -406,7 +422,7 @@ rcServoFWD:
     INCF    PWM11DCL, F
     MOVLW   0x6
     MOVWF   PWMLD
-    MOVLW   10 ; TODO delay
+    MOVLW   8 ; todo delay
     call    _delay
     MOVLB   BANK27
     INCFSZ  PWM11DCL, W
@@ -414,15 +430,15 @@ rcServoFWD:
     INCF    PWM11DCH, F
     BRA	    $-21
     BSF	    TBOT, TBOT_RCSERVO
-    BRA	    s0
+    BRA	    loop
 
 ; RC Servo Stop.
 rcServoSTOP:
     MOVLB   BANK0
-    MOVLW   SERVO_COUNTER
-    MOVWF   counter
+    MOVLW   SERVO_SPEED
+    MOVWF   speed
     MOVLB   BANK0
-    DECFSZ  counter, F
+    DECFSZ  speed, F
     BRA	    $+2
     BRA	    $+22
     MOVLB   BANK27
@@ -436,8 +452,8 @@ rcServoSTOP:
     DECF    PWM11DCL, F
     MOVLW   0x6
     MOVWF   PWMLD
-    MOVLW   4
-    CALL    _delay ; TODO delay
+    MOVLW   3
+    CALL    _delay ; todo delay
     MOVLB   BANK27
     MOVLW   0
     XORWF   PWM11DCL, W
@@ -446,9 +462,47 @@ rcServoSTOP:
     DECF    PWM11DCL, F
     DECF    PWM11DCH, F
     BRA	    $-24
+    MOVLW   255
+    CALL    _delay
+    ; RC Servos Backward.
+    MOVLB   BANK27
+    MOVLW   35
+    MOVWF   PWM6DCL
+    MOVLW   6
+    MOVWF   PWM6DCH
+    MOVLW   150
+    MOVWF   PWM11DCL
+    MOVLW   5
+    MOVWF   PWM11DCH
+    MOVLW   0x6
+    MOVWF   PWMLD
+    ; GP2Y0D21 Obstacle ?
+    MOVLB   BANK0
+    BTFSC   PORTC, GP2Y0D21_OUT
+    BRA	    $-1
+    ; RC Servo Stop Right, Rotation with Left RC Servo.
+    MOVLB   BANK27
+    MOVLW   220
+    MOVWF   PWM6DCL
+    MOVLW   5
+    MOVWF   PWM6DCH
+    MOVLW   0x2
+    MOVWF   PWMLD
+    MOVLW   5
+    CALL    _delay1
+    ; GP2Y0D21 Obstacle ?
+    MOVLB   BANK0
+    BTFSC   PORTC, GP2Y0D21_OUT
+    BRA	    $-1
+    ; RC Servo Stop.
+    MOVLB   BANK27
+    MOVLW   220
+    MOVWF   PWM11DCL
+    MOVLW   5
+    MOVWF   PWM11DCH
+    MOVLW   0x4
+    MOVWF   PWMLD
     BCF	    TBOT, TBOT_RCSERVO
-
-
 
     BRA	    loop
 
@@ -472,6 +526,8 @@ _delay:
     BRA	    $-4
     RETURN
 
+; delay = 1 ~98ms.
+; delay = 255 ~25s.
 _delay1:
     MOVLB   BANK0
     MOVWF   delay + 1
