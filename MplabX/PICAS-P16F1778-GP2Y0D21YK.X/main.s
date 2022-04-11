@@ -468,9 +468,9 @@ rcServoSTOP:
     BRA	    $-1
     ; RC Servo Stop Right, Rotation with Left RC Servo.
     MOVLB   BANK27
-    MOVLW   220
+    MOVLW   SERVO_STOP_L
     MOVWF   PWM6DCL
-    MOVLW   5
+    MOVLW   SERVO_STOP_H
     MOVWF   PWM6DCH
     MOVLW   0x2
     MOVWF   PWMLD
@@ -482,9 +482,9 @@ rcServoSTOP:
     BRA	    $-1
     ; RC Servo Stop.
     MOVLB   BANK27
-    MOVLW   220
+    MOVLW   SERVO_STOP_L
     MOVWF   PWM11DCL
-    MOVLW   5
+    MOVLW   SERVO_STOP_H
     MOVWF   PWM11DCH
     MOVLW   0x4
     MOVWF   PWMLD
