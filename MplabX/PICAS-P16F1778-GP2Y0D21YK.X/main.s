@@ -357,9 +357,9 @@ loop:
     BTFSC   TMR0IF
     BRA	    batteryRead
     ; TBOT RC Servo are Running ?
-    BTFSC   TBOT, TBOT_RCSERVO
-    BRA	    loop
+    BTFSS   TBOT, TBOT_RCSERVO
     BRA	    rcServoFWD
+    BRA	    loop
 
 ; Battery Read & Filtering.
 batteryRead:
