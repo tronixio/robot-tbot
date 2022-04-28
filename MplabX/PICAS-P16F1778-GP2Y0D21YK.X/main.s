@@ -26,26 +26,34 @@ CONFIG LVP=ON
 ; TBOT - v0.1.
 ; Sensor SHARP GP2Y0D21YK.
 
-; TODO: Better Delay Fonction
+; TODO: Better Delay Fonctions
 ; TODO: Optimize Variables
 ; TODO: Faire le timming des boucles
+
+; WiP: En fonction de la tension de la batterie
+; choisir la bonne valeur pour que la vitesse
+; soit constante en fonction de la tension de
+; la battterie
 
 ; Pinout.
 ; MCU.RA6  -> LED.DEBUG - OSCILLOSCOPE.PROBE.
 ; MCU.RB0 <-> EMERGENCY.LED.SWITCH.
 ; MCU.RB3 <-  AN9.BATTERY.SENSE.
-; MCU.RB5  -> PWM11.RC.SERVO.
+; MCU.RB4 <-  CCP7.IR.WHEEL.LEFT.
+; MCU.RB5  -> PWM11.RC.SERVO.LEFT.
 ; MCU.RB6  -> EUSART.TX.
 ; MCU.RB7 <-  EUSART.RX.
 ; MCU.RC0  -> GP2Y0D21YK.ENABLE.
 ; MCU.RC2 <-  GP2Y0D21YK.OUT.
-; MCU.RC5  -> PWM6.RC.SERVO.
+; MCU.RC5  -> PWM6.RC.SERVO.RIGHT.
+; MCU.RC6 <-  CCP2.IR.WHELL.RIGHT.
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
 delay:	    DS  2
 filter:	    DS	1
 speed:	    DS	1
+rotation:   DS  1
 
 ; Common RAM.
 PSECT cstackCOMM,class=COMMON,space=1,delta=1
@@ -159,13 +167,13 @@ main:
     MOVWF   TRISB
     MOVLW   0b01000100
     MOVWF   TRISC
-    MOVLW   0b00000000
+    MOVLW   0b00001000
     MOVWF   TRISE
     ; LATCH Outputs.
     MOVLB   BANK2
     MOVLW   0b00000000
     MOVWF   LATA
-    MOVLW   0b00000000
+    MOVLW   0b00000001
     MOVWF   LATB
     MOVLW   0b00000000
     MOVWF   LATC
@@ -325,6 +333,10 @@ main:
     MOVLW   0b01010111
     MOVWF   OPTION_REG
 
+    ; BATTERY Settings.
+    MOVLW   BATTERY_FILTER
+    MOVWF   filter
+
     ; GP2Y0D21 Enable.
     MOVLB   BANK2
     BSF	    LATC, GP2Y0D21_ENABLE
@@ -339,15 +351,17 @@ main:
     BSF	    INTE
     BCF	    INTF
     ; INTERRUPTS Enabled.
+    BCF	    PEIE
     BSF	    GIE
 
-    ; BATTERY Settings.
-    MOVLW   BATTERY_FILTER
-    MOVWF   filter
-
+    ;
+    movlw   10 ; todo define
+    movlb   BANK0
+    movwf   rotation
+    
     ; TBOT Flags Clear.
     CLRF    TBOT
-
+    
 loop:
     ; GP2Y0D21 Obstacle ?
     MOVLB   BANK0
@@ -466,6 +480,12 @@ rcServoSTOP:
     MOVLB   BANK0
     BTFSC   PORTC, GP2Y0D21_OUT
     BRA	    $-1
+    ; Rotation Left or Right.
+    MOVLW   6 ; todo define
+    MOVLB   BANK0
+    SUBWF   rotation, W
+    BTFSC   STATUS, C
+    BRA	    $+11
     ; RC Servo Stop Right, Rotation with Left RC Servo.
     MOVLB   BANK27
     MOVLW   SERVO_STOP_L
@@ -474,6 +494,26 @@ rcServoSTOP:
     MOVWF   PWM6DCH
     MOVLW   0x2
     MOVWF   PWMLD
+    movlb   BANK0
+    DECF    rotation, F
+    BRA	    $+10
+    ; RC Servo Stop Left, Rotation with Right RC Servo.
+    MOVLB   BANK27
+    MOVLW   SERVO_STOP_L
+    MOVWF   PWM11DCL
+    MOVLW   SERVO_STOP_H
+    MOVWF   PWM11DCH
+    MOVLW   0x4
+    MOVWF   PWMLD
+    MOVLB   BANK0
+    DECF    rotation, F
+    MOVLB   BANK0
+    CLRW
+    SUBWF   rotation, W
+    BTFSS   STATUS, Z
+    BRA	    $+3
+    MOVLW   10
+    MOVWF   rotation
     MOVLW   5
     CALL    _delay1
     ; GP2Y0D21 Obstacle ?
