@@ -2,40 +2,39 @@
 
 ## TBOT Features.
 
-* 2 Wheels.
-* Continuous RC Servos Motors.
-* Power 2xCells 18650 Lithium Ion Rechargeable Batteries, with embedded charger.
-* [PARALLAX Small Robot Chassis.](https://www.parallax.com/product/700-00022)
-* [PARALLAX Feedback 360 High Speed Servo.](https://www.parallax.com/product/900-00360)
-* [PARALLAX Small Robot Whell and Tire.](https://www.parallax.com/product/28114)
-* [PARALLAX 1" Tail Whell Ball.](https://www.parallax.com/product/700-00009)
+- 2 Wheels.
+- Continuous RC Servos Motors.
+- Power 2xCells 18650 Lithium Ion Rechargeable Batteries, with embedded charger.
+- [PARALLAX Small Robot Chassis.](https://www.parallax.com/product/700-00022)
+- [PARALLAX Feedback 360 High Speed Servo.](https://www.parallax.com/product/900-00360)
+- [PARALLAX Small Robot Whell and Tire.](https://www.parallax.com/product/28114)
+- [PARALLAX 1" Tail Whell Ball.](https://www.parallax.com/product/700-00009)
 
 ## TBOT All Schematics.
 
-* [DRAFT - MCU Board PIC-8BIT.](https://github.com/tronixio/robot-tbot/)
-* [Charger 2x18650.](https://github.com/tronixio/robot-tbot/main/Kicad/charger/extras/schematic.pdf)
-* [DRAFT - IR Wheel.](https://github.com/tronixio/robot-tbot/)
-* [Front GP2Y.](https://github.com/tronixio/robot-tbot/main/Kicad/front-gp2y/extras/schematic.pdf)
-* [DRAFT - Front HC-SR04.](https://github.com/tronixio/robot-tbot/)
-* [DRAFT - IR Line Folllow.](https://github.com/tronixio/robot-tbot/)
+- [DRAFT - MCU Board PIC-8BIT.](https://github.com/tronixio/robot-tbot/)
+- [Charger 2x18650.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/charger/extras/schematic.pdf)
+- [DRAFT - IR Wheel.](https://github.com/tronixio/robot-tbot/)
+- [Front GP2Y.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-gp2y/extras/schematic.pdf)
+- [DRAFT - Front HC-SR04.](https://github.com/tronixio/robot-tbot/)
+- [DRAFT - IR Line Folllow.](https://github.com/tronixio/robot-tbot/)
 
 ## TBOT Code.
 
-* [PIC16F1778 - MCU & GPIO Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration/)
-* [PIC16F1778 - EUSART TX - Display Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart-tx/)
-* [PIC16F1778 - EUSART TX/RX - Echo RX Character.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart-txrx/)
-* [PIC16F1778 - ADC/TIMER0 - Read, Display & Check Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc/)
-* [PIC16F1778 - PWM 16-Bit - RC Servo Forward & Backward.](https://github.com/tronixio/robot-tbot/blob/main/Code/pwm/)
-* [PIC16F1778 - INT0 - Emergency Switch & LED.](https://github.com/tronixio/robot-tbot/blob/main/Code/int0/)
-* [PIC16F1778 - IOC - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/Code/gp2y0d21yk/)
+- [PIC16F1778 - MCU & GPIO Configuration.](https://github.com/tronixio/robot-tbot/blob/main/Code/configuration/)
+- [PIC16F1778 - EUSART TX - Display Strings.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart-tx/)
+- [PIC16F1778 - EUSART TX/RX - Echo RX Character.](https://github.com/tronixio/robot-tbot/blob/main/Code/eusart-txrx/)
+- [PIC16F1778 - ADC/TIMER0 - Read, Display & Check Battery Value.](https://github.com/tronixio/robot-tbot/blob/main/Code/adc/)
+- [PIC16F1778 - PWM 16-Bit - RC Servo Forward & Backward.](https://github.com/tronixio/robot-tbot/blob/main/Code/pwm/)
+- [PIC16F1778 - INT0 - Emergency Switch & LED.](https://github.com/tronixio/robot-tbot/blob/main/Code/int0/)
+- [PIC16F1778 - IOC - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/Code/gp2y0d21yk/)
 
 ## TBOT Firmware.
 
-* [DRAFT - PIC16F1778 - PIC-AS - Firmware SHARP GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/MplabX/PICAS-P16F1778-GP2Y0D21YK.X/)
-* [PIC16F1778 - XC8 - Firmware DEBUG.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/XC8-P16F1778-DEBUG.X/)
+- [DRAFT - PIC16F1778 - PIC-AS - Firmware SHARP GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/blob/main/MplabX/PICAS-P16F1778-GP2Y0D21YK.X/)
 
 <!--
-
+* [PIC16F1778 - XC8 - Firmware DEBUG.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/XC8-P16F1778-DEBUG.X/)
 * [TBOT Firmware - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/PICAS-P16F1778-GP2Y0D21YK.X)
 * [TBOT Firmware - Sharp GP2Y0A21YK.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/PICAS-P16F1778-GP2Y0A21YK.X)
 * [TBOT Firmware - HC SR04.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/PICAS-P16F1778-HCSR04.X) -->
