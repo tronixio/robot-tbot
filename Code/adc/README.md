@@ -27,7 +27,7 @@ CONFIG LVP=ON
 #include <xc.inc>
 ; PIC16F1778 - Compile with PIC-AS(v2.36).
 ; PIC16F1778 - @8MHz Internal Oscillator.
-; -preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h.
+; -preset_vec=0000h, -pcinit=0005h, -pstringtext=3FB0h.
 ; Instruction ~500ns @8MHz.
 
 ; TBOT - ADC/TIMER0.
@@ -40,8 +40,8 @@ CONFIG LVP=ON
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
-ascii:	    DS  4
-delay:	    DS  2
+u32Ascii:   DS  4
+u16Delay:   DS  2
 
 ; MCU Definitions.
 ; BANKS.
@@ -246,35 +246,46 @@ main:
     CALL    _writeStringREADY
 
 loop:
-    CALL    _debugBattery
-
     ; Check Battery Voltage Low.
     MOVLW   BATTERY_LOW
     MOVLB   BANK9
     SUBWF   ADRESH, W
     BTFSC   STATUS, C
-    BRA	    $+4
-    MOVLB   BANK2
-    BSF	    LATA, LED_DEBUG
+    BRA	    $+6
+    CALL    _writeStringREADY
+    CALL    _writeStringBATTERYLOW
+    MOVLW   10
+    CALL    _delay
     BRA	    loop
-    MOVLB   BANK2
-    BCF	    LATA, LED_DEBUG
+
+    ; Display Battery Value.
+    CALL    _writeStringREADY
+    MOVLW   '0'
+    CALL    _eusartTX
+    MOVLW   'x'
+    CALL    _eusartTX
+    MOVLB   BANK9
+    MOVF    ADRESH, W
+    CALL    _hex2ascii
+    CALL    _writeStringASCII
+    MOVLW   10
+    call    _delay
 
     BRA	    loop
 
 ; Functions.
 _delay:
     MOVLB   BANK0
-    MOVWF   delay + 1
+    MOVWF   u16Delay
     MOVLW   255
-    MOVWF   delay
+    MOVWF   u16Delay + 1
     MOVLW   255
     DECFSZ  WREG, F
     BRA	    $-1
-    DECFSZ  delay, F
-    BRA	    $-4
-    DECFSZ  delay + 1, F
-    BRA	    $-6
+    DECFSZ  u16Delay + 1, F
+    BRA	    $-3
+    DECFSZ  u16Delay, F
+    BRA	    $-5
     RETURN
 
 _eusartTX:
@@ -295,56 +306,43 @@ _eusartTXString:
 
 _hex2ascii:
     MOVLB   BANK0
-    MOVWF   ascii
+    MOVWF   u32Ascii
     ANDLW   0x0F
     CALL    $+9
-    MOVWF   ascii + 2
-    SWAPF   ascii, F
-    MOVF    ascii, W
+    MOVWF   u32Ascii + 2
+    SWAPF   u32Ascii, F
+    MOVF    u32Ascii, W
     ANDLW   0x0F
     CALL    $+4
-    MOVWF   ascii + 1
-    CLRF    ascii + 3
+    MOVWF   u32Ascii + 1
+    CLRF    u32Ascii + 3
     RETURN
     ; Decimal or Alpha ?
     SUBLW   0x09
     BTFSS   STATUS, C
     BRA	    $+5
     ; Decimal (0...9) add 0x30.
-    MOVF    ascii, W
+    MOVF    u32Ascii, W
     ANDLW   0x0F
     ADDLW   0x30
     RETURN
     ; Alpha (A...F) add 0x37.
-    MOVF    ascii, W
+    MOVF    u32Ascii, W
     ANDLW   0x0F
     ADDLW   'A' - 0x0A
     RETURN
 
-_debugBattery:
-    MOVLW   10
-    CALL    _delay
-    MOVLW   0xD
-    CALL    _eusartTX
-    MOVLW   0xA
-    CALL    _eusartTX
-    MOVLW   '>'
-    CALL    _eusartTX
-    MOVLW   0x20
-    CALL    _eusartTX
-    MOVLW   '0'
-    CALL    _eusartTX
-    MOVLW   'x'
-    CALL    _eusartTX
-    MOVLB   BANK9
-    MOVF    ADRESH, W
-    CALL    _hex2ascii
-    CALL    _writeStringASCII
-    RETURN
-
 _writeStringASCII:
     CLRF    FSR1H
-    MOVLW   ascii + 1
+    MOVLW   u32Ascii + 1
+    MOVWF   FSR1L
+    CALL    _eusartTXString
+    RETURN
+
+_writeStringBATTERYLOW:
+    MOVLW   HIGH stringBATTERYLOW + 0x80
+    MOVWF   FSR1H
+    MOVLW   LOW stringBATTERYLOW
     MOVWF   FSR1L
     CALL    _eusartTXString
     RETURN
@@ -383,11 +381,13 @@ _writeStringURL:
 
 ; FPM Strings.
 PSECT stringtext,class=STRCODE,space=0,delta=2
+stringBATTERYLOW:
+    DB  'B','a','t','t','e','r','y', ' ', 'L', 'o', 'w', '!', 0x0
 stringREADY:
-    DB  0xD, 0xA, 0xD, 0xA, 'R','e','a','d','y','>',' ', 0x0
+    DB  0xD, 0xA, 'R','e','a','d','y','>',' ', 0x0
 
 stringTBOT:
-    DB  0xD, 0xA, 'T','B','O','T',' ','-',' ','v','0','.','1', 0x0
+    DB  0xD, 0xA, 'T','B','O','T', 0xD, 0xA, 0x0
 
 stringTRONIX:
     DB  0xD, 0xA, 0xD, 0xA, 'T','r','o','n','i','x',' ','I','/','O','.', 0x0
@@ -395,13 +395,13 @@ stringTRONIX:
 stringURL:
     DB  0xD, 0xA, 'w','w','w','.','t','r','o','n','i','x','.','c','o','m', 0x0
 
-    END	    resetVector
+    END	resetVector
 ```
 
 ## Terminal.
 
 <p align="center">
-<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-2.png">
+<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-adc-eusart-0.png">
 </p>
 
 ## MPLABX Linker Configuration.
@@ -409,7 +409,9 @@ stringURL:
 - PIC-AS Linker > Custom linker options:
   - For Configuration & PWM: `-preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h`
 
-![MPLABX Configuration](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/configuration-1.png)
+<p align="center">
+<img alt="MPLAX Linker Configuration" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-mplabx-configuration-2.png">
+</p>
 
 ## Notes.
 
