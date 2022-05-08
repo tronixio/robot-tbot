@@ -30,12 +30,8 @@ CONFIG LVP=ON
 ; -preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h.
 ; Instruction ~500ns @8MHz.
 
-; TBOT - EUSART TX/RX.
-; Echo RX Character.
-
-; GPR BANK0.
-PSECT cstackBANK0,class=BANK0,space=1,delta=1
-u8EusartRX:   DS  1
+; TBOT - EUSART TX.
+; Display Strings.
 
 ; MCU Definitions.
 ; BANKS.
@@ -78,8 +74,6 @@ u8EusartRX:   DS  1
 ; User Definition.
 ; LED Debug.
 #define	LED_DEBUG   0x6
-; ASCII Characters.
-#define	ASCII_CR    0xD
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
@@ -92,7 +86,7 @@ main:
     ; MCU Initialization.
     ; Internal Oscillator Settings.
     MOVLB   BANK1
-    MOVLW   0b00000110
+    MOVLW   0b00000000
     MOVWF   OSCTUNE
     MOVLW   0x70
     MOVWF   OSCCON
@@ -181,10 +175,6 @@ main:
     MOVLW   0xAA
     MOVWF   PPSLOCK
     BCF	    PPSLOCK, 0x0
-    ; PPS Inputs.
-    ; RB7 - EUSART.URX.
-    movlw   0x0F
-    movwf   RXPPS
     ; PPS Outputs.
     MOVLB   BANK29
     ; RB6 - EUSART.UTX.
@@ -205,7 +195,8 @@ main:
     CLRF    TX1REG
     MOVLW   12
     MOVWF   SP1BRGL
-    CLRF    SP1BRGH
+    MOVLW   0
+    MOVWF   SP1BRGH
     MOVLW   0x10
     MOVWF   RC1STA
     MOVLW   0x20
@@ -222,37 +213,9 @@ main:
     CALL    _writeStringREADY
 
 loop:
-    ; EUSART Echo Character.
-    CALL    _eusartRX
-    CALL    _eusartTX
-
-    ; Carriage Return ?
-    MOVLB   BANK0
-    MOVLW   ASCII_CR
-    XORWF   u8EusartRX, W
-    BTFSS   STATUS, Z
-    BRA	    loop
-
-    ; EUSART String READY.
-    CALL    _writeStringREADY
-
-    BRA	    loop
+    BRA	    $
 
 ; Functions.
-_eusartRX:
-    MOVLB   BANK0
-    BTFSS   RCIF
-    BRA	    $-1
-    MOVLB   BANK3
-    BTFSS   OERR
-    BRA	    $+3
-    BCF	    CREN
-    BSF	    CREN
-    MOVF    RC1REG, W
-    MOVLB   BANK0
-    MOVWF   u8EusartRX
-    RETURN
-
 _eusartTX:
     MOVLB   BANK3
     BTFSS   TRMT
@@ -314,7 +277,7 @@ stringTRONIX:
 stringURL:
     DB  0xD, 0xA, 'w','w','w','.','t','r','o','n','i','x','.','c','o','m', 0x0
 
-    END resetVector
+    END	resetVector
 ```
 
 ## Oscilloscope.
@@ -322,7 +285,7 @@ stringURL:
 - MCU.RB6.EUSART.TX -> Oscilloscope Probe A
 
 <p align="center">
-<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00001.png">
+<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-eusart-tx-0.png">
 </p>
 
 ## Terminal.
@@ -330,7 +293,7 @@ stringURL:
 - EUSART TX - Display Strings.
 
 <p align="center">
-<img alt="EUSART TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-0.png">
+<img alt="EUSART TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/code-eusart-tx-1.png">
 </p>
 
 ## MPLABX Linker Configuration.
@@ -338,7 +301,7 @@ stringURL:
 - PIC-AS Linker > Custom linker options:
   - For Configuration & PWM: `-preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h`
 
-![MPLABX Configuration](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/configuration-1.png)
+![MPLABX Configuration](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/code-eusart-tx-2.png)
 
 ## Notes.
 
