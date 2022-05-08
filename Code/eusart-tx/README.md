@@ -266,10 +266,10 @@ _writeStringURL:
 ; FPM Strings.
 PSECT stringtext,class=STRCODE,space=0,delta=2
 stringREADY:
-    DB  0xD, 0xA, 0xD, 0xA, 'R','e','a','d','y','>',' ', 0x0
+    DB  0xD, 0xA, 'R','e','a','d','y','>',' ', 0x0
 
 stringTBOT:
-    DB  0xD, 0xA, 'T','B','O','T', 0x0
+    DB  0xD, 0xA, 'T','B','O','T', 0xD, 0xA, 0x0
 
 stringTRONIX:
     DB  0xD, 0xA, 0xD, 0xA, 'T','r','o','n','i','x',' ','I','/','O','.', 0x0

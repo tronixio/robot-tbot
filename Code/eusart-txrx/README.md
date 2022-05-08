@@ -34,7 +34,7 @@ CONFIG LVP=ON
 ; Echo RX Character.
 
 ; GPR BANK0.
-PSECT	cstackBANK0,class=BANK0,space=1,delta=1
+PSECT cstackBANK0,class=BANK0,space=1,delta=1
 u8EusartRX:   DS  1
 
 ; MCU Definitions.
@@ -82,17 +82,17 @@ u8EusartRX:   DS  1
 #define	ASCII_CR    0xD
 
 ; Reset Vector.
-PSECT	reset_vec,class=CODE,space=0,delta=2
+PSECT reset_vec,class=CODE,space=0,delta=2
 resetVector:
     GOTO    main
 
 ; Main.
-PSECT	cinit,class=CODE,space=0,delta=2
+PSECT cinit,class=CODE,space=0,delta=2
 main:
     ; MCU Initialization.
     ; Internal Oscillator Settings.
     MOVLB   BANK1
-    MOVLW   0b00000110
+    MOVLW   0b00000000
     MOVWF   OSCTUNE
     MOVLW   0x70
     MOVWF   OSCCON
@@ -301,12 +301,12 @@ _writeStringURL:
     RETURN
 
 ; FPM Strings.
-PSECT	stringtext,class=STRCODE,space=0,delta=2
+PSECT stringtext,class=STRCODE,space=0,delta=2
 stringREADY:
-    DB  0xD, 0xA, 0xD, 0xA, 'R','e','a','d','y','>',' ', 0x0
+    DB  0xD, 0xA, 'R','e','a','d','y','>',' ', 0x0
 
 stringTBOT:
-    DB  0xD, 0xA, 'T','B','O','T', 0x0
+    DB  0xD, 0xA, 'T','B','O','T', 0xD, 0xA, 0x0
 
 stringTRONIX:
     DB  0xD, 0xA, 0xD, 0xA, 'T','r','o','n','i','x',' ','I','/','O','.', 0x0
@@ -323,7 +323,7 @@ stringURL:
 - MCU.RB6.EUSART.TX -> Oscilloscope Probe B
 
 <p align="center">
-<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00002.png">
+<img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-eusart-txrx-0.png">
 </p>
 
 ## Terminal.
@@ -331,7 +331,7 @@ stringURL:
 - EUSART TX/RX - Echo RX Character.
 
 <p align="center">
-<img alt="EUSART TX/RX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/eusart-1.png">
+<img alt="EUSART TX/RX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/code-eusart-txrx-1.png">
 </p>
 
 ## MPLABX Linker Configuration.
@@ -339,7 +339,9 @@ stringURL:
 - PIC-AS Linker > Custom linker options:
   - For Configuration & PWM: `-preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h`
 
-![MPLABX Configuration](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/configuration-1.png)
+<p align="center">
+<img alt="MPLABX Linker Configuration" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/code-eusart-tx-2.png">
+</p>
 
 ## Notes.
 
