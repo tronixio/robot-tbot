@@ -249,7 +249,7 @@ _delay:
   - For Configuration & PWM: `-preset_vec=0000h, -pintentry=0004h, -pcinit=0005h`
 
 <p align="center">
-<img alt="MPLABX Linker Configuration" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-mplabx-configuration-2.png">
+<img alt="MPLABX Linker Configuration" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-mplabx-configuration-3.png">
 </p>
 
 ## Notes.
