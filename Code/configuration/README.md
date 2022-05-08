@@ -167,7 +167,7 @@ main:
 loop:
     BRA	    $
 
-    END	    resetVector
+    END resetVector
 ```
 
 ## Oscilloscope.
