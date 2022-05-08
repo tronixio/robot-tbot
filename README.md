@@ -13,7 +13,7 @@
 ## TBOT All Schematics.
 
 - [DRAFT - MCU Board PIC-8BIT.](https://github.com/tronixio/robot-tbot/)
-- [Charger 2x18650.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/charger/extras/schematic.pdf)
+- [Charger 2x18650.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/charger/extras/schematic.pdf)
 - [DRAFT - IR Wheel.](https://github.com/tronixio/robot-tbot/)
 - [Front GP2Y.](https://github.com/tronixio/robot-tbot/blob/main/Kicad/front-gp2y/extras/schematic.pdf)
 - [DRAFT - Front HC-SR04.](https://github.com/tronixio/robot-tbot/)
@@ -37,7 +37,8 @@
 * [PIC16F1778 - XC8 - Firmware DEBUG.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/XC8-P16F1778-DEBUG.X/)
 * [TBOT Firmware - Sharp GP2Y0D21YK.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/PICAS-P16F1778-GP2Y0D21YK.X)
 * [TBOT Firmware - Sharp GP2Y0A21YK.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/PICAS-P16F1778-GP2Y0A21YK.X)
-* [TBOT Firmware - HC SR04.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/PICAS-P16F1778-HCSR04.X) -->
+* [TBOT Firmware - HC SR04.](https://github.com/tronixio/robot-tbot/tree/main/MplabX/PICAS-P16F1778-HCSR04.X)
+-->
 
 ## DRAFT - TBOT MCU PIC 8Bit Top.
 
