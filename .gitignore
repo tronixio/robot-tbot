@@ -1,26 +1,17 @@
 .DS_Store
 Diptrace/
 Docs/
+
+# Kicad.
 *.kicad_prl
 *.kicad_sch-bak
 Kicad/*/gerber/
 Kicad/*/*-backups/
 Kicad/*/fp-info-cache
 
-# PIC-AS
+# PICAS-P16F1778-GP2Y0D21YK.
 MplabX/PICAS-P16F1778-GP2Y0D21YK.X/Makefile
 MplabX/PICAS-P16F1778-GP2Y0D21YK.X/build/
 MplabX/PICAS-P16F1778-GP2Y0D21YK.X/disassembly/
 MplabX/PICAS-P16F1778-GP2Y0D21YK.X/dist/
 MplabX/PICAS-P16F1778-GP2Y0D21YK.X/nbproject/
-
-# XC8 DEBUG
-MplabX/XC8-P16F1778-DEBUG.X/Makefile
-MplabX/XC8-P16F1778-DEBUG.X/build/
-MplabX/XC8-P16F1778-DEBUG.X/disassembly/
-MplabX/XC8-P16F1778-DEBUG.X/dist/
-MplabX/XC8-P16F1778-DEBUG.X/nbproject/
-/MplabX/PICAS-P16F1778-GP2Y0D21YK.X.X/dist/
-/MplabX/PICAS-P16F1778-GP2Y0D21YK.X.X/build/
-/MplabX/dist/
-/MplabX/build/
