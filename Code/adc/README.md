@@ -98,7 +98,7 @@ main:
     ; MCU Initialization.
     ; Internal Oscillator Settings.
     MOVLB   BANK1
-    MOVLW   0b00000110
+    MOVLW   0b00000000
     MOVWF   OSCTUNE
     MOVLW   0x70
     MOVWF   OSCCON
