@@ -184,7 +184,7 @@ loop:
   - For Configuration & PWM: `-preset_vec=0000h, -pcinit=0005h`
 
 <p align="center">
-<img alt="MPLABX Linker Configuration" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-configuration-1.png">
+<img alt="MPLABX Linker Configuration" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-mplabx-configuration-0.png">
 </p>
 
 ## Notes.
