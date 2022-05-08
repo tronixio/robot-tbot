@@ -167,7 +167,7 @@ main:
 loop:
     BRA	    $
 
-    END resetVector
+    END	    resetVector
 ```
 
 ## Oscilloscope.
@@ -175,7 +175,7 @@ loop:
 - MCU.RA6 -> Oscilloscope Probe A
 
 <p align="center">
-<img alt="MCU.RA6" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00000.png">
+<img alt="MCU.RA6" src="https://github.com/tronixio/robot-tbot/blob/main/extras/code-configuration-0.png">
 </p>
 
 ## MPLABX Linker Configuration.
@@ -183,7 +183,7 @@ loop:
 - PIC-AS Linker > Custom linker options:
   - For Configuration & PWM: `-preset_vec=0000h, -pcinit=0005h`
 
-![MPLABX Configuration](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/configuration-0.png)
+![MPLABX Configuration](https://github.com/tronixio/robot-tbot/blob/main/extras/code-configuration-1.png)
 
 ## Notes.
 
