@@ -293,7 +293,7 @@ stringURL:
 - EUSART TX - Display Strings.
 
 <p align="center">
-<img alt="EUSART TX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/code-eusart-tx-1.png">
+<img alt="EUSART TX" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-eusart-tx-1.png">
 </p>
 
 ## MPLABX Linker Configuration.
@@ -301,7 +301,9 @@ stringURL:
 - PIC-AS Linker > Custom linker options:
   - For Configuration & PWM: `-preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h`
 
-![MPLABX Configuration](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/code-eusart-tx-2.png)
+<p align="center">
+<img alt="MPLABX Linkder Configuration" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-eusart-tx-2.png">
+</p>
 
 ## Notes.
 
