@@ -30,8 +30,12 @@ CONFIG LVP=ON
 ; -preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h.
 ; Instruction ~500ns @8MHz.
 
-; TBOT - EUSART TX.
-; Display Strings.
+; TBOT - EUSART TX/RX.
+; Echo RX Character.
+
+; GPR BANK0.
+PSECT   cstackBANK0,class=BANK0,space=1,delta=1
+u8EusartRX:   DS  1
 
 ; MCU Definitions.
 ; BANKS.
@@ -74,14 +78,16 @@ CONFIG LVP=ON
 ; User Definition.
 ; LED Debug.
 #define	LED_DEBUG   0x6
+; ASCII Characters.
+#define	ASCII_CR    0xD
 
 ; Reset Vector.
-PSECT reset_vec,class=CODE,space=0,delta=2
+PSECT   reset_vec,class=CODE,space=0,delta=2
 resetVector:
     GOTO    main
 
 ; Main.
-PSECT cinit,class=CODE,space=0,delta=2
+PSECT   cinit,class=CODE,space=0,delta=2
 main:
     ; MCU Initialization.
     ; Internal Oscillator Settings.
@@ -175,6 +181,10 @@ main:
     MOVLW   0xAA
     MOVWF   PPSLOCK
     BCF	    PPSLOCK, 0x0
+    ; PPS Inputs.
+    ; RB7 - EUSART.URX.
+    movlw   0x0F
+    movwf   RXPPS
     ; PPS Outputs.
     MOVLB   BANK29
     ; RB6 - EUSART.UTX.
@@ -212,15 +222,42 @@ main:
     CALL    _writeStringREADY
 
 loop:
-    BRA	    $
+    ; EUSART Echo Character.
+    CALL    _eusartRX
+    CALL    _eusartTX
+
+    ; Carriage Return ?
+    MOVLB   BANK0
+    MOVLW   ASCII_CR
+    XORWF   u8EusartRX, W
+    BTFSS   STATUS, Z
+    BRA	    loop
+
+    ; EUSART String READY.
+    CALL    _writeStringREADY
+
+    BRA	    loop
 
 ; Functions.
+_eusartRX:
+    MOVLB   BANK0
+    BTFSS   RCIF
+    BRA	    $-1
+    MOVLB   BANK3
+    BTFSS   OERR
+    BRA	    $+3
+    BCF	    CREN
+    BSF	    CREN
+    MOVF    RC1REG, W
+    MOVLB   BANK0
+    MOVWF   u8EusartRX
+    RETURN
+
 _eusartTX:
     MOVLB   BANK3
-    MOVWF   TX1REG
-    MOVLB   BANK0
-    BTFSS   TXIF
+    BTFSS   TRMT
     BRA	    $-1
+    MOVWF   TX1REG
     RETURN
 
 _eusartTXString:
@@ -264,12 +301,12 @@ _writeStringURL:
     RETURN
 
 ; FPM Strings.
-PSECT stringtext,class=STRCODE,space=0,delta=2
+PSECT   stringtext,class=STRCODE,space=0,delta=2
 stringREADY:
     DB  0xD, 0xA, 0xD, 0xA, 'R','e','a','d','y','>',' ', 0x0
 
 stringTBOT:
-    DB  0xD, 0xA, 'T','B','O','T',' ','-',' ','v','0','.','1', 0x0
+    DB  0xD, 0xA, 'T','B','O','T', 0x0
 
 stringTRONIX:
     DB  0xD, 0xA, 0xD, 0xA, 'T','r','o','n','i','x',' ','I','/','O','.', 0x0
@@ -277,7 +314,7 @@ stringTRONIX:
 stringURL:
     DB  0xD, 0xA, 'w','w','w','.','t','r','o','n','i','x','.','c','o','m', 0x0
 
-    END	    resetVector
+    END resetVector
 ```
 
 ## Oscilloscope.
