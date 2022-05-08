@@ -29,7 +29,7 @@ CONFIG LVP=ON
 ; PIC16F1778 - @8MHz Internal Oscillator.
 
 ; TBOT - INT0 - Interrupt.
-; Switch Emergency - Rising Edge Detection.
+; Emergency Switch & LED - Rising Edge Detection.
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
