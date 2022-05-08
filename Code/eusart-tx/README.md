@@ -34,7 +34,7 @@ CONFIG LVP=ON
 ; Echo RX Character.
 
 ; GPR BANK0.
-PSECT   cstackBANK0,class=BANK0,space=1,delta=1
+PSECT cstackBANK0,class=BANK0,space=1,delta=1
 u8EusartRX:   DS  1
 
 ; MCU Definitions.
@@ -82,12 +82,12 @@ u8EusartRX:   DS  1
 #define	ASCII_CR    0xD
 
 ; Reset Vector.
-PSECT   reset_vec,class=CODE,space=0,delta=2
+PSECT reset_vec,class=CODE,space=0,delta=2
 resetVector:
     GOTO    main
 
 ; Main.
-PSECT   cinit,class=CODE,space=0,delta=2
+PSECT cinit,class=CODE,space=0,delta=2
 main:
     ; MCU Initialization.
     ; Internal Oscillator Settings.
@@ -301,7 +301,7 @@ _writeStringURL:
     RETURN
 
 ; FPM Strings.
-PSECT   stringtext,class=STRCODE,space=0,delta=2
+PSECT stringtext,class=STRCODE,space=0,delta=2
 stringREADY:
     DB  0xD, 0xA, 0xD, 0xA, 'R','e','a','d','y','>',' ', 0x0
 
@@ -314,7 +314,7 @@ stringTRONIX:
 stringURL:
     DB  0xD, 0xA, 'w','w','w','.','t','r','o','n','i','x','.','c','o','m', 0x0
 
-    END resetVector
+    END	    resetVector
 ```
 
 ## Oscilloscope.
