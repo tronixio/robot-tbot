@@ -331,7 +331,7 @@ stringURL:
 - EUSART TX/RX - Echo RX Character.
 
 <p align="center">
-<img alt="EUSART TX/RX" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/code-eusart-txrx-1.png">
+<img alt="EUSART TX/RX" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-eusart-txrx-1.png">
 </p>
 
 ## MPLABX Linker Configuration.
@@ -340,7 +340,7 @@ stringURL:
   - For Configuration & PWM: `-preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h`
 
 <p align="center">
-<img alt="MPLABX Linker Configuration" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/code-eusart-tx-2.png">
+<img alt="MPLABX Linker Configuration" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-eusart-txrx-2.png">
 </p>
 
 ## Notes.
