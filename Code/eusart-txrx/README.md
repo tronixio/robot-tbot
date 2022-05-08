@@ -314,7 +314,7 @@ stringTRONIX:
 stringURL:
     DB  0xD, 0xA, 'w','w','w','.','t','r','o','n','i','x','.','c','o','m', 0x0
 
-    END	resetVector
+    END resetVector
 ```
 
 ## Oscilloscope.
