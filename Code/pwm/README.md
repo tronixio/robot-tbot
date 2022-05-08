@@ -35,7 +35,7 @@ CONFIG LVP=ON
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
-delay:  DS  2
+u16Delay:  DS  2
 
 ; MCU Definitions.
 ; BANKS.
@@ -100,7 +100,7 @@ main:
     ; MCU Initialization.
     ; Internal Oscillator Settings.
     MOVLB   BANK1
-    MOVLW   0b00000110
+    MOVLW   0b00000000
     MOVWF   OSCTUNE
     MOVLW   0x70
     MOVWF   OSCCON
@@ -335,19 +335,19 @@ loop:
 ; Functions.
 _delay:
     MOVLB   BANK0
-    MOVWF   delay + 1
+    MOVWF   u16Delay
     MOVLW   255
-    MOVWF   delay
+    MOVWF   u16Delay + 1
     MOVLW   255
     DECFSZ  WREG, F
     BRA	    $-1
-    DECFSZ  delay, F
-    BRA	    $-4
-    DECFSZ  delay + 1, F
-    BRA	    $-6
+    DECFSZ  u16Delay + 1, F
+    BRA	    $-3
+    DECFSZ  u16Delay, F
+    BRA	    $-5
     RETURN
 
-    END	    resetVector
+    END resetVector
 ```
 
 ## Oscilloscope.
@@ -358,7 +358,7 @@ _delay:
 - MCU.RB5.PWM.11 -> Oscilloscope Probe B
 
 <p align="center">
-<img alt="PWM.6 - PWM.11" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00003.png">
+<img alt="PWM.6 - PWM.11" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-pwm-0.png">
 </p>
 
 ### Forward.
@@ -367,7 +367,7 @@ _delay:
 - MCU.RB5.PWM.11 -> Oscilloscope Probe B
 
 <p align="center">
-<img alt="PWM.6 - PWM.11" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00004.png">
+<img alt="PWM.6 - PWM.11" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-pwm-1.png">
 </p>
 
 ### Backward.
@@ -376,7 +376,7 @@ _delay:
 - MCU.RB5.PWM.11 -> Oscilloscope Probe B
 
 <p align="center">
-<img alt="PWM.6 - PWM.11" src="https://github.com/tronixio/robot-tbot/blob/main/Code/extras/TEK00005.png">
+<img alt="PWM.6 - PWM.11" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-pwm-2.png">
 </p>
 
 ## MPLABX Linker Configuration.
@@ -384,7 +384,9 @@ _delay:
 - PIC-AS Linker > Custom linker options:
   - For Configuration & PWM: `-preset_vec=0000h, -pcinit=0005h`
 
-![MPLABX Configuration](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/configuration-0.png)
+<p align="center">
+<img alt="MPLABX Linker configuration" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-mplabx-configuration-0.png">
+</p>
 
 ## Notes.
 
