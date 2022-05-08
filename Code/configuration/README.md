@@ -72,12 +72,12 @@ CONFIG LVP=ON
 #define	Z	0x2
 
 ; Reset Vector.
-PSECT   reset_vec,class=CODE,space=0,delta=2
+PSECT reset_vec,class=CODE,space=0,delta=2
 resetVector:
     GOTO    main
 
 ; Main.
-PSECT   cinit,class=CODE,space=0,delta=2
+PSECT cinit,class=CODE,space=0,delta=2
 main:
     ; MCU Initialization.
     ; Internal Oscillator Settings.
