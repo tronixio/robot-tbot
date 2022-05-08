@@ -34,7 +34,7 @@ CONFIG LVP=ON
 ; Sensor Sharp GP2Y0D21YK - Rising & Falling Edge Detection.
 
 ; GPR BANK0.
-PSECT   cstackBANK0,class=BANK0,space=1,delta=1
+PSECT cstackBANK0,class=BANK0,space=1,delta=1
 u8Delay:  DS  1
 
 ; MCU Definitions.
@@ -84,12 +84,12 @@ u8Delay:  DS  1
 #define GP2Y0D21_OUT    0x2
 
 ; Reset Vector.
-PSECT   reset_vec,class=CODE,space=0,delta=2
+PSECT reset_vec,class=CODE,space=0,delta=2
 resetVector:
     GOTO    main
 
 ; ISR Vector.
-PSECT   intentry,class=CODE,space=0,delta=2
+PSECT intentry,class=CODE,space=0,delta=2
 interruptVector:
     GOTO    isr
 
@@ -99,7 +99,7 @@ main:
     ; MCU Initialization.
     ; Internal Oscillator Settings.
     MOVLB   BANK1
-    MOVLW   0b00000110
+    MOVLW   0b00000000
     MOVWF   OSCTUNE
     MOVLW   0x70
     MOVWF   OSCCON
@@ -248,7 +248,9 @@ _delay:
 - PIC-AS Linker > Custom linker options:
   - For Configuration & PWM: `-preset_vec=0000h, -pintentry=0004h, -pcinit=0005h`
 
-![MPLABX Configuration](https://github.com/tronixio/robot-tbot/blob/main/Code/extras/configuration-2.png)
+<p align="center">
+<img alt="MPLABX Linker Configuration" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-mplabx-configuration-2.png">
+</p>
 
 ## Notes.
 
