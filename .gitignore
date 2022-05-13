@@ -2,17 +2,41 @@
 Diptrace/
 Docs/
 
-# Kicad.
+# KICAD.
 *.kicad_prl
 *.kicad_sch-bak
 Kicad/*/gerber/
 Kicad/*/*-backups/
 Kicad/*/fp-info-cache
 
-# PICAS-P16F1778-GP2Y0D21YK.
-MplabX/PICAS-P16F1778-GP2Y0D21YK.X/Makefile
-MplabX/PICAS-P16F1778-GP2Y0D21YK.X/build/
-MplabX/PICAS-P16F1778-GP2Y0D21YK.X/debug/
-MplabX/PICAS-P16F1778-GP2Y0D21YK.X/disassembly/
-MplabX/PICAS-P16F1778-GP2Y0D21YK.X/dist/
+# MPLABX - PICAS-P16F1778-GP2Y0D21YK.
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/*.d
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/*.pre
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/*.p1
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/*.lst
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/*.sym
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/*.obj
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/*.o
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/*.sdb
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/*.obj.dmp
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/html/
 MplabX/PICAS-P16F1778-GP2Y0D21YK.X/nbproject/
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/build/
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/nbbuild/
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/dist/
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/nbdist/
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/nbactions.xml
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/nb-configuration.xml
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/funclist
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/nbproject/Makefile-*
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/disassembly/
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/*.map
+MplabX/PICAS-P16F1778-GP2Y0D21YK.X/Makefile
+
+# VI Swap
+[._]*.s[a-v][a-z]
+!*.svg  # comment out if you don't need vector files
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
