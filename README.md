@@ -72,13 +72,13 @@
 
 ![TBOT GP2Y Bottom.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/gp2y/extras/bottom.png)
 
-## DRAFT - TBOT Front HC-SR04 Top.
+## DRAFT - TBOT HC-SR04 Top.
 
-![TBOT Front HC-SR04 Top.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/front-hc/extras/top.png)
+![TBOT HC-SR04 Top.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/hc-sr04/extras/top.png)
 
-## DRAFT - TBOT Front HC-SR04 Bottom.
+## DRAFT - TBOT HC-SR04 Bottom.
 
-![TBOT Front HC-SR04 Bottom.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/front-hc/extras/bottom.png)
+![TBOT HC-SR04 Bottom.](https://raw.githubusercontent.com/tronixio/robot-tbot/main/Kicad/hc-sr04/extras/bottom.png)
 
 ## DRAFT - TBOT IR Line Follow Top.
 
