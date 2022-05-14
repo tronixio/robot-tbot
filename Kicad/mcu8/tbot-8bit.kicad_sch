@@ -1316,10 +1316,10 @@
     (property "Reference" "TP101" (id 0) (at 185.42 78.74 0)
       (effects (font (size 1.15 1.15)))
     )
-    (property "Value" "" (id 1) (at 185.42 93.98 0)
+    (property "Value" "KEYSTONE-5006" (id 1) (at 185.42 93.98 0)
       (effects (font (size 1 1)) hide)
     )
-    (property "Footprint" "" (id 2) (at 185.42 96.52 0)
+    (property "Footprint" "tronixio:KEYSTONE-5006" (id 2) (at 185.42 96.52 0)
       (effects (font (size 1 1)) hide)
     )
     (property "Datasheet" "https://www.keyelco.com/product.cfm/product_id/1315" (id 3) (at 185.42 99.06 0)
@@ -1783,10 +1783,10 @@
     (property "Reference" "TP103" (id 0) (at 210.82 78.74 0)
       (effects (font (size 1.15 1.15)))
     )
-    (property "Value" "" (id 1) (at 210.82 93.98 0)
+    (property "Value" "KEYSTONE-2000-3" (id 1) (at 210.82 93.98 0)
       (effects (font (size 1 1)) hide)
     )
-    (property "Footprint" "" (id 2) (at 210.82 96.52 0)
+    (property "Footprint" "tronixio:KEYSTONE-2000-3" (id 2) (at 210.82 96.52 0)
       (effects (font (size 1 1)) hide)
     )
     (property "Datasheet" "https://www.keyelco.com/product.cfm/product_id/3037" (id 3) (at 210.82 99.06 0)
@@ -2489,85 +2489,97 @@
       (reference "#PWR0309") (unit 1) (value "GND") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/7f74cc8c-d98d-4d1c-b394-ca438d10566c"
-      (reference "#PWR0401") (unit 1) (value "VIN") (footprint "")
+      (reference "#PWR0310") (unit 1) (value "VIN") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/4ffccd63-64c1-441f-bece-4a52caa97dc3"
-      (reference "#PWR0402") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0311") (unit 1) (value "GND") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/56612b12-cfd0-4162-8edd-fcdfd08004b0"
-      (reference "#PWR0403") (unit 1) (value "+5V") (footprint "")
+      (reference "#PWR0312") (unit 1) (value "+5V") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/1c793905-c3b5-40c6-a0ca-f8237e39b201"
-      (reference "#PWR0404") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0313") (unit 1) (value "GND") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/aa6fe2b2-35a3-410c-a1bb-d5d9a757a6bd"
-      (reference "#PWR0405") (unit 1) (value "+5V") (footprint "")
+      (reference "#PWR0314") (unit 1) (value "+5V") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/0f1e4c52-dfc5-4752-b9e4-dec04ba8f789"
-      (reference "#PWR0406") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0315") (unit 1) (value "GND") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/5a4532cd-366c-4478-bae4-a35849616abd"
-      (reference "#PWR0407") (unit 1) (value "VIN") (footprint "")
+      (reference "#PWR0316") (unit 1) (value "VIN") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/c9e0aa2f-e0a9-4fcf-8e34-8c75bafefb7f"
-      (reference "#PWR0408") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0317") (unit 1) (value "GND") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/4adcb713-d035-4ed8-a1ef-73977ed6de6b"
-      (reference "#PWR0409") (unit 1) (value "+5V") (footprint "")
+      (reference "#PWR0318") (unit 1) (value "+5V") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/d68518dc-1950-4d6f-b70c-e45316ed0051"
-      (reference "#PWR0410") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0319") (unit 1) (value "GND") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/a58db860-0ea0-4352-a741-c8f0b1759a82"
-      (reference "#PWR0411") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0320") (unit 1) (value "GND") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/3c53d3a6-37b0-4380-9499-be04785608e6"
-      (reference "#PWR0412") (unit 1) (value "VIN") (footprint "")
+      (reference "#PWR0321") (unit 1) (value "VIN") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/ce535f19-3b21-4d52-a3aa-bcb99b1f0776"
-      (reference "#PWR0413") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0322") (unit 1) (value "GND") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/cbe38fcb-5c89-4d31-a3ea-3be731e1664c"
-      (reference "#PWR0414") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0323") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/5013d14b-1e51-4f6e-907a-830fb235ee75"
+      (reference "#PWR0324") (unit 1) (value "+5V") (footprint "")
+    )
+    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/0391f20c-9bc4-4807-bad5-071c6a07ca06"
+      (reference "#PWR0325") (unit 1) (value "GND") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/87f54b42-ff89-4e77-8e8f-79828f981a45"
-      (reference "#PWR0415") (unit 1) (value "VIN") (footprint "")
+      (reference "#PWR0326") (unit 1) (value "VIN") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/7fa60b87-d739-4e3a-9437-956fe2ce40ae"
-      (reference "#PWR0416") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0327") (unit 1) (value "GND") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/5c387a9d-428a-46d4-af6f-a25dad1d16a1"
-      (reference "#PWR0418") (unit 1) (value "GND") (footprint "")
-    )
-    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/41648478-6ecf-4708-9686-e8866fc24cd7"
-      (reference "#PWR0419") (unit 1) (value "POWER-VUSB") (footprint "")
-    )
-    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/8fbe7bcb-9e69-4e21-8858-431f6b776c22"
-      (reference "#PWR0420") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0328") (unit 1) (value "GND") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/305274da-bf97-4273-8986-5d004f7d7a87"
-      (reference "#PWR0421") (unit 1) (value "POWER-VUSB") (footprint "")
+      (reference "#PWR0329") (unit 1) (value "POWER-VUSB") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/291dcf79-34e1-4262-86e0-c05f5b84b2c4"
-      (reference "#PWR0422") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0330") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/41648478-6ecf-4708-9686-e8866fc24cd7"
+      (reference "#PWR0331") (unit 1) (value "POWER-VUSB") (footprint "")
+    )
+    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/8fbe7bcb-9e69-4e21-8858-431f6b776c22"
+      (reference "#PWR0332") (unit 1) (value "GND") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/39eadf9b-edac-4afa-b275-77672432774b"
-      (reference "#PWR0423") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0333") (unit 1) (value "GND") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/3cd7e818-7266-42a0-a62f-bfabbf78a737"
-      (reference "#PWR0424") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0334") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/4f55efef-fff7-4b43-805a-bfd45e5032a5"
+      (reference "#PWR0335") (unit 1) (value "+5V") (footprint "")
+    )
+    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/9f952a8a-62cc-4f22-a3ce-6bbca9514026"
+      (reference "#PWR0336") (unit 1) (value "GND") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/851b9daf-6fe7-4b1d-b7a9-663d7baaa29f"
-      (reference "#PWR0425") (unit 1) (value "VIN") (footprint "")
+      (reference "#PWR0337") (unit 1) (value "VIN") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/21bf025b-fb26-4642-b14b-be3966d08117"
-      (reference "#PWR0426") (unit 1) (value "GND") (footprint "")
+      (reference "#PWR0338") (unit 1) (value "GND") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/ac9cf4b1-6a77-4564-a3b6-2b4125331e2f"
-      (reference "#PWR0427") (unit 1) (value "POWER-VUSB") (footprint "")
+      (reference "#PWR0339") (unit 1) (value "POWER-VUSB") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/1be6d15f-b39a-4723-a701-0efea71535be"
-      (reference "#PWR0428") (unit 1) (value "POWER-VUSB") (footprint "")
+      (reference "#PWR0340") (unit 1) (value "POWER-VUSB") (footprint "")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/a672eb27-6221-4b4f-89ad-f7de60019e3a"
       (reference "BB301") (unit 1) (value "BREADBOARD-170") (footprint "tronixio:BREADBOARD-170")
@@ -2659,11 +2671,17 @@
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/82639bed-d839-40ca-9086-14d46ff3c9a4"
       (reference "K306") (unit 1) (value "SERVO LEFT") (footprint "tronixio:HARWIN-M20-999044x")
     )
+    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/8a09b613-7dea-4056-bb42-f02f79a8fbaf"
+      (reference "K307") (unit 1) (value "WHEEL LEFT") (footprint "tronixio:zzMOLEX-532530370")
+    )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/1c7c49d9-8392-47f1-a07e-69a84e5dbe16"
-      (reference "K307") (unit 1) (value "USB/UART") (footprint "tronixio:FCI-USB-TYPE-B-MICRO-THT")
+      (reference "K308") (unit 1) (value "USB/UART") (footprint "tronixio:FCI-USB-TYPE-B-MICRO-THT")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/cae72a7c-5124-4b85-8f23-c2978460934d"
-      (reference "K308") (unit 1) (value "SERVO RIGHT") (footprint "tronixio:HARWIN-M20-999044x")
+      (reference "K309") (unit 1) (value "SERVO RIGHT") (footprint "tronixio:HARWIN-M20-999044x")
+    )
+    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/1f59f9e5-7d85-42f5-93d4-47ba7dd44dcf"
+      (reference "K310") (unit 1) (value "WHEEL RIGHT") (footprint "tronixio:zzMOLEX-532530370")
     )
     (path "/a338f5b0-e66a-4e8e-b0aa-89183cbfedd8"
       (reference "LED101") (unit 1) (value "Power") (footprint "tronixio:LED-1206")
