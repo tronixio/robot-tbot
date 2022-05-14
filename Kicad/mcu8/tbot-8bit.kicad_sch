@@ -2672,7 +2672,7 @@
       (reference "K306") (unit 1) (value "SERVO LEFT") (footprint "tronixio:HARWIN-M20-999044x")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/8a09b613-7dea-4056-bb42-f02f79a8fbaf"
-      (reference "K307") (unit 1) (value "WHEEL LEFT") (footprint "tronixio:zzMOLEX-532530370")
+      (reference "K307") (unit 1) (value "LEFT") (footprint "tronixio:zzMOLEX-532530370")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/1c7c49d9-8392-47f1-a07e-69a84e5dbe16"
       (reference "K308") (unit 1) (value "USB/UART") (footprint "tronixio:FCI-USB-TYPE-B-MICRO-THT")
@@ -2681,7 +2681,7 @@
       (reference "K309") (unit 1) (value "SERVO RIGHT") (footprint "tronixio:HARWIN-M20-999044x")
     )
     (path "/56bd3a46-de12-45e9-9566-afec966f2cad/1f59f9e5-7d85-42f5-93d4-47ba7dd44dcf"
-      (reference "K310") (unit 1) (value "WHEEL RIGHT") (footprint "tronixio:zzMOLEX-532530370")
+      (reference "K310") (unit 1) (value "RIGHT") (footprint "tronixio:zzMOLEX-532530370")
     )
     (path "/a338f5b0-e66a-4e8e-b0aa-89183cbfedd8"
       (reference "LED101") (unit 1) (value "Power") (footprint "tronixio:LED-1206")
