@@ -44,8 +44,8 @@ CONFIG LVP=ON
 ; MCU.RB5  -> PWM11.RC.SERVO.LEFT.
 ; MCU.RB6  -> EUSART.TX.
 ; MCU.RB7 <-  EUSART.RX.
-; MCU.RC0  -> GP2Y0D21YK.ENABLE.
-; MCU.RC2 <-  GP2Y0D21YK.OUT.
+; MCU.RC0  -> GP2Y0D21YK.FRONT.ENABLE.
+; MCU.RC2 <-  GP2Y0D21YK.FRONT.OUT.
 ; MCU.RC5  -> PWM6.RC.SERVO.RIGHT.
 ; MCU.RC6 <-  CCP2.IR.WHELL.RIGHT.
 
@@ -115,21 +115,21 @@ TBOT:	    DS  1
 ; H6/L165 - 1.7ms - @8MHz.
 ; H5/L220 - 1.5ms - @8MHz.
 ; H5/L20  - 1.3ms - @8MHz.
-#define SERVO_STOP_HIGH	    5
-#define SERVO_STOP_LOW	    220
+#define SERVO_STOP_HIGH		5
+#define SERVO_STOP_LOW		220
 ;
-#define SERVO_MAX_LEFT_LOW  165
-#define SERVO_MAX_RIGHT_LOW 26
+#define SERVO_MAX_LEFT_LOW	165
+#define SERVO_MAX_RIGHT_LOW	26
 ;
-#define	SERVO_LEFT_LOAD	    0x4
-#define	SERVO_RIGHT_LOAD    0x2
-#define	SERVO_BOTH_LOAD	    0x6
+#define	SERVO_LEFT_LOAD		0x4
+#define	SERVO_RIGHT_LOAD	0x2
+#define	SERVO_BOTH_LOAD		0x6
 ; Sharp GP2Y0D21YK.
-#define	GP2Y0D21_60MS	    160
-#define GP2Y0D21_ENABLE	    0x0
-#define GP2Y0D21_OUT	    0x2
+#define	GP2Y0D21_60MS		160
+#define GP2Y0D21_FRONT_ENABLE	0x0
+#define GP2Y0D21_FRONT_OUT	0x2
 ; TBOT Flags.
-#define TBOT_RCSERVO	    0x0
+#define TBOT_RCSERVO		0x0
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
@@ -345,12 +345,12 @@ main:
 
     ; GP2Y0D21 Enable.
     MOVLB   BANK2
-    BSF	    LATC, GP2Y0D21_ENABLE
+    BSF	    LATC, GP2Y0D21_FRONT_ENABLE
     ; Wait ~60ms.
     MOVLW   GP2Y0D21_60MS
     CALL    _delay
     ; GP2Y0D21 Obstacle ?
-    BTFSC   PORTC, GP2Y0D21_OUT
+    BTFSC   PORTC, GP2Y0D21_FRONT_OUT
     BRA	    $-1
 
     ; INTERRUPTS Settings.
@@ -370,7 +370,7 @@ main:
 loop:
     ; GP2Y0D21 Obstacle ?
     MOVLB   BANK0
-    BTFSC   PORTC, GP2Y0D21_OUT
+    BTFSC   PORTC, GP2Y0D21_FRONT_OUT
     BRA	    rcServoSTOP
     ; TIMER0 For Battery Read & Filtering.
     BTFSC   TMR0IF
@@ -483,7 +483,7 @@ rcServoSTOP:
     MOVWF   PWMLD
     ; GP2Y0D21 Obstacle ?
     MOVLB   BANK0
-    BTFSC   PORTC, GP2Y0D21_OUT
+    BTFSC   PORTC, GP2Y0D21_FRONT_OUT
     BRA	    $-1
     ; Rotation Left or Right.
     MOVLW   6 ; todo define
@@ -523,7 +523,7 @@ rcServoSTOP:
     CALL    _delay1
     ; GP2Y0D21 Obstacle ?
     MOVLB   BANK0
-    BTFSC   PORTC, GP2Y0D21_OUT
+    BTFSC   PORTC, GP2Y0D21_FRONT_OUT
     BRA	    $-1
     ; RC Servo Stop.
     MOVLB   BANK27
