@@ -6,7 +6,7 @@
 
   (paper "A4")
   (title_block
-    (title "TBOT - Front HC-SR04")
+    (title "TBOT - HC-SR04")
     (date "01/2022")
     (rev "A")
   )
@@ -567,11 +567,11 @@
     (tags "kb_params=eyJBbGlnbm1lbnRDaG9pY2UiOiAiQ2VudGVyIiwgIkNhcExlZnRDaG9pY2UiOiAiPCIsICJDYXBSaWdodENob2ljZSI6ICIpIiwgIkZvbnRDb21ib0JveCI6ICJVYnVudHVNb25vLUIiLCAiSGVpZ2h0Q3RybCI6ICIxIiwgIkxheWVyQ29tYm9Cb3giOiAiRi5TaWxrUyIsICJNdWx0aUxpbmVUZXh0IjogIlZJTiIsICJQYWRkaW5nQm90dG9tQ3RybCI6ICIzIiwgIlBhZGRpbmdMZWZ0Q3RybCI6ICIzIiwgIlBhZGRpbmdSaWdodEN0cmwiOiAiMCIsICJQYWRkaW5nVG9wQ3RybCI6ICIzIiwgIldpZHRoQ3RybCI6ICIifQ==")
     (attr board_only exclude_from_pos_files exclude_from_bom)
     (fp_text reference "kibuzzard-627E9FA3" (at 0 -3.737769 90) (layer "F.SilkS") hide
-      (effects (font (size 0 0)))
+      (effects (font (size 0 0) (thickness 0.15)))
       (tstamp 3ad90b46-7db0-41f7-8c2c-466a9230e5db)
     )
     (fp_text value "G***" (at 0 3.737769 90) (layer "F.SilkS") hide
-      (effects (font (size 0 0)))
+      (effects (font (size 0 0) (thickness 0.15)))
       (tstamp 548a39fd-0b0e-46bf-8a50-e6686799f97c)
     )
     (fp_poly (pts
@@ -708,11 +708,11 @@
     (tags "kb_params=eyJBbGlnbm1lbnRDaG9pY2UiOiAiQ2VudGVyIiwgIkNhcExlZnRDaG9pY2UiOiAiPCIsICJDYXBSaWdodENob2ljZSI6ICIpIiwgIkZvbnRDb21ib0JveCI6ICJVYnVudHVNb25vLUIiLCAiSGVpZ2h0Q3RybCI6ICIxIiwgIkxheWVyQ29tYm9Cb3giOiAiRi5TaWxrUyIsICJNdWx0aUxpbmVUZXh0IjogIkdORCIsICJQYWRkaW5nQm90dG9tQ3RybCI6ICIzIiwgIlBhZGRpbmdMZWZ0Q3RybCI6ICIzIiwgIlBhZGRpbmdSaWdodEN0cmwiOiAiMCIsICJQYWRkaW5nVG9wQ3RybCI6ICIzIiwgIldpZHRoQ3RybCI6ICIifQ==")
     (attr board_only exclude_from_pos_files exclude_from_bom)
     (fp_text reference "kibuzzard-627E9F99" (at 0 -3.7592 90) (layer "F.SilkS") hide
-      (effects (font (size 0 0)))
+      (effects (font (size 0 0) (thickness 0.15)))
       (tstamp b9453e62-e2e3-4bac-8a15-840c84ded389)
     )
     (fp_text value "G***" (at 0 3.7592 90) (layer "F.SilkS") hide
-      (effects (font (size 0 0)))
+      (effects (font (size 0 0) (thickness 0.15)))
       (tstamp af17a44d-fffb-48ea-9848-aff14f963c89)
     )
     (fp_poly (pts
@@ -1694,7 +1694,7 @@
   (gr_text "Bottom" (at 111 67) (layer "B.Cu") (tstamp 33fa2f08-873e-4985-a220-006aa595feea)
     (effects (font (size 1.5 1.5) (thickness 0.2)) (justify mirror))
   )
-  (gr_text "TBOT Front HC-SR04" (at 124 86.5) (layer "B.SilkS") (tstamp 12427908-4b9d-48fb-a7c5-7be4a7a6b9e7)
+  (gr_text "TBOT HC-SR04" (at 124 86.5) (layer "B.SilkS") (tstamp 12427908-4b9d-48fb-a7c5-7be4a7a6b9e7)
     (effects (font (size 1 1) (thickness 0.2)) (justify mirror))
   )
   (gr_text "JLCJLCJLCJLC" (at 124 67) (layer "B.SilkS") (tstamp 2d2c2e43-4b5f-4c01-86af-036a4cb77c93)
@@ -1721,7 +1721,7 @@
   (gr_text "ECHO" (at 122 69.75 90) (layer "F.SilkS") (tstamp 77895cea-8984-4294-b1de-b11df3c297f5)
     (effects (font (size 0.8 0.8) (thickness 0.15)) (justify left))
   )
-  (gr_text "TBOT Front HC-SR04" (at 124 82) (layer "F.SilkS") (tstamp 87c41013-08cf-458e-8285-28db2f06de8a)
+  (gr_text "TBOT HC-SR04" (at 124 82) (layer "F.SilkS") (tstamp 87c41013-08cf-458e-8285-28db2f06de8a)
     (effects (font (size 1 1) (thickness 0.2)))
   )
   (gr_text "(CC) - BY-SA" (at 118 78) (layer "F.SilkS") (tstamp da209089-caf6-405f-b11f-721980df1753)
@@ -1730,7 +1730,7 @@
   (gr_text "EN" (at 126 69.75 90) (layer "F.SilkS") (tstamp e8f6c2e1-8459-4688-81c0-0ff74eeeb9b8)
     (effects (font (size 0.8 0.8) (thickness 0.15)) (justify left))
   )
-  (gr_text "TBOT Front HC-SR04 - Rev.A - (01/2022) - Scale 100%" (at 100 110) (layer "Dwgs.User") (tstamp 0d29a60a-b337-42d2-911e-b92da9deacd0)
+  (gr_text "TBOT HC-SR04 - Rev.A - (01/2022) - Scale 100%" (at 100 110) (layer "Dwgs.User") (tstamp 0d29a60a-b337-42d2-911e-b92da9deacd0)
     (effects (font (size 1.5 1.5) (thickness 0.2)) (justify left))
   )
   (dimension (type aligned) (layer "Dwgs.User") (tstamp 5c351697-dd2a-4861-ae48-3e89c4317d8c)
