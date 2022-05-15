@@ -333,9 +333,10 @@ _hex2ascii:
     RETURN
 
 _writeStringASCII:
-    CLRF    FSR1H
+    MOVLB   BANK0
     MOVLW   u32Ascii + 1
     MOVWF   FSR1L
+    CLRF    FSR1H
     CALL    _eusartTXString
     RETURN
 
