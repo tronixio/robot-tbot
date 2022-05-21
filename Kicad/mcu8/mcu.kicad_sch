@@ -1493,7 +1493,7 @@
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid b24ba9ff-7286-417f-981e-fc0b18ebf446)
   )
-  (hierarchical_label "RB0{slash}EMERGENCY" (shape bidirectional) (at 208.28 109.22 0)
+  (hierarchical_label "RB0{slash}URGENCY" (shape bidirectional) (at 208.28 109.22 0)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid c1ebc947-2c5b-4ab2-b0dd-0521946a4699)
   )

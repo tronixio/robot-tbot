@@ -2228,7 +2228,7 @@
     (property "Sheet file" "hid.kicad_sch" (id 1) (at 111.76 189.23 0)
       (effects (font (size 1.2 1.2)) (justify left))
     )
-    (pin "RB0{slash}EMERGENCY" bidirectional (at 111.76 157.48 180)
+    (pin "RB0{slash}URGENCY" bidirectional (at 111.76 157.48 180)
       (effects (font (size 1.27 1.27)) (justify left))
       (uuid ff172e39-e7d9-4768-b3ee-32c23b3cc4f4)
     )
@@ -2328,7 +2328,7 @@
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid 51a5204c-4d21-4621-9359-596227737078)
     )
-    (pin "RB0{slash}EMERGENCY" bidirectional (at 96.52 157.48 0)
+    (pin "RB0{slash}URGENCY" bidirectional (at 96.52 157.48 0)
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid c374327e-99da-4cce-8819-268106e38c69)
     )
@@ -2752,11 +2752,11 @@
     (path "/6012b3a0-2f30-4458-8240-bd443182c6c0/0fca357c-e004-4aa7-81c8-25e847d92adb"
       (reference "S201") (unit 1) (value "Reset") (footprint "tronixio:ALPS-SKRPAC")
     )
-    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/4295f41d-b93c-4373-93e1-239484151cd9"
-      (reference "S301") (unit 1) (value "EMERGENCY") (footprint "tronixio:E-SWITCH-TL1240XQ1JXXX")
+    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/08a782ca-74fd-406c-b0d6-36f65802d2f1"
+      (reference "S301") (unit 1) (value "URGENCY") (footprint "tronixio:zzzOMRON-B3W9000-X1")
     )
-    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/e1af4d5e-267e-461a-b356-8583444587aa"
-      (reference "S301") (unit 2) (value "EMERGENCY") (footprint "tronixio:E-SWITCH-TL1240XQ1JXXX")
+    (path "/56bd3a46-de12-45e9-9566-afec966f2cad/79bc4ded-5d45-4f04-8d3c-0fbfba5f8e42"
+      (reference "S301") (unit 2) (value "URGENCY") (footprint "tronixio:zzzOMRON-B3W9000-X1")
     )
     (path "/136a714c-88c0-45ed-96e3-6e25520a1306"
       (reference "TP101") (unit 1) (value "KEYSTONE-5006") (footprint "tronixio:KEYSTONE-5006")
