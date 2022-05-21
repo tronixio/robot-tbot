@@ -100,17 +100,17 @@ TBOT:	    DS  1
 
 ; User Definitions.
 ; Battery.
-#define BATTERY_FILTER	    50
-#define	BATTERY_LOW	    0xB7
+#define BATTERY_FILTER		50
+#define	BATTERY_LOW		0xB7
 ; Emergency.
-#define EMERGENCY	    0x0
+#define EMERGENCY		0x0
 ; LED Debug.
-#define	LED_DEBUG	    0x6
+#define	LED_DEBUG		0x6
 ; RC Servo.
-#define	SERVO_SPEED	    202
+#define	SERVO_SPEED		202
 ; Frequency 50Hz - @8MHz.
-#define SERVO_PERIOD_HIGH   78
-#define SERVO_PERIOD_LOW    30
+#define SERVO_PERIOD_HIGH	78
+#define SERVO_PERIOD_LOW	30
 ; Duty Cycle.
 ; H6/L165 - 1.7ms - @8MHz.
 ; H5/L220 - 1.5ms - @8MHz.
@@ -592,5 +592,3 @@ _emergency:
     BRA	    $-8
 
     END	    resetVector
-
-
