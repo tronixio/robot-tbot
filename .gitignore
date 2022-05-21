@@ -40,3 +40,7 @@ MplabX/PICAS-P16F1778-GP2Y0D21YK.X/Makefile
 [._]s[a-rt-v][a-z]
 [._]ss[a-gi-z]
 [._]sw[a-p]
+/MplabX/PICAS-P16F1778-IRWHEEL.X/build/
+/MplabX/PICAS-P16F1778-IRWHEEL.X/dist/
+/MplabX/XC8-P16F1778-IRWHEEL.X/dist/
+/MplabX/XC8-P16F1778-IRWHEEL.X/build/
