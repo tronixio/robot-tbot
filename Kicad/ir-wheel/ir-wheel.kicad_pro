@@ -421,8 +421,7 @@
         "microvia_drill": 0.0,
         "name": "CLASS-04",
         "nets": [
-          "+5V",
-          "GND"
+          "Net-(K1-Pad2)"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
@@ -441,7 +440,13 @@
         "microvia_diameter": 0.0,
         "microvia_drill": 0.0,
         "name": "CLASS-05",
-        "nets": [],
+        "nets": [
+          "+5V",
+          "GND",
+          "Net-(IC1-Pad1)",
+          "Net-(IC1-Pad4)",
+          "Net-(P1-Pad2)"
+        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.5,
