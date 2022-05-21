@@ -444,8 +444,7 @@
           "+5V",
           "GND",
           "Net-(IC1-Pad1)",
-          "Net-(IC1-Pad4)",
-          "Net-(P1-Pad2)"
+          "Net-(IC1-Pad4)"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
