@@ -33,6 +33,30 @@ MplabX/PICAS-P16F1778-GP2Y0D21YK.X/disassembly/
 MplabX/PICAS-P16F1778-GP2Y0D21YK.X/*.map
 MplabX/PICAS-P16F1778-GP2Y0D21YK.X/Makefile
 
+# MPLABX - XC8-P16F1778-IRWHEEL.X.
+MplabX/XC8-P16F1778-IRWHEEL.X/*.d
+MplabX/XC8-P16F1778-IRWHEEL.X/*.pre
+MplabX/XC8-P16F1778-IRWHEEL.X/*.p1
+MplabX/XC8-P16F1778-IRWHEEL.X/*.lst
+MplabX/XC8-P16F1778-IRWHEEL.X/*.sym
+MplabX/XC8-P16F1778-IRWHEEL.X/*.obj
+MplabX/XC8-P16F1778-IRWHEEL.X/*.o
+MplabX/XC8-P16F1778-IRWHEEL.X/*.sdb
+MplabX/XC8-P16F1778-IRWHEEL.X/*.obj.dmp
+MplabX/XC8-P16F1778-IRWHEEL.X/html/
+MplabX/XC8-P16F1778-IRWHEEL.X/nbproject/
+MplabX/XC8-P16F1778-IRWHEEL.X/build/
+MplabX/XC8-P16F1778-IRWHEEL.X/nbbuild/
+MplabX/XC8-P16F1778-IRWHEEL.X/dist/
+MplabX/XC8-P16F1778-IRWHEEL.X/nbdist/
+MplabX/XC8-P16F1778-IRWHEEL.X/nbactions.xml
+MplabX/XC8-P16F1778-IRWHEEL.X/nb-configuration.xml
+MplabX/XC8-P16F1778-IRWHEEL.X/funclist
+MplabX/XC8-P16F1778-IRWHEEL.X/nbproject/Makefile-*
+MplabX/XC8-P16F1778-IRWHEEL.X/disassembly/
+MplabX/XC8-P16F1778-IRWHEEL.X/*.map
+MplabX/XC8-P16F1778-IRWHEEL.X/Makefile
+
 # VI Swap
 [._]*.s[a-v][a-z]
 !*.svg  # comment out if you don't need vector files
@@ -40,7 +64,3 @@ MplabX/PICAS-P16F1778-GP2Y0D21YK.X/Makefile
 [._]s[a-rt-v][a-z]
 [._]ss[a-gi-z]
 [._]sw[a-p]
-/MplabX/PICAS-P16F1778-IRWHEEL.X/build/
-/MplabX/PICAS-P16F1778-IRWHEEL.X/dist/
-/MplabX/XC8-P16F1778-IRWHEEL.X/dist/
-/MplabX/XC8-P16F1778-IRWHEEL.X/build/
