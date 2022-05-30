@@ -183,8 +183,8 @@ main:
     BCF	    PPSLOCK, 0x0
     ; PPS Inputs.
     ; RB7 - EUSART.URX.
-    movlw   0x0F
-    movwf   RXPPS
+    NOLVW   0x0F
+    MOVWF   RXPPS
     ; PPS Outputs.
     MOVLB   BANK29
     ; RB6 - EUSART.UTX.
