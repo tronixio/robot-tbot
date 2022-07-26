@@ -1,3 +1,10 @@
+# DRAFT - IR WHEEL.
+
+## Code.
+
+-.
+
+```as
 ; Configuration Registers.
 CONFIG FOSC=INTOSC
 CONFIG WDTE=OFF
@@ -25,10 +32,11 @@ CONFIG LVP=ON
 
 ; TBOT - v0.1.
 ; Sensor SHARP GP2Y0D21YK.
-; PICAS-P16F1778-GP2Y0D21YK
+; PICAS-P16F1778-GP2Y0D21YKzz
 ; TODO: Better Delay Fonction
 ; TODO: Optimize Variables
 ; TODO: Faire le timming des boucles
+; TODO: Utiliser qu un seul DAC pour les 2 comparateurs
 
 ; En focntion de la tension de la batterie
 ; choisir la bonne valeur pour que la vitesse
@@ -236,10 +244,6 @@ main:
     MOVWF   PPSLOCK
     BCF	    PPSLOCK, 0x0
     ; PPS Inputs.
-    ; RC6 - T5 CLOCK & GATE.
-    MOVLW   0x16
-    MOVWF   T5GPPS
-    MOVWF   T5CKIPPS
     ; PPS Outputs.
     MOVLB   BANK29
     ; RB5 - PWM11.
@@ -271,37 +275,37 @@ main:
     ; ADC Enable.
     BSF	    ADON
 
-    ; PWM5 Settings.
+    ; PWM6 Settings.
     MOVLB   BANK27
-    CLRF    PWM5PHL
-    CLRF    PWM5PHH
+    CLRF    PWM6PHL
+    CLRF    PWM6PHH
     MOVLW   SERVO_STOP_LOW
-    MOVWF   PWM5DCL
+    MOVWF   PWM6DCL
     MOVLW   SERVO_STOP_HIGH
-    MOVWF   PWM5DCH
+    MOVWF   PWM6DCH
     MOVLW   SERVO_PERIOD_LOW
-    MOVWF   PWM5PRL
+    MOVWF   PWM6PRL
     MOVLW   SERVO_PERIOD_HIGH
-    MOVWF   PWM5PRH
-    CLRF    PWM5OFL
-    CLRF    PWM5OFH
-    CLRF    PWM5TMRL
-    CLRF    PWM5TMRH
+    MOVWF   PWM6PRH
+    CLRF    PWM6OFL
+    CLRF    PWM6OFH
+    CLRF    PWM6TMRL
+    CLRF    PWM6TMRH
     MOVLW   0x0C
-    MOVWF   PWM5CON
+    MOVWF   PWM6CON
     MOVLW   0x00
-    MOVWF   PWM5INTE
+    MOVWF   PWM6INTE
     MOVLW   0x00
-    MOVWF   PWM5INTF
+    MOVWF   PWM6INTF
     MOVLW   0x20
-    MOVWF   PWM5CLKCON
+    MOVWF   PWM6CLKCON
     MOVLW   0x00
-    MOVWF   PWM5LDCON
+    MOVWF   PWM6LDCON
     MOVLW   0x00
-    MOVWF   PWM5OFCON
-    ; PWM5 Load & Enable.
-    BSF	    PWM5LD
-    BSF	    PWM5EN
+    MOVWF   PWM6OFCON
+    ; PWM6 Load & Enable.
+    BSF	    PWM6LD
+    BSF	    PWM6EN
 
     ; PWM11 Settings.
     MOVLB   BANK27
@@ -342,19 +346,6 @@ main:
     MOVLW   0b01010111
     MOVWF   OPTION_REG
 
-    ; TIMER5 Settings.
-    MOVLB   BANK8
-    MOVLW   100
-    MOVWF   TMR5L
-    MOVLW   255
-    MOVWF   TMR5H
-    MOVLW   0b10000000
-    MOVWF   T5CON
-    MOVLW   0b11100000
-    MOVWF   T5GCON
-    ; TIMER5 Enable.
-    BSF	    T5ON
-    
     ; BATTERY Settings.
     MOVLW   BATTERY_FILTER
     MOVWF   u8Filter
@@ -373,16 +364,34 @@ main:
     BSF	    INTE
     BCF	    INTF
     ; INTERRUPTS Enabled.
-    BCF	    PEIE
     BSF	    GIE
 
     ;
     movlw   10 ; todo define
     movlb   BANK0
     movwf   u8Rotation
-    
+
     ; TBOT Flags Clear.
     CLRF    TBOT
+
+    ; Forward Right 185 5, Left 250 5.
+
+    bra	    loop
+    ; Forward 20Hz Right 160 5, Left  20 6.
+    ; Forward 90Hz Right  25 5, Left 160 6.
+    MOVLB   BANK27
+    MOVLW   185
+    MOVWF   PWM6DCL
+    MOVLW   250
+    MOVWF   PWM11DCL
+    MOVLW   5
+    MOVWF   PWM6DCH
+    MOVLW   5
+    MOVWF   PWM11DCH
+    MOVLW   SERVO_BOTH_LOAD
+    MOVWF   PWMLD
+    bra $
+
 loop:
     ; GP2Y0D21 Obstacle ?
     MOVLB   BANK0
@@ -415,19 +424,20 @@ batteryRead:
 
 ; RC Servo Forward Ramp.
 ; TODO add Sensor Detection ?
+
 ; delay = 8 - 620ms
 ; delay = 6 - 466ms
 ; delay = 4 - 311ms
-; delay = 2 - 157ms 
+; delay = 2 - 157ms
 rcServoFWD:
-;    movlb   0x2
-;    bsf	    LATA, 0x6
+    movlb   0x2
+    bsf	    LATA, 0x6
 
     MOVLB   BANK0
     MOVLW   SERVO_SPEED
     MOVWF   u8Speed
     MOVLB   BANK27
-    MOVLW   SERVO_STOP_LOW
+;    MOVLW   SERVO_STOP_LOW
     MOVLW   185
     MOVWF   PWM6DCL
     MOVLW   250
@@ -452,7 +462,7 @@ rcServoFWD:
     INCF    PWM11DCL, F
     MOVLW   SERVO_BOTH_LOAD
     MOVWF   PWMLD
-    MOVLW   6 ; todo delay
+    MOVLW   8 ; todo delay
     call    _delay
     MOVLB   BANK27
     INCFSZ  PWM11DCL, W
@@ -461,8 +471,8 @@ rcServoFWD:
     BRA	    $-21
     BSF	    TBOT, TBOT_RCSERVO
 
-;    movlb   0x2
-;    bcf	    LATA, 0x6
+    movlb   0x2
+    bcf	    LATA, 0x6
 
     BRA	    loop
 
@@ -621,3 +631,28 @@ _emergency:
     BRA	    $-8
 
     END	    resetVector
+
+```
+
+## MPLABX Linker Configuration.
+
+- PIC-AS Linker > Custom linker options:
+  - For Configuration & PWM: `-preset_vec=0000h, -pintentry=0004h, -pcinit=0005h`
+
+<p align="center">
+<img alt="MPLABX Linker Configuration" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-mplabx-configuration-3.png">
+</p>
+
+## Notes.
+
+- TODO : Work in progress, prototype was not good, hardware, PCB and code can be rework.
+- DRAFT : Prototype OK, last check schematic, PCB & code can be modify.
+
+## DISCLAIMER.
+
+THIS CODE IS PROVIDED WITHOUT ANY WARRANTY OR GUARANTEES.
+USERS MAY USE THIS CODE FOR DEVELOPMENT AND EXAMPLE PURPOSES ONLY.
+AUTHORS ARE NOT RESPONSIBLE FOR ANY ERRORS, OMISSIONS, OR DAMAGES THAT COULD
+RESULT FROM USING THIS FIRMWARE IN WHOLE OR IN PART.
+
+---

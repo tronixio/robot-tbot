@@ -71,22 +71,29 @@ const uint8_t au8Ready[] = "\r\nREADY> ";
 // Interrupts Service Routines.
 void __interrupt() ISR(void)
 {
-    if(PIR1bits.TMR1IF){
-        LATAbits.LATA6 = ~LATAbits.LATA6;
-        PIR1bits.TMR1IF = 0b0;
-    }
+//    if(PIR1bits.TMR1IF){
+//        LATAbits.LATA6 = ~LATAbits.LATA6;
+//        PIR1bits.TMR1IF = 0b0;
+//    }
     if(INTCONbits.INTF){
-        INTCONbits.GIE = 0b0;
-        PWMEN = 0b0;
-        ADCON0bits.ADON = 0b0;
-        RC1STAbits.SPEN = 0b0;
-        T1CONbits.ON = 0b0;
-
+        INTCONbits.GIE = 0;
+        PWMEN = 0;
+//        ADCON0bits.ADON = 0b0;
+//        RC1STAbits.SPEN = 0b0;
+//        T1CONbits.ON = 0b0;
         LATBbits.LATB0 = 0b0;
         TRISBbits.TRISB0 = 0b0;
-        //__delay_ms(300);
-        //TRISBbits.TRISB0 = 0b1;
-        //__delay_ms(300);
+        while(1){};
+    }
+    if(PIR4bits.TMR3IF){
+        PWM6CONbits.EN = 0;
+        PIR4bits.TMR3IF = 0;
+//        while(1){};
+    }
+    if(PIR4bits.TMR5IF){
+        PWM11CONbits.EN = 0;
+        PIR4bits.TMR5IF = 0;
+//        while(1){};
     }
 }
 
@@ -107,7 +114,7 @@ void main(void)
     // TRIS Data Direction.
     TRISA = 0b00000000;
     TRISB = 0b10011001;
-    TRISC = 0b01000100;
+    TRISC = 0b01010100;
     TRISE = 0b00001000;
     // WPU Disable.
 //    OPTION_REGbits.nWPUEN = 0b1;
@@ -144,7 +151,11 @@ void main(void)
     PPSLOCK = 0xAA;
     PPSLOCKbits.PPSLOCKED = 0b0;
     // PPS Inputs.
-    RXPPSbits.RXPPS = 0x0F;    // RB7 - EUSART.URX.
+    RXPPSbits.RXPPS = 0x0F;         // RB7 - EUSART.URX.
+    T3GPPSbits.T3GPPS = 0x14;       // RC4
+    T3CKIPPSbits.T3CKIPPS = 0x14;   // RC4
+    T5GPPSbits.T5GPPS = 0x16;       // RC6
+    T5CKIPPSbits.T5CKIPPS = 0x16;   // RC6
     // PPS Outputs.
     RA0PPSbits.RA0PPS = 0x1D;   // RA0 - PWM5.
     RB5PPSbits.RB5PPS = 0x1F;   // RB5 - PWM11.
@@ -177,6 +188,7 @@ void main(void)
     RC1STAbits.SPEN = 0b1;
 
     // PWM5 Settings.
+    // Test Signal.
     PWM5PHL = 0b00000000;
     PWM5PHH = 0b00000000;
     PWM5DCL = 0;
@@ -194,10 +206,11 @@ void main(void)
     PWM5LDCON = 0x00;
     PWM5OFCON = 0x00;
     // PWM5 Load & Enable.
-    PWM5LDCONbits.LDA = 0b1;
-    PWM5CONbits.EN = 0b1;
+    PWM5LDCONbits.LDA = 0b0;
+    PWM5CONbits.EN = 0b0;
 
     // PWM6 Settings.
+    // RC Servo Right
     PWM6PHL = 0b00000000;
     PWM6PHH = 0b00000000;
     PWM6DCL = SERVO_STOP_LOW;
@@ -219,6 +232,7 @@ void main(void)
     PWM6CONbits.EN = 0b1;
     
     // PWM11 Settings.
+    // RC Servo Left
     PWM11PHL = 0b00000000;
     PWM11PHH = 0b00000000;
     PWM11DCL = SERVO_STOP_LOW;
@@ -239,6 +253,26 @@ void main(void)
     PWM11LDCONbits.LDA = 0b1;
     PWM11CONbits.EN = 0b1;
 
+    // TIMER3 Settings.
+    TMR3L = 250;
+    TMR3H = 255;
+    T3CON = 0b10000000;
+    T3GCON = 0b11100000;
+    // TIMER3 Enable.
+    T3CONbits.ON = 0b1;
+    PIE4bits.TMR3IE = 1;
+    PIR4bits.TMR3IF = 0;
+
+    // TIMER5 Settings.
+    TMR5L = 200;
+    TMR5H = 255;
+    T5CON = 0b10000000;
+    T5GCON = 0b11100000;
+    // TIMER5 Enable.
+    T5CONbits.ON = 0b1;
+    PIE4bits.TMR5IE = 1;
+    PIR4bits.TMR5IF = 0;
+
     // OPTION REG Settings.
     // WPU Enabled.
     // TIMER0 ~15Hz @8MHz.
@@ -250,44 +284,56 @@ void main(void)
     T1CON = 0b00110000;
     T1GCON = 0b00000000;
     // Timer1 Enable.
-    PIE1bits.TMR1IE = 0b1;
+    PIE1bits.TMR1IE = 0b0;
     PIR1bits.TMR1IF = 0b0;
-    T1CONbits.ON = 0b1;
+    T1CONbits.ON = 0b0;
 
     // GP2Y0D21 Enable.
-    GP2Y0D21_FRONT_ENABLE;
+//    GP2Y0D21_FRONT_ENABLE;
     // Wait ~60ms.
-    __delay_ms(GP2Y0D21_60MS);
+//    __delay_ms(GP2Y0D21_60MS);
     // GP2Y0D21 Obstacle ?
-    while(GP2Y0D21_FRONT_OUT){};
+//    while(GP2Y0D21_FRONT_OUT){};
 
     //
     INTCONbits.INTE = 0b1;
     INTCONbits.INTF = 0b0;
     // Interrupts Enable.
-    INTCONbits.PEIE = 0b1;
+    INTCONbits.PEIE = 0b0;
     INTCONbits.GIE = 0b1;
 
     // Display Strings.
     eusart_writeString(au8Tronix);
     eusart_writeString(au8Ready);
 
-    PWM6DCL = 0; // back speed up -> 165 - RIGHT
-    PWM6DCH = 6; // RIGHT
-    PWM11DCL = 180; // back speed up -> 26 - LEFT
+    PWM6DCL = 220; // 0; // back speed up -> 165 - RIGHT
+    PWM6DCH = 5; // #6; // RIGHT
+    PWM11DCL = 220; //180; // back speed up -> 26 - LEFT
     PWM11DCH = 5; // LEFT
-    PWMLD = 0x6; // 0x2 right, 0x4 left, 0x6 both
-    PWMEN = 1;
+    PWMLD = 6; // 0x2 right, 0x4 left, 0x6 both
+    PWMEN = 6;
 
     uint16_t u16Result1 = 0;
     uint16_t u16Result2 = 0;
     uint8_t au8Buffer[6];
     while(1){
-        u16toa((uint16_t)((TMR1H<<8) + TMR1L), au8Buffer, 10);
+        TMR3L = 0;
+        TMR3H = 0;
+        TMR5L = 0;
+        TMR5H = 0;
+        __delay_ms(1000);
         eusart_writeString(au8Ready);
+        u16toa(TMR3L, au8Buffer, 10);
         eusart_writeString(au8Buffer);
+        eusart_writeCharacter('-');
+        u16toa(TMR5L, au8Buffer, 10);
+        eusart_writeString(au8Buffer);
+        
+//        u16toa((uint16_t)((TMR1H<<8) + TMR1L), au8Buffer, 10);
+//        eusart_writeString(au8Ready);
+//        eusart_writeString(au8Buffer);
         //TMR1L = TMR1H = 0;
-        __delay_ms(10);
+//        __delay_ms(10);
     }
 }
 
