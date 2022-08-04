@@ -368,7 +368,9 @@
       "tronixioZZZ",
       "tronixioZZZZ"
     ],
-    "pinned_symbol_libs": []
+    "pinned_symbol_libs": [
+      "tronixio"
+    ]
   },
   "meta": {
     "filename": "charger.kicad_pro",
@@ -457,9 +459,7 @@
         "microvia_diameter": 0.0,
         "microvia_drill": 0.0,
         "name": "CLASS-05",
-        "nets": [
-          "Net-(R4-Pad2)"
-        ],
+        "nets": [],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.5,
