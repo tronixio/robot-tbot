@@ -26,6 +26,20 @@ CONFIG LVP=ON
 ; TBOT - v0.1.
 ; Sensor SHARP GP2Y0D21YK.
 ; PICAS-P16F1778-GP2Y0D21YK
+
+; Version simple
+; Pour le sensor il faut le mettre dans une interruption
+; qui SET un Flag, le Flag peut être poller dans les fonction du main
+; un fois traite remettre le Flag a 0. Utiliser call/return
+
+; Version complete
+; Pour le sensor il faut mettre dans une interruption
+; qui SET un flag. Le Flag peut être poller dans les fonctions du main
+; mais qui charge des registres avant l'appel pour donner un context a la
+; fonction qui va traiter le Flag pour prendre une decision.
+; Utiliser goto/bra, ne pas utiliser de call pas de retour au context
+; cette fonction prendra de nouvelles decision et devra retourner a la fonction main
+
 ; TODO: Better Delay Fonction
 ; TODO: Optimize Variables
 ; TODO: Faire le timming des boucles
