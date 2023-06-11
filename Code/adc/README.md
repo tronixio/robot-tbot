@@ -255,7 +255,7 @@ loop:
     CALL    _writeStringREADY
     CALL    _writeStringBATTERYLOW
     MOVLW   10
-    CALL    _delay
+    CALL    _u8Delay
     BRA	    loop
 
     ; Display Battery Value.
@@ -269,12 +269,12 @@ loop:
     CALL    _hex2ascii
     CALL    _writeStringASCII
     MOVLW   10
-    call    _delay
+    call    _u8Delay
 
     BRA	    loop
 
 ; Functions.
-_delay:
+_u8Delay:
     MOVLB   BANK0
     MOVWF   u16Delay
     MOVLW   255

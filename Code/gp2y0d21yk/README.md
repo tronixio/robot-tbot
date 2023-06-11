@@ -192,7 +192,7 @@ main:
     BSF	    LATC, GP2Y0D21_ENABLE
     ; Wait ~60ms.
     MOVLW   GP2Y0D21_60MS
-    CALL    _delay
+    CALL    _u8Delay
     ; IOC Settings.
     MOVLB   BANK7
     BSF	    IOCCP, GP2Y0D21_OUT
@@ -230,7 +230,7 @@ isr:
     RETFIE
 
 ; Functions.
-_delay:
+_u8Delay:
     MOVLB   BANK0
     MOVWF   u8Delay
     MOVLW   255

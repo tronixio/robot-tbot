@@ -355,7 +355,7 @@ main:
     BSF	    LATC, GP2Y0D21_FRONT_ENABLE
     ; Wait ~60ms.
     MOVLW   GP2Y0D21_60MS
-    CALL    _delay
+    CALL    _u8Delay
     ; GP2Y0D21 Obstacle ?
     BTFSC   PORTC, GP2Y0D21_FRONT_OUT
     BRA	    $-1
@@ -463,7 +463,7 @@ rcServoFWD:
     MOVLW   SERVO_BOTH_LOAD
     MOVWF   PWMLD
     MOVLW   8 ; todo delay
-    call    _delay
+    call    _u8Delay
     MOVLB   BANK27
     INCFSZ  PWM11DCL, W
     BRA	    $-19
@@ -497,7 +497,7 @@ rcServoSTOP:
     MOVLW   SERVO_BOTH_LOAD
     MOVWF   PWMLD
     MOVLW   3
-    CALL    _delay ; todo delay
+    CALL    _u8Delay ; todo delay
     MOVLB   BANK27
     CLRW
     XORWF   PWM11DCL, W
@@ -507,7 +507,7 @@ rcServoSTOP:
     DECF    PWM11DCH, F
     BRA	    $-24
     MOVLW   255
-    CALL    _delay
+    CALL    _u8Delay
     ; RC Servos Backward.
     MOVLB   BANK27
     MOVLW   35
@@ -559,7 +559,7 @@ rcServoSTOP:
     MOVLW   10
     MOVWF   u8Rotation
     MOVLW   5
-    CALL    _delay1
+    CALL    _u8Delay1
     ; GP2Y0D21 Obstacle ?
     MOVLB   BANK0
     BTFSC   PORTC, GP2Y0D21_FRONT_OUT
@@ -586,7 +586,7 @@ isr:
 ; Functions.
 ; delay = 1 ~390us.
 ; delay = 255 ~98ms.
-_delay:
+_u8Delay:
     MOVLB   BANK0
     MOVWF   u16Delay
     MOVLW   255
@@ -598,7 +598,7 @@ _delay:
 
 ; delay = 1 ~98ms.
 ; delay = 255 ~25s.
-_delay1:
+_u8Delay1:
     MOVLB   BANK0
     MOVWF   u16Delay
     movlw   255
@@ -623,11 +623,11 @@ _emergency:
     MOVLB   BANK1
     BCF	    TRISB, EMERGENCY ; LED ON.
     MOVLW   255
-    CALL    _delay
+    CALL    _u8Delay
     MOVLB   BANK1
     BSF	    TRISB, EMERGENCY ; LED OFF.
     MOVLW   255
-    CALL    _delay
+    CALL    _u8Delay
     BRA	    $-8
 
     END	    resetVector

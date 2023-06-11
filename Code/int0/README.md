@@ -202,7 +202,7 @@ isr:
 
 ; delay = 1 ~98ms.
 ; delay = 255 ~25s.
-_delay:
+_u8Delay:
     MOVLB   BANK0
     MOVWF   u8Delay
     MOVLW   255
@@ -219,11 +219,11 @@ _emergency:
     MOVLB   BANK1
     BCF	    TRISB, EMERGENCY ; LED ON.
     MOVLW   255
-    CALL    _delay
+    CALL    _u8Delay
     MOVLB   BANK1
     BSF	    TRISB, EMERGENCY ; LED OFF.
     MOVLW   255
-    CALL    _delay
+    CALL    _u8Delay
     BRA	    $-8
 
     END resetVector

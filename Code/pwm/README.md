@@ -283,7 +283,7 @@ loop:
     MOVLW   0x6
     MOVWF   PWMLD
     MOVLW   10
-    CALL    _delay
+    CALL    _u8Delay
 
     ; RC Servos Stop.
     MOVLB   BANK27
@@ -298,7 +298,7 @@ loop:
     MOVLW   0x6
     MOVWF   PWMLD
     MOVLW   10
-    CALL    _delay
+    CALL    _u8Delay
 
     ; RC Servos Backward.
     MOVLB   BANK27
@@ -313,7 +313,7 @@ loop:
     MOVLW   0x6
     MOVWF   PWMLD
     MOVLW   10
-    CALL    _delay
+    CALL    _u8Delay
 
     ; RC Servos Stop.
     MOVLB   BANK27
@@ -328,12 +328,12 @@ loop:
     MOVLW   0x6
     MOVWF   PWMLD
     MOVLW   10
-    CALL    _delay
+    CALL    _u8Delay
 
     BRA	    loop
 
 ; Functions.
-_delay:
+_u8Delay:
     MOVLB   BANK0
     MOVWF   u16Delay
     MOVLW   255
