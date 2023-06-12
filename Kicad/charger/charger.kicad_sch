@@ -1242,7 +1242,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid b554ae4e-468f-4809-9af5-80fc9a9bd69b)
   )
-  (text "*R6: 10K if NTC TH1 Not Populate." (at 181.61 179.07 0)
+  (text "*R6: 10k if NTC TH1 Not Populate." (at 181.61 179.07 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid b8908dde-7142-4a4c-803a-46dcff9246b2)
   )

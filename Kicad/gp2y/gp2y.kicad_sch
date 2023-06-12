@@ -311,13 +311,13 @@
       )
     )
     (symbol "tronixio:MOUNTING-HOLE-3MM-MASK" (pin_numbers hide) (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
-      (property "Reference" "H" (at 0 2.54 0)
+      (property "Reference" "H" (at 0 2.54 0) (do_not_autoplace)
         (effects (font (size 1 1)) hide)
       )
-      (property "Value" "MOUNTING-HOLE-3MM-MASK" (at 0 -2.54 0)
+      (property "Value" "MOUNTING-HOLE-3MM-MASK" (at 0 -2.54 0) (do_not_autoplace)
         (effects (font (size 1 1)) hide)
       )
-      (property "Footprint" "tronixio:MOUNTING-HOLE-3MM-MASK" (at 0 -5.08 0)
+      (property "Footprint" "tronixio:MOUNTING-HOLE-3MM-MASK" (at 0 -5.08 0) (do_not_autoplace)
         (effects (font (size 1 1)) hide)
       )
       (property "Datasheet" "" (at 0 -7.62 0)
@@ -429,10 +429,10 @@
       )
     )
     (symbol "tronixio:POWER-GND" (power) (pin_numbers hide) (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
-      (property "Reference" "#PWR" (at 0 -5.08 0)
+      (property "Reference" "#PWR" (at 0 -7.62 0)
         (effects (font (size 1 1)) hide)
       )
-      (property "Value" "POWER-GND" (at 0 -7.62 0)
+      (property "Value" "POWER-GND" (at 0 -10.16 0)
         (effects (font (size 1 1)) hide)
       )
       (property "Footprint" "" (at 0 0 0)
@@ -440,6 +440,9 @@
       )
       (property "Datasheet" "" (at 0 0 0)
         (effects (font (size 1 1)) hide)
+      )
+      (property "Name" "GND" (at 0 -3.81 0)
+        (effects (font (size 1.15 1.15)) hide)
       )
       (symbol "POWER-GND_0_1"
         (rectangle (start -1.778 -2.032) (end 1.778 -1.27)
@@ -467,7 +470,7 @@
       (property "Datasheet" "" (at 0 0 0)
         (effects (font (size 1 1)) hide)
       )
-      (property "Name" "VIN" (at 0 5.08 0)
+      (property "Name" "VIN" (at 0 5.08 0) (do_not_autoplace)
         (effects (font (size 1.15 1.15)))
       )
       (symbol "POWER-VIN_0_1"
@@ -899,6 +902,9 @@
     (property "Datasheet" "" (at 208.28 93.98 0)
       (effects (font (size 1 1)) hide)
     )
+    (property "Name" "GND" (at 208.28 97.79 0)
+      (effects (font (size 1.15 1.15)) hide)
+    )
     (pin "1" (uuid 7a4c4af1-1f90-4b0c-8f94-22f865d7eb4a))
     (instances
       (project "gp2y"
@@ -1048,6 +1054,9 @@
     )
     (property "Datasheet" "" (at 83.82 93.98 0)
       (effects (font (size 1 1)) hide)
+    )
+    (property "Name" "GND" (at 83.82 97.79 0)
+      (effects (font (size 1.15 1.15)) hide)
     )
     (pin "1" (uuid 14153b53-1d04-4c9d-915c-0390346fec00))
     (instances
@@ -1318,6 +1327,9 @@
     (property "Datasheet" "" (at 167.64 93.98 0)
       (effects (font (size 1 1)) hide)
     )
+    (property "Name" "GND" (at 167.64 97.79 0)
+      (effects (font (size 1.15 1.15)) hide)
+    )
     (pin "1" (uuid 47f4d8f4-729f-4a0d-91b0-4196aef4328e))
     (instances
       (project "gp2y"
@@ -1466,6 +1478,9 @@
     (property "Datasheet" "" (at 129.54 93.98 0)
       (effects (font (size 1 1)) hide)
     )
+    (property "Name" "GND" (at 129.54 97.79 0)
+      (effects (font (size 1.15 1.15)) hide)
+    )
     (pin "1" (uuid e8aa1f33-f8d4-4b49-9732-8f8854111b60))
     (instances
       (project "gp2y"
@@ -1490,6 +1505,9 @@
     )
     (property "Datasheet" "" (at 144.78 93.98 0)
       (effects (font (size 1 1)) hide)
+    )
+    (property "Name" "GND" (at 144.78 97.79 0)
+      (effects (font (size 1.15 1.15)) hide)
     )
     (pin "1" (uuid ebdb59db-d316-48de-846f-b4adf71a2905))
     (instances
@@ -1545,6 +1563,9 @@
     (property "Datasheet" "" (at 91.44 93.98 0)
       (effects (font (size 1 1)) hide)
     )
+    (property "Name" "GND" (at 91.44 97.79 0)
+      (effects (font (size 1.15 1.15)) hide)
+    )
     (pin "1" (uuid bf1a1138-f520-4639-8c31-f1e4829cff51))
     (instances
       (project "gp2y"
@@ -1569,6 +1590,9 @@
     )
     (property "Datasheet" "" (at 99.06 93.98 0)
       (effects (font (size 1 1)) hide)
+    )
+    (property "Name" "GND" (at 99.06 97.79 0)
+      (effects (font (size 1.15 1.15)) hide)
     )
     (pin "1" (uuid 5776854a-f4d7-482b-b4d7-65b3b67459a8))
     (instances
@@ -1626,6 +1650,9 @@
     )
     (property "Datasheet" "" (at 167.64 190.5 0)
       (effects (font (size 1 1)) hide)
+    )
+    (property "Name" "GND" (at 167.64 194.31 0)
+      (effects (font (size 1.15 1.15)) hide)
     )
     (pin "1" (uuid e68ce836-7a58-42ea-9295-9d0a3d74be85))
     (instances
