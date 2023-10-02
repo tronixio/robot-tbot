@@ -58,9 +58,10 @@ CONFIG LVP=ON
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
+u8Delay:    DS  1
 u16Delay:   DS  2
-u8Filter:   DS	1
-u8Speed:    DS	1
+u8Filter:   DS  1
+u8Speed:    DS  1
 u8Rotation: DS  1
 
 ; Common RAM.
@@ -559,7 +560,7 @@ rcServoSTOP:
     MOVLW   10
     MOVWF   u8Rotation
     MOVLW   5
-    CALL    _u8Delay1
+    CALL    _u16Delay
     ; GP2Y0D21 Obstacle ?
     MOVLB   BANK0
     BTFSC   PORTC, GP2Y0D21_FRONT_OUT
@@ -588,17 +589,17 @@ isr:
 ; delay = 255 ~98ms.
 _u8Delay:
     MOVLB   BANK0
-    MOVWF   u16Delay
+    MOVWF   u8Delay
     MOVLW   255
     DECFSZ  WREG, F
     BRA	    $-1
-    DECFSZ  u16Delay, F
+    DECFSZ  u8Delay, F
     BRA	    $-3
     RETURN
 
 ; delay = 1 ~98ms.
 ; delay = 255 ~25s.
-_u8Delay1:
+_u16Delay:
     MOVLB   BANK0
     MOVWF   u16Delay
     movlw   255
