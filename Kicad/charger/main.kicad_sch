@@ -70,10 +70,10 @@
       (property "Datasheet" "" (at 0 -2.54 0)
         (effects (font (size 1 1)) hide)
       )
-      (property "Tolerance" "10%" (at 0.635 -7.62 0) (do_not_autoplace)
+      (property "Voltage" "16V" (at 0.635 -5.08 0) (do_not_autoplace)
         (effects (font (size 1.15 1.15)) (justify left) hide)
       )
-      (property "Voltage" "16V" (at 0.635 -5.08 0) (do_not_autoplace)
+      (property "Tolerance" "10%" (at 0.635 -7.62 0) (do_not_autoplace)
         (effects (font (size 1.15 1.15)) (justify left) hide)
       )
       (property "Mouser" "80-C1206C105K4R" (at 0 -12.7 0) (do_not_autoplace)
@@ -1265,7 +1265,7 @@
     (pin "1" (uuid 02824903-0728-44aa-b520-20c5796774e3))
     (pin "2" (uuid f00f99bc-fbf7-46f3-a042-262680e3cc8f))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "R4") (unit 1)
         )
@@ -1290,7 +1290,7 @@
     )
     (pin "1" (uuid b9aa76d4-5c92-4571-8094-d1b45bed0276))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR010") (unit 1)
         )
@@ -1321,7 +1321,7 @@
     (pin "3" (uuid 1dfbf353-5b24-4c0f-8322-8fcd514ae75e))
     (pin "4" (uuid e0c7ddff-8c90-465f-be62-21fb49b059fa))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "BT1") (unit 1)
         )
@@ -1349,7 +1349,7 @@
     )
     (pin "1" (uuid 0de5cf2c-15b2-4436-9b74-3af80374d27b))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR07") (unit 1)
         )
@@ -1384,7 +1384,7 @@
     (pin "7" (uuid 2686bf97-33a7-46ad-b093-ba2a830ae87d))
     (pin "8" (uuid dcc90ae9-b0a9-4980-a56a-b3a0f37e1625))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "U1") (unit 1)
         )
@@ -1409,7 +1409,7 @@
     )
     (pin "1" (uuid ce53a8e5-58bf-4a17-96de-4eec69c66c10))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR08") (unit 1)
         )
@@ -1441,7 +1441,7 @@
     (pin "1" (uuid 2b6bf7aa-f868-4fd7-844b-b92b4ba7efe5))
     (pin "2" (uuid 6e1e7bb8-210b-4d0a-9157-71adb71cfab0))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "R2") (unit 1)
         )
@@ -1471,7 +1471,7 @@
     (pin "2" (uuid 3fad1935-51f3-4501-9cce-98f3cc1212be))
     (pin "3" (uuid 4a107b08-cb5a-4fa3-9eb1-1926eaad6e0c))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "K1") (unit 1)
         )
@@ -1502,7 +1502,7 @@
     (pin "3" (uuid 68330f59-9cff-4080-904c-afa9d5bfff35))
     (pin "4" (uuid 77e52bf4-5a9c-42cb-9254-fa3886db35ee))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "BT1") (unit 2)
         )
@@ -1530,7 +1530,7 @@
     )
     (pin "1" (uuid ae408114-7df5-4faf-b895-f76f88bedc76))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR016") (unit 1)
         )
@@ -1559,7 +1559,7 @@
     (pin "1" (uuid 1409a2a3-4f15-4c7d-a042-5fc36dcf732d))
     (pin "2" (uuid 69ae8e34-9da8-41e7-844e-49d5a1d16fa8))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "LED1") (unit 1)
         )
@@ -1584,7 +1584,7 @@
     )
     (pin "1" (uuid 8c52d82e-9f04-4ee2-84b5-da71358e400f))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR015") (unit 1)
         )
@@ -1619,7 +1619,7 @@
     (pin "1" (uuid f78a0779-ac05-4804-888d-b5fb19e733dc))
     (pin "2" (uuid a89b1dd5-6ad8-4733-8a1b-8d1cb3c4dbcb))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "C2") (unit 1)
         )
@@ -1644,7 +1644,7 @@
     )
     (pin "1" (uuid 3c337631-420a-4563-ad84-5739b401fa55))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR01") (unit 1)
         )
@@ -1672,7 +1672,7 @@
     )
     (pin "1" (uuid 0d1d1820-919c-4a0c-abae-bee78f93b37e))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR09") (unit 1)
         )
@@ -1696,7 +1696,7 @@
       (effects (font (size 1 1)) hide)
     )
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "H2") (unit 1)
         )
@@ -1728,7 +1728,7 @@
     (pin "1" (uuid 25446863-a0e9-4d79-859d-1cfc1577bd1a))
     (pin "2" (uuid bbf36add-6244-4dd4-8b1b-12d35a232620))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "R1") (unit 1)
         )
@@ -1756,7 +1756,7 @@
     )
     (pin "1" (uuid 2d51aa0f-d5bb-4777-be2d-09223cbec52b))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR04") (unit 1)
         )
@@ -1786,7 +1786,7 @@
     (pin "2" (uuid 6ba54fb8-40fa-45e5-a3d4-ca87293adf9b))
     (pin "3" (uuid ea1537b9-6ff1-445d-982f-ea4f4e4e3f2a))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "Q1") (unit 1)
         )
@@ -1814,7 +1814,7 @@
     )
     (pin "1" (uuid 59df4416-7963-4548-96ea-a5a6cc4f82a0))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR014") (unit 1)
         )
@@ -1838,7 +1838,7 @@
       (effects (font (size 1 1)) hide)
     )
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "H3") (unit 1)
         )
@@ -1866,7 +1866,7 @@
     )
     (pin "1" (uuid bf68ddb9-9a66-4434-a6cf-0140bbc15722))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR012") (unit 1)
         )
@@ -1891,7 +1891,7 @@
     )
     (pin "1" (uuid 783016f5-e1d4-4a05-819c-149db0aa6028))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#FLG03") (unit 1)
         )
@@ -1920,7 +1920,7 @@
     (pin "1" (uuid 5d9ba10f-9f3a-478b-9803-3c2d7d7873d3))
     (pin "2" (uuid d5fdac17-75c8-48fb-9fd5-ed9cead16eda))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "K2") (unit 1)
         )
@@ -1955,7 +1955,7 @@
     (pin "1" (uuid eec15f10-d5d7-4e36-8247-6a1cb4b42ccb))
     (pin "2" (uuid ddd9c713-5d85-46dc-93a5-ef2dab48a941))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "C1") (unit 1)
         )
@@ -1980,7 +1980,7 @@
     )
     (pin "1" (uuid 89b5b583-f017-43db-a732-98d7f626bbad))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR017") (unit 1)
         )
@@ -2012,7 +2012,7 @@
     (pin "1" (uuid eff89203-d300-42f7-915e-7aa5d1490a93))
     (pin "2" (uuid dc88655e-3b4d-483d-8848-42a34e6802e3))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "R5") (unit 1)
         )
@@ -2044,7 +2044,7 @@
     (pin "1" (uuid 3cbadf8d-1e26-4789-87e5-91457b09bd21))
     (pin "2" (uuid be1ed0d6-fc03-467e-9d0d-2dcf4f949e6a))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "R3") (unit 1)
         )
@@ -2069,7 +2069,7 @@
     )
     (pin "1" (uuid 88514270-1ed6-476d-aa24-84aa1a2d2603))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR06") (unit 1)
         )
@@ -2093,7 +2093,7 @@
       (effects (font (size 1 1)) hide)
     )
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "H1") (unit 1)
         )
@@ -2118,7 +2118,7 @@
     )
     (pin "1" (uuid 32146012-5ec0-4ac7-82e0-1ffdf8214b5f))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR013") (unit 1)
         )
@@ -2143,7 +2143,7 @@
     )
     (pin "1" (uuid 3ea85b0c-dc15-41c0-a202-05841e3772a5))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR03") (unit 1)
         )
@@ -2168,7 +2168,7 @@
     )
     (pin "1" (uuid 1d62761a-9a08-48c3-9729-c1022d2ad643))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR05") (unit 1)
         )
@@ -2197,7 +2197,7 @@
     (pin "1" (uuid 0869c852-e95a-4d03-a513-a2804a290e47))
     (pin "2" (uuid 13144717-12bc-4542-9c01-f13fad114884))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "TH1") (unit 1)
         )
@@ -2229,7 +2229,7 @@
     (pin "1" (uuid 095c3fb1-3fec-44ce-91cd-ed59232d230a))
     (pin "2" (uuid c4adf513-ce37-4e28-9b29-5cf3140dfcf8))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "R6") (unit 1)
         )
@@ -2254,7 +2254,7 @@
     )
     (pin "1" (uuid b601db02-ca9f-476b-904a-161d83f57d92))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR011") (unit 1)
         )
@@ -2283,7 +2283,7 @@
     (pin "1" (uuid fe8f7238-24a0-43df-83ca-3ac076abf355))
     (pin "2" (uuid 407d920f-8465-470c-bec2-597ad7b73550))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "D1") (unit 1)
         )
@@ -2308,7 +2308,7 @@
     )
     (pin "1" (uuid 5d796ede-317a-4760-bb35-2221e3337623))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#FLG01") (unit 1)
         )
@@ -2333,7 +2333,7 @@
     )
     (pin "1" (uuid 6cb0da2c-e493-4b6c-b666-9de263f3f50d))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#FLG02") (unit 1)
         )
@@ -2361,7 +2361,7 @@
     )
     (pin "1" (uuid 306738c7-a2d8-4d2e-becf-8abe5bbf5734))
     (instances
-      (project "charger"
+      (project "main"
         (path "/5f96646c-bdf6-47e2-a01d-8588cc95727b"
           (reference "#PWR02") (unit 1)
         )
