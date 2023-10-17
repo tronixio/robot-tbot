@@ -1216,7 +1216,7 @@
     (uuid fdcc4269-5e4f-44df-b1e2-e2316cbdc6c7)
   )
 
-  (text "R2 (0Ω1): ICharge ~1A." (at 181.61 173.99 0)
+  (text "R2 (0Ω1): ICharge ~1.25A." (at 181.61 173.99 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 0705a111-30e7-4de2-a269-dd9addcd71e0)
   )
