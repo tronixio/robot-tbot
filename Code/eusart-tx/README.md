@@ -224,7 +224,7 @@ _eusartTX:
     RETURN
 
 _eusartTXString:
-    MOVIW   FSR1++
+    MOVIW   FSR0++
     ANDLW   0xFF
     BTFSC   STATUS, Z
     RETURN
@@ -232,34 +232,34 @@ _eusartTXString:
     BRA	    $-5
 
 _writeStringREADY:
-    MOVLW   HIGH stringREADY + 0x80
-    MOVWF   FSR1H
     MOVLW   LOW stringREADY
-    MOVWF   FSR1L
+    MOVWF   FSR0L
+    MOVLW   HIGH stringREADY + 0x80
+    MOVWF   FSR0H
     CALL    _eusartTXString
     RETURN
 
 _writeStringTBOT:
-    MOVLW   HIGH stringTBOT + 0x80
-    MOVWF   FSR1H
     MOVLW   LOW stringTBOT
-    MOVWF   FSR1L
+    MOVWF   FSR0L
+    MOVLW   HIGH stringTBOT + 0x80
+    MOVWF   FSR0H
     CALL    _eusartTXString
     RETURN
 
 _writeStringTRONIX:
-    MOVLW   HIGH stringTRONIX + 0x80
-    MOVWF   FSR1H
     MOVLW   LOW stringTRONIX
-    MOVWF   FSR1L
+    MOVWF   FSR0L
+    MOVLW   HIGH stringTRONIX + 0x80
+    MOVWF   FSR0H
     CALL    _eusartTXString
     RETURN
 
 _writeStringURL:
-    MOVLW   HIGH stringURL + 0x80
-    MOVWF   FSR1H
     MOVLW   LOW stringURL
-    MOVWF   FSR1L
+    MOVWF   FSR0L
+    MOVLW   HIGH stringURL + 0x80
+    MOVWF   FSR0H
     CALL    _eusartTXString
     RETURN
 
