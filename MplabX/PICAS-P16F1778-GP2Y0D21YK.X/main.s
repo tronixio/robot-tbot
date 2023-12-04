@@ -5,7 +5,7 @@ CONFIG PWRTE=OFF
 CONFIG MCLRE=ON
 CONFIG CP=OFF
 CONFIG BOREN=OFF
-CONFIG CLKOUTEN=OFF
+CONFIG CLKOUTEN=ON
 CONFIG IESO=OFF
 CONFIG FCMEN=OFF
 CONFIG WRT=OFF
@@ -18,14 +18,14 @@ CONFIG LPBOR=OFF
 CONFIG LVP=ON
 
 #include <xc.inc>
-; PIC16F1778 - Compile with PIC-AS(v2.36).
+; PIC16F1778 - Compile with PIC-AS(v2.45).
 ; PIC16F1778 - @8MHz Internal Oscillator.
 ; -preset_vec=0000h, -pintentry=0004h, -pcinit=0005h.
 ; Instruction ~500ns @8MHz.
 
 ; TBOT - v0.1.
 ; Sensor SHARP GP2Y0D21YK.
-; PICAS-P16F1778-GP2Y0D21YK
+; PICAS-P16F1778-GP2Y0D21YK.
 
 ; Version simple
 ; Pour le sensor il faut le mettre dans une interruption
@@ -51,26 +51,28 @@ CONFIG LVP=ON
 
 ; Pinout.
 ; MCU.RA6  -> LED.DEBUG / CLKOUTEN.OSCILLOSCOPE.PROBE.
-; MCU.RB0 <-> INT0.EMERGENCY.LED.SWITCH.
-; MCU.RB3 <-  AN9.BATTERY.SENSE.
-; MCU.RB4 <-  CCP7.IR.WHEEL.LEFT.
-; MCU.RB5  -> PWM11.RC.SERVO.LEFT.
-; MCU.RB6  -> EUSART.TX.
-; MCU.RB7 <-  EUSART.RX.
-; MCU.RC0  -> GP2Y0D21YK.FRONT.ENABLE.
-; MCU.RC2 <-  GP2Y0D21YK.FRONT.OUT.
-; MCU.RC5  -> PWM6.RC.SERVO.RIGHT.
-; MCU.RC6 <-  CCP2.IR.WHELL.RIGHT.
+;; MCU.RB0 <-> INT0.STOP.LED.SWITCH.
+;; MCU.RB3 <-  AN9.BATTERY.SENSE.
+;; MCU.RB4 <-  CCP7.IR.WHEEL.LEFT.
+;; MCU.RB5  -> PWM11.RC.SERVO.LEFT.
+;; MCU.RB6  -> EUSART.TX.
+;; MCU.RB7 <-  EUSART.RX.
+;; MCU.RC0  -> GP2Y0D21YK.FRONT.ENABLE.
+;; MCU.RC2 <-  GP2Y0D21YK.FRONT.OUT.
+;; MCU.RC5  -> PWM6.RC.SERVO.RIGHT.
+;; MCU.RC6 <-  CCP2.IR.WHELL.RIGHT.
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
-u16Delay:   DS  2
+u8Bank0:    DS	1
 u8Filter:   DS	1
 u8Speed:    DS	1
 u8Rotation: DS  1
 
 ; Common RAM.
 PSECT cstackCOMM,class=COMMON,space=1,delta=1
+uCOMMON:    DS	1
+uDELAY:	    DS	2
 TBOT:	    DS  1
 
 ; MCU Definitions.
@@ -113,17 +115,17 @@ TBOT:	    DS  1
 
 ; User Definitions.
 ; Battery.
-#define BATTERY_FILTER		50
-#define	BATTERY_LOW		0xB7
+#define BATTERY_FILTER	    50
+#define	BATTERY_LOW	    0xB7
 ; Emergency.
-#define EMERGENCY		0x0
+#define STOP		    0x0
 ; LED Debug.
-#define	LED_DEBUG		0x6
+#define	LED_DEBUG	    0x6
 ; RC Servo.
-#define	SERVO_SPEED		202
+#define	SERVO_SPEED	    202
 ; Frequency 50Hz - @8MHz.
-#define SERVO_PERIOD_HIGH	78
-#define SERVO_PERIOD_LOW	30
+#define SERVO_PERIOD_HIGH   78
+#define SERVO_PERIOD_LOW    30
 ; Duty Cycle.
 ; H6/L165 - 1.7ms - @8MHz.
 ; H5/L220 - 1.5ms - @8MHz.
@@ -136,7 +138,7 @@ TBOT:	    DS  1
 ;
 #define	SERVO_LEFT_LOAD		0x4
 #define	SERVO_RIGHT_LOAD	0x2
-#define	SERVO_BOTH_LOAD		0x6
+#define	SERVO_BOTH_LOAD		0x5
 ; Sharp GP2Y0D21YK.
 #define	GP2Y0D21_60MS		160
 #define GP2Y0D21_FRONT_ENABLE	0x0
@@ -259,8 +261,8 @@ main:
     ; RB5 - PWM11.
     MOVLW   0x1F
     MOVWF   RB5PPS
-    ; RC5 - PWM6.
-    MOVLW   0x1E
+    ; RC5 - PWM5.
+    MOVLW   0x1D
     MOVWF   RC5PPS
     ; PPS Write Disable.
     MOVLB   BANK28
@@ -283,7 +285,7 @@ main:
     MOVLW   0x02
     MOVWF   ADCON2
     ; ADC Enable.
-    BSF	    ADON
+    BCF	    ADON
 
     ; PWM5 Settings.
     MOVLB   BANK27
@@ -301,7 +303,7 @@ main:
     CLRF    PWM5OFH
     CLRF    PWM5TMRL
     CLRF    PWM5TMRH
-    MOVLW   0x0C
+    MOVLW   0b00001100;0x0C
     MOVWF   PWM5CON
     MOVLW   0x00
     MOVWF   PWM5INTE
@@ -352,52 +354,68 @@ main:
     ; OPTION REG Settings.
     ; WPU Enabled.
     ; TIMER0 ~15Hz @8MHz.
-    MOVLB   BANK1
-    MOVLW   0b01010111
-    MOVWF   OPTION_REG
+;    MOVLB   BANK1
+;    MOVLW   0b01010111
+;    MOVWF   OPTION_REG
 
     ; TIMER5 Settings.
-    MOVLB   BANK8
-    MOVLW   100
-    MOVWF   TMR5L
-    MOVLW   255
-    MOVWF   TMR5H
-    MOVLW   0b10000000
-    MOVWF   T5CON
-    MOVLW   0b11100000
-    MOVWF   T5GCON
+;    MOVLB   BANK8
+;    MOVLW   100
+;    MOVWF   TMR5L
+;    MOVLW   255
+;    MOVWF   TMR5H
+;    MOVLW   0b10000000
+;    MOVWF   T5CON
+;    MOVLW   0b11100000
+;    MOVWF   T5GCON
     ; TIMER5 Enable.
-    BSF	    T5ON
+;    BCF	    T5ON
     
     ; BATTERY Settings.
-    MOVLW   BATTERY_FILTER
-    MOVWF   u8Filter
+;    MOVLW   BATTERY_FILTER
+;    MOVWF   u8Filter
 
     ; GP2Y0D21 Enable.
-    MOVLB   BANK2
-    BSF	    LATC, GP2Y0D21_FRONT_ENABLE
+;    MOVLB   BANK2
+;    BSF	    LATC, GP2Y0D21_FRONT_ENABLE
     ; Wait ~60ms.
-    MOVLW   GP2Y0D21_60MS
-    CALL    _delay
+;    MOVLW   GP2Y0D21_60MS
+;    CALL    _u8Delay
     ; GP2Y0D21 Obstacle ?
-    BTFSC   PORTC, GP2Y0D21_FRONT_OUT
-    BRA	    $-1
+;    BTFSC   PORTC, GP2Y0D21_FRONT_OUT
+;    BRA	    $-1
 
     ; INTERRUPTS Settings.
     BSF	    INTE
     BCF	    INTF
     ; INTERRUPTS Enabled.
     BCF	    PEIE
-    BSF	    GIE
+    BCF	    GIE
 
-    ;
-    movlw   10 ; todo define
-    movlb   BANK0
-    movwf   u8Rotation
-    
     ; TBOT Flags Clear.
     CLRF    TBOT
+
+;    MOVLB   BANK27
+;    MOVLW   SERVO_STOP_LOW
+;    MOVWF   PWM5DCL
+;    MOVWF   PWM11DCL
+;    MOVLW   SERVO_STOP_HIGH
+;    MOVWF   PWM5DCH
+;    MOVWF   PWM11DCH
+;    MOVLW   SERVO_BOTH_LOAD
+;    MOVWF   PWMLD
+
+    
+
+    MOVLB   BANK2
 loop:
+    BSF	    LATC, 3
+    movlw   255
+    call    _u16Delay
+    BCF	    LATC, 3
+
+    bra	    loop
+
     ; GP2Y0D21 Obstacle ?
     MOVLB   BANK0
     BTFSC   PORTC, GP2Y0D21_FRONT_OUT
@@ -420,7 +438,7 @@ batteryRead:
     MOVLB   BANK0
     DECFSZ  u8Filter, F
     BRA	    $+5
-    BRA	    _emergency
+    BRA	    _stop
     MOVLB   BANK0
     MOVLW   BATTERY_FILTER
     MOVWF   u8Filter
@@ -467,7 +485,7 @@ rcServoFWD:
     MOVLW   SERVO_BOTH_LOAD
     MOVWF   PWMLD
     MOVLW   6 ; todo delay
-    call    _delay
+    call    _u8Delay
     MOVLB   BANK27
     INCFSZ  PWM11DCL, W
     BRA	    $-19
@@ -501,7 +519,7 @@ rcServoSTOP:
     MOVLW   SERVO_BOTH_LOAD
     MOVWF   PWMLD
     MOVLW   3
-    CALL    _delay ; todo delay
+    CALL    _u8Delay ; todo delay
     MOVLB   BANK27
     CLRW
     XORWF   PWM11DCL, W
@@ -511,7 +529,7 @@ rcServoSTOP:
     DECF    PWM11DCH, F
     BRA	    $-24
     MOVLW   255
-    CALL    _delay
+    CALL    _u8Delay
     ; RC Servos Backward.
     MOVLB   BANK27
     MOVLW   35
@@ -563,7 +581,7 @@ rcServoSTOP:
     MOVLW   10
     MOVWF   u8Rotation
     MOVLW   5
-    CALL    _delay1
+    CALL    _u16Delay
     ; GP2Y0D21 Obstacle ?
     MOVLB   BANK0
     BTFSC   PORTC, GP2Y0D21_FRONT_OUT
@@ -582,56 +600,61 @@ rcServoSTOP:
 
 ; Interrupt Service Routine.
 isr:
-    ; Interrupt EMERGENCY ?
+    ; Interrupt STOP ?
     BTFSC   INTF
-    GOTO    _emergency
+    GOTO    _stop
     RETFIE
 
 ; Functions.
-; delay = 1 ~390us.
-; delay = 255 ~98ms.
-_delay:
-    MOVLB   BANK0
-    MOVWF   u16Delay
+; W = 1 ~4µs @8MHz.
+; W = 255 ~385µs @8MHz.
+_uDelay:
+    DECFSZ  WREG, W
+    BRA     $-1
+    RETURN
+
+; uDELAY = 1 ~390µs @8MHz.
+; uDELAY = 255 ~98ms @8MHz.
+_u8Delay:
+    MOVWF   uDELAY
     MOVLW   255
     DECFSZ  WREG, F
     BRA	    $-1
-    DECFSZ  u16Delay, F
+    DECFSZ  uDELAY, F
     BRA	    $-3
     RETURN
 
-; delay = 1 ~98ms.
-; delay = 255 ~25s.
-_delay1:
-    MOVLB   BANK0
-    MOVWF   u16Delay
-    movlw   255
-    movwf   u16Delay + 1
+; uDELAY = 1 ~98ms @8MHz.
+; uDELAY = 255 ~25s @8MHz.
+_u16Delay:
+    MOVWF   uDELAY
+    MOVLW   255
+    MOVWF   uDELAY + 1
     MOVLW   255
     DECFSZ  WREG, F
     BRA	    $-1
-    DECFSZ  u16Delay + 1, F
+    DECFSZ  uDELAY + 1, F
     BRA	    $-3
-    decfsz  u16Delay, F
-    bra	    $-5
+    DECFSZ  uDELAY, F
+    BRA	    $-5
     RETURN
 
-_emergency:
+_stop:
     BCF	    GIE
     MOVLB   BANK27
     CLRF    PWMEN
     MOVLB   BANK9
     BCF	    ADON
     MOVLB   BANK2
-    BCF	    LATB, EMERGENCY
+    BCF	    LATB, STOP
     MOVLB   BANK1
-    BCF	    TRISB, EMERGENCY ; LED ON.
+    BCF	    TRISB, STOP ; LED ON.
     MOVLW   255
-    CALL    _delay
+    CALL    _u8Delay
     MOVLB   BANK1
-    BSF	    TRISB, EMERGENCY ; LED OFF.
+    BSF	    TRISB, STOP ; LED OFF.
     MOVLW   255
-    CALL    _delay
+    CALL    _u8Delay
     BRA	    $-8
 
     END	    resetVector
