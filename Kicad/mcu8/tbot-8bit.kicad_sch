@@ -77,7 +77,7 @@
       (property "Voltage" "25V" (at 0.635 -5.08 0) (do_not_autoplace)
         (effects (font (size 1.15 1.15)) (justify left) hide)
       )
-      (property "Mouser" "791-1206X106J250CT" (at 0 -12.7 0) (do_not_autoplace)
+      (property "Mouser" "80-C1206C106J3R" (at 0 -12.7 0) (do_not_autoplace)
         (effects (font (size 1 1)) hide)
       )
       (property "ki_description" "Unpolarized Capacitor" (at 0 0 0)
@@ -1316,9 +1316,9 @@
     (property "Mouser" "621-DMP2305U-7" (at 127 48.26 0) (do_not_autoplace)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 4d5ababc-7194-466b-b220-c3dc2d7318df))
-    (pin "2" (uuid d47513bb-edd8-448e-a27c-c5ef7e14ef83))
-    (pin "3" (uuid be6f2497-0c60-4172-8936-65ad00731a10))
+    (pin "1" (uuid eadbf38a-9099-4e07-bcb5-5244df334855))
+    (pin "2" (uuid 75236098-f0de-45b0-83b8-493007236da2))
+    (pin "3" (uuid d73e6f79-da17-4665-a444-e74889f17c1a))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1370,7 +1370,7 @@
     (property "Mouser" "534-5006" (at 180.34 104.14 0) (do_not_autoplace)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 5353068a-f87f-48cb-8e15-bdc2956b6e6f))
+    (pin "1" (uuid fd114742-079f-4c18-9cfb-9ad8f594b329))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1395,7 +1395,7 @@
     (property "Datasheet" "" (at 106.68 111.76 0)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 4075e821-38d0-42c2-886c-ca841497fb20))
+    (pin "1" (uuid 5865070f-7792-4738-acda-594f7b738699))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1420,7 +1420,7 @@
     (property "Datasheet" "" (at 175.26 190.5 0)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 721f77ca-aef2-430f-8ec9-dc2955b2edfd))
+    (pin "1" (uuid 57e69413-b178-4d33-b508-4930707ac16c))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1445,7 +1445,7 @@
     (property "Datasheet" "" (at 180.34 68.58 0)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 20a4c488-2f76-40c1-b1a0-38f3a11e03ec))
+    (pin "1" (uuid 0e98fff6-fba7-4bac-adc2-8038de9daefe))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1494,7 +1494,7 @@
     (property "Datasheet" "" (at 93.98 68.58 0)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 127ea7ae-933f-4e85-aa46-3ce7bb8535ba))
+    (pin "1" (uuid 0b7c1e21-06f4-4115-b99a-81f93e4e0a29))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1522,7 +1522,7 @@
     (property "Name" "VIN" (at 180.34 30.48 0) (do_not_autoplace)
       (effects (font (size 1.15 1.15)))
     )
-    (pin "1" (uuid db36e6ee-f559-4e77-a8a2-6ec0e4e940a0))
+    (pin "1" (uuid bacabc6e-4b7a-4254-8da2-5e83371eab67))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1547,7 +1547,7 @@
     (property "Datasheet" "" (at 106.68 68.58 0)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid f0a8a8b2-060b-4680-8748-17fde4dee283))
+    (pin "1" (uuid e3200a6f-071c-4db6-8866-34619dec7930))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1572,7 +1572,7 @@
     (property "Datasheet" "" (at 127 111.76 0)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid b9c3a055-054e-4743-9e95-28a593ef6d9f))
+    (pin "1" (uuid 72f4b6a9-8d8e-4168-ab03-41e8a318e49c))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1627,8 +1627,8 @@
     (property "Mouser" "660-RK73B2BTTDD472J" (at 147.32 78.74 0) (do_not_autoplace)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 0c3f858e-0d44-4ec7-8039-a68f53b00510))
-    (pin "2" (uuid 521a95eb-7e26-4eee-a65a-32f5a43be025))
+    (pin "1" (uuid b0304044-8116-447f-989e-357743dc6847))
+    (pin "2" (uuid 603ae6de-4415-460d-9181-010cf785d6bc))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1653,7 +1653,7 @@
     (property "Datasheet" "" (at 167.64 190.5 0)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid a4c0aad1-af81-4511-9fbb-05ce7d51be48))
+    (pin "1" (uuid b80c8d20-f94c-47e9-b8a5-80803b047d52))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1678,7 +1678,7 @@
     (property "Datasheet" "" (at 127 68.58 0)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 8e9e27f3-e491-4bb2-b6e5-1b6d67ec9991))
+    (pin "1" (uuid ceb1e13a-c608-464a-a699-4fe15704364b))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1709,8 +1709,8 @@
     (property "Mouser" "660-RK73B2BTTDD105J" (at 127 33.02 0) (do_not_autoplace)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid ee3972a4-c637-468b-ae75-d8a9cd427ea9))
-    (pin "2" (uuid eacb635a-a02f-4f4b-ab3f-eb4cc5a4b5c3))
+    (pin "1" (uuid 6067a847-f2bf-4f72-a12d-9c0cb499b251))
+    (pin "2" (uuid cf4d6461-8c7c-470c-8d0e-9378cf18e5bd))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1738,7 +1738,7 @@
     (property "Name" "VIN" (at 147.32 30.48 0) (do_not_autoplace)
       (effects (font (size 1.15 1.15)))
     )
-    (pin "1" (uuid 0c342aed-8f29-4ac8-9613-52ab6c7fc6de))
+    (pin "1" (uuid f25162db-2c41-402d-bd5a-e4376f9523e9))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1772,8 +1772,8 @@
     (property "Mouser" "80-C1206C104J5R" (at 116.84 124.46 0) (do_not_autoplace)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid c42770d1-8453-4584-bf46-7e1cdf558de4))
-    (pin "2" (uuid 5da5516b-1f3a-40a3-9dfa-694ea949ae38))
+    (pin "1" (uuid e1866a68-ba09-45af-bb87-d32e4993a41d))
+    (pin "2" (uuid b0c81790-2e63-4047-96bb-c98dd8ba78c3))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1798,7 +1798,7 @@
     (property "Datasheet" "" (at 93.98 111.76 0)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 67ebe3b6-21ac-47d4-9cee-56dec0da5f1c))
+    (pin "1" (uuid 86cf4244-17b6-4d85-94b7-2c6a7f32fb96))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1832,8 +1832,8 @@
     (property "Mouser" "80-C1206C104J5R" (at 187.96 78.74 0) (do_not_autoplace)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 4a8e6a90-b539-4736-bce5-ee90b306fce5))
-    (pin "2" (uuid d58eb27c-b38a-4576-8e84-a760b623c4a1))
+    (pin "1" (uuid 8f988b20-6ca7-4510-9753-9093d4ee4010))
+    (pin "2" (uuid 38717274-b694-4a48-8845-72be17c66840))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1858,7 +1858,7 @@
     (property "Datasheet" "" (at 180.34 111.76 0)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 8182dc42-9dad-4163-b995-bb78c7dde9b0))
+    (pin "1" (uuid 452f9a6b-4a71-41c6-ba2b-e0c0cccf8cf7))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1886,7 +1886,7 @@
     (property "Name" "VIN" (at 167.64 175.26 0) (do_not_autoplace)
       (effects (font (size 1.15 1.15)))
     )
-    (pin "1" (uuid 597c7435-e2ff-4553-b80e-df55ed0137a1))
+    (pin "1" (uuid 18a760a7-7c4c-4639-8f80-f08372fa5b02))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1935,7 +1935,7 @@
     (property "Datasheet" "" (at 147.32 111.76 0)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 96f39862-6d4c-42e1-b8b9-3b58fff231a9))
+    (pin "1" (uuid 2c8bd805-d1c9-4719-8a3a-1319af4a5fd6))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1960,7 +1960,7 @@
     (property "Datasheet" "" (at 193.04 111.76 0)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 8d36042d-9c28-4721-9ef7-468b20e56e34))
+    (pin "1" (uuid 011de834-4de4-45f8-9f42-5369ff1e3204))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -1991,8 +1991,8 @@
     (property "Mouser" "660-RK73B2BTTDD103J" (at 180.34 40.64 0) (do_not_autoplace)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 6fe8aca6-0bb8-47aa-98f1-76bb761c3b1d))
-    (pin "2" (uuid 58b7b4bd-4e1e-4ac9-8216-48461f572753))
+    (pin "1" (uuid e124350f-999c-4aa5-89cf-8773f2ad90ff))
+    (pin "2" (uuid 629bdd10-0104-4b0a-b4df-a93fe7667b08))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2020,7 +2020,7 @@
     (property "Mouser" "534-2000-3" (at 193.04 104.14 0) (do_not_autoplace)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 03148ffd-fa1a-4d48-914b-d0e98895cfe3))
+    (pin "1" (uuid f948f1b2-ce6d-4291-bbc7-d737cf9f1584))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2048,7 +2048,7 @@
     (property "Name" "VBAT" (at 93.98 30.48 0) (do_not_autoplace)
       (effects (font (size 1.15 1.15)))
     )
-    (pin "1" (uuid b52e7bb9-c099-48fd-96fe-8487cad7223a))
+    (pin "1" (uuid 3ea3c851-2aae-49ba-adf4-743aef6936f2))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2076,8 +2076,8 @@
     (property "Mouser" "604-APTR3216-VFX" (at 134.62 106.68 0) (do_not_autoplace)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 37ec6092-833f-4326-a3c3-e2ebaba9e129))
-    (pin "2" (uuid 9d9a6fa9-c46b-4aee-a9b0-7c1d83b755ad))
+    (pin "1" (uuid 68df4c6e-3ff0-46c2-9c58-0c6743ba0a98))
+    (pin "2" (uuid 0eecba4f-a10d-48f0-8d67-3e9e1f1ba293))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2102,7 +2102,7 @@
     (property "Datasheet" "" (at 187.96 68.58 0)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid e8c494c7-5b04-4d94-ad62-e44760451dcd))
+    (pin "1" (uuid 892f678d-f2f8-4516-827c-fd22dac21860))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2130,11 +2130,11 @@
     (property "Mouser" "612-200USP1T1A1M2RE" (at 137.16 63.5 0) (do_not_autoplace)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid c49e2c2f-22ff-4f17-a626-cf91b801e0f8))
-    (pin "2" (uuid c0ebf7a0-8e33-46df-ac85-3b1029143cbb))
-    (pin "3" (uuid 0707f9e4-2b41-4387-9fe5-dc7d7424d5c5))
-    (pin "4" (uuid cb4db765-5150-4ca8-9fa0-61a2239840fb))
-    (pin "5" (uuid b0b00711-5c0a-4d2e-8b82-6250d925ca97))
+    (pin "1" (uuid 1e13cacf-53b6-4df5-99b2-54570d5f6955))
+    (pin "2" (uuid f158282f-0103-4990-a4a9-aea6574b9ce1))
+    (pin "3" (uuid cf85038b-1b3d-4ec5-8524-8e502766ea96))
+    (pin "4" (uuid 1f1bc127-ebcd-4b00-9b65-b8fc0ee84957))
+    (pin "5" (uuid 422f0105-ae0b-4d4a-bb96-15c2093cd082))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2213,11 +2213,11 @@
     (property "Tolerance" "5%" (at 132.08 111.76 0) (do_not_autoplace)
       (effects (font (size 1.15 1.15)) (justify left) hide)
     )
-    (property "Mouser" "791-1206X106J250CT" (at 127 124.46 0) (do_not_autoplace)
+    (property "Mouser" "80-C1206C106J3R" (at 127 124.46 0) (do_not_autoplace)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 3bd6ae1f-2c60-4c02-b0e6-ea48c9563c9f))
-    (pin "2" (uuid f724c612-26a2-4de2-8920-1f1b161d16f9))
+    (pin "1" (uuid 21d1cfe6-ee1f-4f80-a171-f2b72a788a43))
+    (pin "2" (uuid dd30f4f4-e235-480d-b629-4d9fb91b18dc))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2245,8 +2245,8 @@
     (property "Mouser" "538-22-05-7025" (at 88.9 43.18 0) (do_not_autoplace)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 3ac0a942-49ce-4f40-aa20-c12223a121e3))
-    (pin "2" (uuid b9407fe6-f1cf-4825-8663-0abf7fd1f2f5))
+    (pin "1" (uuid 772adc7b-a0fe-44af-bc70-e04adb71fe5d))
+    (pin "2" (uuid 8b796802-d62c-440c-a4dc-14b00c8e8488))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2274,7 +2274,7 @@
     (property "Name" "5V" (at 127 86.36 0) (do_not_autoplace)
       (effects (font (size 1.15 1.15)))
     )
-    (pin "1" (uuid b2240292-54ed-4040-b56a-98720c2a0c99))
+    (pin "1" (uuid ce4bb6cc-9491-4451-921f-4905293314a1))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2302,7 +2302,7 @@
     (property "Name" "VIN" (at 93.98 86.36 0) (do_not_autoplace)
       (effects (font (size 1.15 1.15)))
     )
-    (pin "1" (uuid ac5b79a8-5343-49c1-8389-74edb742dff4))
+    (pin "1" (uuid f89abe12-a6fc-404b-b16f-f47fd331a334))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2327,7 +2327,7 @@
     (property "Datasheet" "" (at 116.84 111.76 0)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 354e7143-694e-42a2-ab44-1d85d6b69072))
+    (pin "1" (uuid 4238b647-7f93-4246-8e61-7498fdaa23e8))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2355,7 +2355,7 @@
     (property "Name" "5V" (at 147.32 86.36 0) (do_not_autoplace)
       (effects (font (size 1.15 1.15)))
     )
-    (pin "1" (uuid 037a614e-5f23-4701-92e9-8dc3944269dc))
+    (pin "1" (uuid 21888300-2c10-497f-a466-fdb265161810))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2383,9 +2383,9 @@
     (property "Mouser" "621-DMP2305U-7" (at 116.84 48.26 0) (do_not_autoplace)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid a481193c-8c37-48df-ad9b-420c24dcb0f7))
-    (pin "2" (uuid 0ef95d66-de11-45b8-a1d0-0da595f5e03c))
-    (pin "3" (uuid 8344ced6-cd8a-439f-b403-202e1339afc5))
+    (pin "1" (uuid 7443d6bb-0590-41c9-b40e-64ea4a3794e6))
+    (pin "2" (uuid e091cc23-a19e-4dd6-8f9b-28b346636e80))
+    (pin "3" (uuid 7c827759-f274-49ca-a87b-6e3f3bfe02b1))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2416,8 +2416,8 @@
     (property "Mouser" "660-RK73B2BTTD752J" (at 180.34 25.4 0) (do_not_autoplace)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid be2d597d-89ce-40f4-9140-a947d371c7bd))
-    (pin "2" (uuid 82eb6e6a-a941-46fc-8582-89e370448a6e))
+    (pin "1" (uuid d615b129-f9c8-4cc7-9fa6-b7f2f89f22f5))
+    (pin "2" (uuid fe19bd23-2e4d-403b-865e-98fc772e7be5))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2445,7 +2445,7 @@
     (property "Name" "VBAT" (at 175.26 175.26 0) (do_not_autoplace)
       (effects (font (size 1.15 1.15)))
     )
-    (pin "1" (uuid 4d603ad4-f66a-4802-aa55-2322a735b7d2))
+    (pin "1" (uuid 53d5afe2-d631-44ce-9e3b-0f5f1b1c1770))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2476,11 +2476,11 @@
     (property "Tolerance" "5%" (at 99.06 111.76 0) (do_not_autoplace)
       (effects (font (size 1.15 1.15)) (justify left) hide)
     )
-    (property "Mouser" "791-1206X106J250CT" (at 93.98 124.46 0) (do_not_autoplace)
+    (property "Mouser" "80-C1206C106J3R" (at 93.98 124.46 0) (do_not_autoplace)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 190e1fe9-4180-4d97-87ef-d5296d973b73))
-    (pin "2" (uuid d1574cef-bfd8-4ff8-9354-27c5daafeefc))
+    (pin "1" (uuid fef9b1d6-8385-4b0e-bec9-eb9acd006df8))
+    (pin "2" (uuid ac4a65aa-aa0b-4760-8308-24f13fb67c18))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2508,9 +2508,9 @@
     (property "Mouser" "595-TLV1117-50CDC" (at 106.68 119.38 0) (do_not_autoplace)
       (effects (font (size 1 1)) hide)
     )
-    (pin "1" (uuid 1f7e29b4-c60f-4313-a589-e8e33d398bd6))
-    (pin "2" (uuid 533c5a3e-495f-4918-b077-62009db59cc6))
-    (pin "3" (uuid 8afd129f-1972-426d-8d85-fb1267e52d3a))
+    (pin "1" (uuid 48272eab-3209-4a46-bcfb-9e10fda76f27))
+    (pin "2" (uuid 80ea7abc-7c73-434a-b657-615cd4ed4389))
+    (pin "3" (uuid 50b2eb42-949c-48d9-815e-059f420a69f5))
     (instances
       (project "tbot-8bit"
         (path "/9c91caeb-16bc-4916-868d-9f9002ce0a61"
@@ -2530,15 +2530,15 @@
     (property "Sheetfile" "hid.kicad_sch" (at 114.3 189.23 0)
       (effects (font (size 1.2 1.2)) (justify left))
     )
-    (pin "RC5{slash}SERVO_R" input (at 114.3 180.34 180)
+    (pin "RC5{slash}WHEEL_L" input (at 114.3 180.34 180)
       (effects (font (size 1.27 1.27)) (justify left))
       (uuid 83a78b2d-0c97-4041-890d-a02deae2bd7c)
     )
-    (pin "RC7{slash}WHEEL_R_EN" input (at 114.3 185.42 180)
+    (pin "RC7{slash}WHEEL_EN_L" input (at 114.3 185.42 180)
       (effects (font (size 1.27 1.27)) (justify left))
       (uuid 113a7574-9c64-4391-8e96-48c29927dd07)
     )
-    (pin "RB0{slash}URGENCY" bidirectional (at 114.3 154.94 180)
+    (pin "RB0{slash}STOP" bidirectional (at 114.3 154.94 180)
       (effects (font (size 1.27 1.27)) (justify left))
       (uuid ae211d76-0728-47f7-99fd-2cabace70102)
     )
@@ -2546,7 +2546,7 @@
       (effects (font (size 1.27 1.27)) (justify left))
       (uuid e50784d3-7fe4-45fc-b606-9acd957c9930)
     )
-    (pin "RB3{slash}WHEEL_L_EN" input (at 114.3 157.48 180)
+    (pin "RB3{slash}WHEEL_EN_R" input (at 114.3 157.48 180)
       (effects (font (size 1.27 1.27)) (justify left))
       (uuid 67a6452e-5ab9-40a3-a2f1-82924405c6cd)
     )
@@ -2598,11 +2598,11 @@
       (effects (font (size 1.27 1.27)) (justify left))
       (uuid 791cbb15-8a9d-4b00-9e82-e5ee9a52ccea)
     )
-    (pin "RC6{slash}WHEEL_L" output (at 114.3 182.88 180)
+    (pin "RC6{slash}WHEEL_R" output (at 114.3 182.88 180)
       (effects (font (size 1.27 1.27)) (justify left))
       (uuid f4722652-84a7-4833-ba0e-30b00a5087d7)
     )
-    (pin "RC4{slash}WHEEL_R" output (at 114.3 177.8 180)
+    (pin "RC4{slash}SERVO_L" output (at 114.3 177.8 180)
       (effects (font (size 1.27 1.27)) (justify left))
       (uuid 9a6a6a15-b980-4994-9a1c-5715ef6393de)
     )
@@ -2627,7 +2627,7 @@
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid 45c527c7-2816-4fed-9426-6649ee487fab)
     )
-    (pin "RB3{slash}WHEEL_L_EN" output (at 99.06 157.48 0)
+    (pin "RB3{slash}WHEEL_EN_R" output (at 99.06 157.48 0)
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid 2cce760f-a21f-455a-be5d-fdf1dac6d12f)
     )
@@ -2639,11 +2639,11 @@
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid b9aec79d-51e0-452e-b2df-ebb51da4bab1)
     )
-    (pin "RB0{slash}URGENCY" bidirectional (at 99.06 154.94 0)
+    (pin "RB0{slash}STOP" bidirectional (at 99.06 154.94 0)
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid 0892f549-700e-432c-916d-da02ce4d4365)
     )
-    (pin "RC7{slash}WHEEL_R_EN" output (at 99.06 185.42 0)
+    (pin "RC7{slash}WHEEL_EN_L" output (at 99.06 185.42 0)
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid 62432982-4467-44ec-a979-a0b0dce7e89b)
     )
@@ -2679,7 +2679,7 @@
       (effects (font (size 1.27 1.27)) (justify left))
       (uuid d425d2ae-9034-478a-9392-e2c1b06eee2a)
     )
-    (pin "RC5{slash}SERVO_R" output (at 99.06 180.34 0)
+    (pin "RC5{slash}WHEEL_L" output (at 99.06 180.34 0)
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid 887b43b4-d8ad-4bd8-b231-ce2154eaed3a)
     )
@@ -2695,11 +2695,11 @@
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid 39b3be52-9cd8-4299-826d-75718ae965b9)
     )
-    (pin "RC6{slash}WHEEL_L" input (at 99.06 182.88 0)
+    (pin "RC6{slash}WHEEL_R" input (at 99.06 182.88 0)
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid 84bcfc8a-1870-4fe8-8461-2e5322cca775)
     )
-    (pin "RC4{slash}WHEEL_R" input (at 99.06 177.8 0)
+    (pin "RC4{slash}SERVO_L" input (at 99.06 177.8 0)
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid 1f3037fe-08e8-400c-afdd-8134d801ba66)
     )
