@@ -25,12 +25,13 @@ CONFIG LPBOR=OFF
 CONFIG LVP=ON
 
 #include <xc.inc>
-; PIC16F1778 - Compile with PIC-AS(v2.36).
+; PIC16F1778 - Compile with PIC-AS(v2.45).
 ; PIC16F1778 - @8MHz Internal Oscillator.
 ; -preset_vec=0000h, -pcinit=0005h, -pstringtext=3FB0h.
 ; Instruction ~500ns @8MHz.
 
 ; TBOT - ADC/TIMER0.
+
 ; ADC - Read Battery Voltage.
 ; TIMER0 - ADC Auto-convertion Trigger Source.
 ; EUSART TX - Display Battery value.
@@ -41,7 +42,10 @@ CONFIG LVP=ON
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
 u32Ascii:   DS  4
-u16Delay:   DS  2
+
+; Common RAM.
+PSECT cstackCOMM,class=COMMON,space=1,delta=1
+uDELAY:	    DS	2
 
 ; MCU Definitions.
 ; BANKS.
@@ -119,9 +123,9 @@ main:
     MOVLB   BANK1
     MOVLW   0b00000000
     MOVWF   TRISA
-    MOVLW   0b10011001
+    MOVLW   0b10001000
     MOVWF   TRISB
-    MOVLW   0b01000000
+    MOVLW   0b00000000
     MOVWF   TRISC
     MOVLW   0b00000000
     MOVWF   TRISE
@@ -163,9 +167,9 @@ main:
     MOVLB   BANK6
     MOVLW   0b11111111
     MOVWF   SLRCONA
-    MOVLW   0b11011111
+    MOVLW   0b11111111
     MOVWF   SLRCONB
-    MOVLW   0b11011111
+    MOVLW   0b11111111
     MOVWF   SLRCONC
     ; INLVL Input Level.
     MOVLB   BANK7
@@ -269,22 +273,22 @@ loop:
     CALL    _hex2ascii
     CALL    _writeStringASCII
     MOVLW   10
-    call    _u16Delay
+    CALL    _u16Delay
 
     BRA	    loop
 
 ; Functions.
 _u16Delay:
     MOVLB   BANK0
-    MOVWF   u16Delay
+    MOVWF   uDELAY
     MOVLW   255
-    MOVWF   u16Delay + 1
+    MOVWF   uDELAY + 1
     MOVLW   255
     DECFSZ  WREG, F
     BRA	    $-1
-    DECFSZ  u16Delay + 1, F
+    DECFSZ  uDELAY + 1, F
     BRA	    $-3
-    DECFSZ  u16Delay, F
+    DECFSZ  uDELAY, F
     BRA	    $-5
     RETURN
 
@@ -382,6 +386,7 @@ _writeStringURL:
 
 ; FPM Strings.
 PSECT stringtext,class=STRCODE,space=0,delta=2
+
 stringBATTERYLOW:
     DB  'B','a','t','t','e','r','y', ' ', 'L', 'o', 'w', '!', 0x0
 stringREADY:
@@ -400,6 +405,9 @@ stringURL:
 ```
 
 ## Terminal.
+
+- ADC/TIMER0 - Read, Display & Check Battery Value.
+  - For Configuration & PWM: `-preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h`
 
 <p align="center">
 <img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-adc-eusart-0.png">

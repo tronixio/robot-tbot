@@ -25,12 +25,14 @@ CONFIG LPBOR=OFF
 CONFIG LVP=ON
 
 #include <xc.inc>
-; PIC16F1778 - Compile with PIC-AS(v2.36).
+; PIC16F1778 - Compile with PIC-AS(v2.45).
 ; PIC16F1778 - @8MHz Internal Oscillator.
 ; -preset_vec=0000h, -pcinit=0005h.
 ; Instruction ~500ns @8MHz.
 
 ; TBOT - MCU & GPIO Configuration.
+
+; Pinout.
 ; MCU.RA6 -> OSCILLOSCOPE.PROBE.A
 
 ; MCU Definitions.
@@ -103,7 +105,7 @@ main:
     MOVLB   BANK1
     MOVLW   0b00000000
     MOVWF   TRISA
-    MOVLW   0b10011001
+    MOVLW   0b00000000
     MOVWF   TRISB
     MOVLW   0b01000000
     MOVWF   TRISC
@@ -121,7 +123,7 @@ main:
     MOVLB   BANK3
     MOVLW   0b00000000
     MOVWF   ANSELA
-    MOVLW   0b00001000
+    MOVLW   0b00000000
     MOVWF   ANSELB
     MOVLW   0b00000000
     MOVWF   ANSELC
@@ -147,9 +149,9 @@ main:
     MOVLB   BANK6
     MOVLW   0b11111111
     MOVWF   SLRCONA
-    MOVLW   0b11011111
+    MOVLW   0b11111111
     MOVWF   SLRCONB
-    MOVLW   0b11011111
+    MOVLW   0b11111111
     MOVWF   SLRCONC
     ; INLVL Input Level.
     MOVLB   BANK7

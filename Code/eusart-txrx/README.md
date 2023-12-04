@@ -25,13 +25,12 @@ CONFIG LPBOR=OFF
 CONFIG LVP=ON
 
 #include <xc.inc>
-; PIC16F1778 - Compile with PIC-AS(v2.36).
+; PIC16F1778 - Compile with PIC-AS(v2.45).
 ; PIC16F1778 - @8MHz Internal Oscillator.
 ; -preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h.
 ; Instruction ~500ns @8MHz.
 
-; TBOT - EUSART TX/RX.
-; Echo RX Character.
+; TBOT - EUSART TX/RX - Echo RX Character.
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
@@ -113,9 +112,9 @@ main:
     MOVLB   BANK1
     MOVLW   0b00000000
     MOVWF   TRISA
-    MOVLW   0b10011001
+    MOVLW   0b10000000
     MOVWF   TRISB
-    MOVLW   0b01000000
+    MOVLW   0b00000000
     MOVWF   TRISC
     MOVLW   0b00000000
     MOVWF   TRISE
@@ -131,7 +130,7 @@ main:
     MOVLB   BANK3
     MOVLW   0b00000000
     MOVWF   ANSELA
-    MOVLW   0b00001000
+    MOVLW   0b00000000
     MOVWF   ANSELB
     MOVLW   0b00000000
     MOVWF   ANSELC
@@ -157,9 +156,9 @@ main:
     MOVLB   BANK6
     MOVLW   0b11111111
     MOVWF   SLRCONA
-    MOVLW   0b11011111
+    MOVLW   0b11111111
     MOVWF   SLRCONB
-    MOVLW   0b11011111
+    MOVLW   0b11111111
     MOVWF   SLRCONC
     ; INLVL Input Level.
     MOVLB   BANK7
@@ -183,7 +182,7 @@ main:
     BCF	    PPSLOCK, 0x0
     ; PPS Inputs.
     ; RB7 - EUSART.URX.
-    NOLVW   0x0F
+    MOVLW   0x0F
     MOVWF   RXPPS
     ; PPS Outputs.
     MOVLB   BANK29
@@ -302,6 +301,7 @@ _writeStringURL:
 
 ; FPM Strings.
 PSECT stringtext,class=STRCODE,space=0,delta=2
+
 stringREADY:
     DB  0xD, 0xA, 'R','e','a','d','y','>',' ', 0x0
 
@@ -329,6 +329,7 @@ stringURL:
 ## Terminal.
 
 - EUSART TX/RX - Echo RX Character.
+  - Mac OS: `screen /dev/cu.usbmodemXXXXXX`
 
 <p align="center">
 <img alt="EUSART TX/RX" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-eusart-txrx-1.png">
