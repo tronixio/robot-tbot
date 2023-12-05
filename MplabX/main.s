@@ -18,15 +18,22 @@ CONFIG LPBOR=OFF
 CONFIG LVP=ON
 
 #include <xc.inc>
-; PIC16F1778 - Compile with PIC-AS(v2.36).
+; PIC16F1778 - Compile with PIC-AS(v2.45).
 ; PIC16F1778 - @8MHz Internal Oscillator.
+; -preset_vec=0000h, -pintentry=0004h, -pcinit=0005h.
+; Instruction ~500ns @8MHz.
 
 ; TBOT - INT0 - Interrupt.
+
 ; Emergency Switch & LED - Rising Edge Detection.
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
-u8Delay:   DS  1
+u8BANK0:    DS  1
+    
+; Common RAM.
+PSECT cstackCOMM,class=COMMON,space=1,delta=1
+u8DELAY:    DS	1
 
 ; MCU Definitions.
 ; BANKS.
@@ -68,9 +75,9 @@ u8Delay:   DS  1
 
 ; User Definitions.
 ; Emergency.
-#define EMERGENCY	    0x0
+#define STOP	    0x0
 ; LED Debug.
-#define	LED_DEBUG	    0x6
+#define	LED_DEBUG   0x6
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
@@ -109,9 +116,9 @@ main:
     MOVLB   BANK1
     MOVLW   0b00000000
     MOVWF   TRISA
-    MOVLW   0b10011001
+    MOVLW   0b00000001
     MOVWF   TRISB
-    MOVLW   0b01000100
+    MOVLW   0b00000000
     MOVWF   TRISC
     MOVLW   0b00001000
     MOVWF   TRISE
@@ -127,7 +134,7 @@ main:
     MOVLB   BANK3
     MOVLW   0b00000000
     MOVWF   ANSELA
-    MOVLW   0b00001000
+    MOVLW   0b00000000
     MOVWF   ANSELB
     MOVLW   0b00000000
     MOVWF   ANSELC
@@ -137,7 +144,7 @@ main:
     MOVWF   WPUA
     MOVLW   0b00000000
     MOVWF   WPUB
-    MOVLW   0b00000100
+    MOVLW   0b00000000
     MOVWF   WPUC
     MOVLW   0b00000000
     MOVWF   WPUE
@@ -153,9 +160,9 @@ main:
     MOVLB   BANK6
     MOVLW   0b11111111
     MOVWF   SLRCONA
-    MOVLW   0b11011111
+    MOVLW   0b11111111
     MOVWF   SLRCONB
-    MOVLW   0b11011111
+    MOVLW   0b11111111
     MOVWF   SLRCONC
     ; INLVL Input Level.
     MOVLB   BANK7
@@ -188,33 +195,32 @@ loop:
 
 ; Interrupt Service Routine.
 isr:
-    ; Interrupt EMERGENCY ?
+    ; Interrupt STOP ?
     BTFSC   INTF
-    GOTO    _emergency
+    GOTO    _stop
     RETFIE
 
 ; delay = 1 ~98ms.
 ; delay = 255 ~25s.
 _u8Delay:
-    MOVLB   BANK0
-    MOVWF   u8Delay
+    MOVWF   u8DELAY
     MOVLW   255
     DECFSZ  WREG, F
     BRA	    $-1
-    decfsz  u8Delay, F
-    bra	    $-3
+    DECFSZ  u8DELAY, F
+    BRA	    $-3
     RETURN
 
-_emergency:
+_stop:
     BCF	    GIE
     MOVLB   BANK2
-    BCF	    LATB, EMERGENCY
+    BCF	    LATB, STOP
     MOVLB   BANK1
-    BCF	    TRISB, EMERGENCY ; LED ON.
+    BCF	    TRISB, STOP ; LED ON.
     MOVLW   255
     CALL    _u8Delay
     MOVLB   BANK1
-    BSF	    TRISB, EMERGENCY ; LED OFF.
+    BSF	    TRISB, STOP ; LED OFF.
     MOVLW   255
     CALL    _u8Delay
     BRA	    $-8
