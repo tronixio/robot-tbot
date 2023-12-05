@@ -27,7 +27,7 @@ CONFIG LVP=ON
 #include <xc.inc>
 ; PIC16F1778 - Compile with PIC-AS(v2.45).
 ; PIC16F1778 - @8MHz Internal Oscillator.
-; -preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h.
+; -preset_vec=0000h, -pstringtext=3FC0h.
 ; Instruction ~500ns @8MHz.
 
 ; TBOT - EUSART TX/RX - Echo RX Character.
@@ -337,12 +337,7 @@ stringURL:
 
 ## MPLABX Linker Configuration.
 
-- PIC-AS Linker > Custom linker options:
-  - For Configuration & PWM: `-preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h`
-
-<p align="center">
-<img alt="MPLABX Linker Configuration" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-mplabx-configuration-1.png">
-</p>
+- PIC-AS Linker > Custom linker options: `-preset_vec=0000h, -pstringtext=3FC0h`
 
 ## Notes.
 

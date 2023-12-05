@@ -27,7 +27,7 @@ CONFIG LVP=ON
 #include <xc.inc>
 ; PIC16F1778 - Compile with PIC-AS(v2.45).
 ; PIC16F1778 - @8MHz Internal Oscillator.
-; -preset_vec=0000h, -pcinit=0005h, -pstringtext=3FB0h.
+; -preset_vec=0000h, -pstringtext=3FB0h.
 ; Instruction ~500ns @8MHz.
 
 ; TBOT - ADC/TIMER0.
@@ -279,7 +279,6 @@ loop:
 
 ; Functions.
 _u16Delay:
-    MOVLB   BANK0
     MOVWF   uDELAY
     MOVLW   255
     MOVWF   uDELAY + 1
@@ -389,6 +388,7 @@ PSECT stringtext,class=STRCODE,space=0,delta=2
 
 stringBATTERYLOW:
     DB  'B','a','t','t','e','r','y', ' ', 'L', 'o', 'w', '!', 0x0
+
 stringREADY:
     DB  0xD, 0xA, 'R','e','a','d','y','>',' ', 0x0
 
@@ -406,21 +406,16 @@ stringURL:
 
 ## Terminal.
 
-- ADC/TIMER0 - Read, Display & Check Battery Value.
-  - For Configuration & PWM: `-preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h`
-
+- EUSART TX - Display Strings.
+  - Mac OS: `screen /dev/cu.usbmodemXXXXXX`
+  
 <p align="center">
 <img alt="MCU.RB6.EUSART.TX" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-adc-eusart-0.png">
 </p>
 
 ## MPLABX Linker Configuration.
 
-- PIC-AS Linker > Custom linker options:
-  - For Configuration & PWM: `-preset_vec=0000h, -pcinit=0005h, -pstringtext=3FC0h`
-
-<p align="center">
-<img alt="MPLAX Linker Configuration" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-mplabx-configuration-2.png">
-</p>
+- PIC-AS Linker > Custom linker options : `-preset_vec=0000h, -pstringtext=3FC0h`
 
 ## Notes.
 
