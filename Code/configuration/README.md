@@ -182,8 +182,7 @@ loop:
 
 ## MPLABX Linker Configuration.
 
-- PIC-AS Linker > Custom linker options:
-  - For Configuration & PWM: `-preset_vec=0000h`
+- PIC-AS Linker > Custom linker options: `-preset_vec=0000h`
 
 ## Notes.
 
