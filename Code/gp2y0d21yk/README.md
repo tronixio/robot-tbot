@@ -25,17 +25,22 @@ CONFIG LPBOR=OFF
 CONFIG LVP=ON
 
 #include <xc.inc>
-; PIC16F1778 - Compile with PIC-AS(v2.36).
+; PIC16F1778 - Compile with PIC-AS(v2.45).
 ; PIC16F1778 - @8MHz Internal Oscillator.
 ; -preset_vec=0000h, -pintentry=0004h, -pcinit=0005h.
 ; Instruction ~500ns @8MHz.
 
 ; TBOT - IOC - Interrupt On Change.
+
 ; Sensor Sharp GP2Y0D21YK - Rising & Falling Edge Detection.
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
-u8Delay:  DS  1
+u8BANK0:    DS  1
+
+; Common RAM.
+PSECT cstackCOMM,class=COMMON,space=1,delta=1
+u8DELAY:    DS	1
 
 ; MCU Definitions.
 ; BANKS.
@@ -120,9 +125,9 @@ main:
     MOVLB   BANK1
     MOVLW   0b00000000
     MOVWF   TRISA
-    MOVLW   0b10011001
+    MOVLW   0b00000000
     MOVWF   TRISB
-    MOVLW   0b01000100
+    MOVLW   0b00000100
     MOVWF   TRISC
     MOVLW   0b00000000
     MOVWF   TRISE
@@ -138,7 +143,7 @@ main:
     MOVLB   BANK3
     MOVLW   0b00000000
     MOVWF   ANSELA
-    MOVLW   0b00001000
+    MOVLW   0b00000000
     MOVWF   ANSELB
     MOVLW   0b00000000
     MOVWF   ANSELC
@@ -164,9 +169,9 @@ main:
     MOVLB   BANK6
     MOVLW   0b11111111
     MOVWF   SLRCONA
-    MOVLW   0b11011111
+    MOVLW   0b11111111
     MOVWF   SLRCONB
-    MOVLW   0b11011111
+    MOVLW   0b11111111
     MOVWF   SLRCONC
     ; INLVL Input Level.
     MOVLB   BANK7
@@ -231,13 +236,12 @@ isr:
 
 ; Functions.
 _u8Delay:
-    MOVLB   BANK0
-    MOVWF   u8Delay
+    MOVWF   u8DELAY
     MOVLW   255
     DECFSZ  WREG, F
-    BRA	$-1
-    DECFSZ  u8Delay, F
-    BRA	$-3
+    BRA	    $-1
+    DECFSZ  u8DELAY, F
+    BRA	    $-3
     RETURN
 
     END resetVector
@@ -245,12 +249,7 @@ _u8Delay:
 
 ## MPLABX Linker Configuration.
 
-- PIC-AS Linker > Custom linker options:
-  - For Configuration & PWM: `-preset_vec=0000h, -pintentry=0004h, -pcinit=0005h`
-
-<p align="center">
-<img alt="MPLABX Linker Configuration" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-mplabx-configuration-3.png">
-</p>
+- PIC-AS Linker > Custom linker options: `-preset_vec=0000h, -pintentry=0004h, -pcinit=0005h`
 
 ## Notes.
 

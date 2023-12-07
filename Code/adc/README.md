@@ -45,7 +45,7 @@ u32Ascii:   DS  4
 
 ; Common RAM.
 PSECT cstackCOMM,class=COMMON,space=1,delta=1
-uDELAY:	    DS	2
+u16DELAY:   DS	2
 
 ; MCU Definitions.
 ; BANKS.
@@ -279,15 +279,15 @@ loop:
 
 ; Functions.
 _u16Delay:
-    MOVWF   uDELAY
+    MOVWF   u16DELAY
     MOVLW   255
-    MOVWF   uDELAY + 1
+    MOVWF   u16DELAY + 1
     MOVLW   255
     DECFSZ  WREG, F
     BRA	    $-1
-    DECFSZ  uDELAY + 1, F
+    DECFSZ  u16DELAY + 1, F
     BRA	    $-3
-    DECFSZ  uDELAY, F
+    DECFSZ  u16DELAY, F
     BRA	    $-5
     RETURN
 
