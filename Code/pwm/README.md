@@ -25,7 +25,7 @@ CONFIG LPBOR=OFF
 CONFIG LVP=ON
 
 #include <xc.inc>
-; PIC16F1778 - Compile with PIC-AS(v2.36).
+; PIC16F1778 - Compile with PIC-AS(v2.45).
 ; PIC16F1778 - @8MHz Internal Oscillator.
 ; -preset_vec=0000h, -pcinit=0005h.
 ; Instruction ~500ns @8MHz.
@@ -35,7 +35,11 @@ CONFIG LVP=ON
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
-u16Delay:  DS  2
+u8BANK0:    DS  1
+
+; Common RAM.
+PSECT cstackCOMM,class=COMMON,space=1,delta=1
+u16DELAY:   DS	2
 
 ; MCU Definitions.
 ; BANKS.
@@ -330,20 +334,19 @@ loop:
     MOVLW   10
     CALL    _u16Delay
 
-    BRA	    loop
+    BRA	    $
 
 ; Functions.
 _u16Delay:
-    MOVLB   BANK0
-    MOVWF   u16Delay
+    MOVWF   u16DELAY
     MOVLW   255
-    MOVWF   u16Delay + 1
+    MOVWF   u16DELAY + 1
     MOVLW   255
     DECFSZ  WREG, F
     BRA	    $-1
-    DECFSZ  u16Delay + 1, F
+    DECFSZ  u16DELAY + 1, F
     BRA	    $-3
-    DECFSZ  u16Delay, F
+    DECFSZ  u16DELAY, F
     BRA	    $-5
     RETURN
 
@@ -381,12 +384,7 @@ _u16Delay:
 
 ## MPLABX Linker Configuration.
 
-- PIC-AS Linker > Custom linker options:
-  - For Configuration & PWM: `-preset_vec=0000h, -pcinit=0005h`
-
-<p align="center">
-<img alt="MPLABX Linker configuration" src="https://github.com/tronixio/robot-tbot/blob/main/pics/code-mplabx-configuration-0.png">
-</p>
+- PIC-AS Linker > Custom linker options: `-preset_vec=0000h, -pcinit=0005h`
 
 ## Notes.
 
