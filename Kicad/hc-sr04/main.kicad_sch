@@ -258,6 +258,12 @@
       (property "Mouser" "538-53254-0570" (at 0 -20.32 0) (do_not_autoplace)
         (effects (font (size 1 1)) hide)
       )
+      (property "ki_keywords" "538-51065-0500/538-502128000/538-503728000" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Micro-Latch 2.00mm Wire-to-Board Connector System" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
       (symbol "MOLEX-MICRO-LATCH-05-RIGHT-ANGLE_0_1"
         (circle (center 0 -10.16) (radius 0.635)
           (stroke (width 0.2) (type default))
