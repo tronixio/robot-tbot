@@ -387,7 +387,7 @@
         )
       )
     )
-    (symbol "tronixio:NEXPERIA-PMEG3030" (pin_numbers hide) (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
+    (symbol "tronixio:NEXPERIA-PMEG3030-SOD" (pin_numbers hide) (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
       (property "Reference" "D" (at 0 2.54 0) (do_not_autoplace)
         (effects (font (size 1.15 1.15)))
       )
@@ -406,7 +406,7 @@
       (property "ki_description" "Schottky Diode" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (symbol "NEXPERIA-PMEG3030_0_1"
+      (symbol "NEXPERIA-PMEG3030-SOD_0_1"
         (polyline
           (pts
             (xy 1.524 -1.27)
@@ -430,7 +430,7 @@
           (fill (type none))
         )
       )
-      (symbol "NEXPERIA-PMEG3030_1_1"
+      (symbol "NEXPERIA-PMEG3030-SOD_1_1"
         (pin passive line (at -2.54 0 0) (length 1.905)
           (name "C" (effects (font (size 1 1))))
           (number "1" (effects (font (size 1 1))))
@@ -826,16 +826,6 @@
           (stroke (width 0) (type default))
           (fill (type none))
         )
-        (polyline
-          (pts
-            (xy 1.27 -1.27)
-            (xy 2.54 -1.778)
-            (xy 1.778 -2.54)
-            (xy 1.27 -1.27)
-          )
-          (stroke (width 0.001) (type default))
-          (fill (type outline))
-        )
         (rectangle (start 0 1.905) (end 0.635 -1.905)
           (stroke (width 0.1) (type default))
           (fill (type outline))
@@ -846,6 +836,16 @@
         )
       )
       (symbol "ST-STN790A-SOT-223_1_1"
+        (polyline
+          (pts
+            (xy 1.27 -1.27)
+            (xy 1.905 -2.54)
+            (xy 2.54 -1.905)
+            (xy 1.27 -1.27)
+          )
+          (stroke (width 0) (type default))
+          (fill (type outline))
+        )
         (pin passive line (at -2.54 0 0) (length 2.54)
           (name "B" (effects (font (size 1 1))))
           (number "1" (effects (font (size 1 1))))
@@ -2262,7 +2262,7 @@
     )
   )
 
-  (symbol (lib_id "tronixio:NEXPERIA-PMEG3030") (at 99.06 66.04 180) (unit 1)
+  (symbol (lib_id "tronixio:NEXPERIA-PMEG3030-SOD") (at 99.06 66.04 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid f8d7867e-bdb3-4fda-9902-24138cea3043)
     (property "Reference" "D1" (at 99.06 63.5 0) (do_not_autoplace)
