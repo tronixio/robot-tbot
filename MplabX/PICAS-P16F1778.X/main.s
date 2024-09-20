@@ -236,35 +236,22 @@ main:
 
     ; PWM11 Settings.
     MOVLB   BANK27
-
-    MOVLW   0x00
-    MOVWF   PWM11PHL
-    MOVLW   0x00
-    MOVWF   PWM11PHH
-
-    MOVLW   127
+    CLRF    PWM11PHL
+    CLRF    PWM11PHH
+    MOVLW   SERVO_STOP_L
     MOVWF   PWM11DCL
-    MOVLW   11
+    MOVLW   SERVO_STOP_H
     MOVWF   PWM11DCH
-
-    MOVLW   0
+    MOVLW   SERVO_PERIOD_L
     MOVWF   PWM11PRL
-    MOVLW   155
+    MOVLW   SERVO_PERIOD_H
     MOVWF   PWM11PRH
-
-    MOVLW   0x00
-    MOVWF   PWM11OFL
-    MOVLW   0x00
-    MOVWF   PWM11OFH
-
-    MOVLW   0x00
-    MOVWF   PWM11TMRL
-    MOVLW   0x00
-    MOVWF   PWM11TMRH
-
-    MOVLW   0b00000000 ;
+    CLRF    PWM11OFL
+    CLRF    PWM11OFH
+    CLRF    PWM11TMRL
+    CLRF    PWM11TMRH
+    MOVLW   0x0C
     MOVWF   PWM11CON
-
     MOVLW   0x00
     MOVWF   PWM11INTE
     MOVLW   0x00
@@ -279,37 +266,22 @@ main:
     BSF	    PWM11LD
     BSF	    PWM11EN
 
-    bra	    $
+;    bra	    $
 loop:
     ; RC Servos Forward.
     MOVLB   BANK27
-;    MOVLW   20
-;    MOVWF   PWM6DCL
-;    MOVLW   5
-;    MOVWF   PWM6DCH
-;    MOVLW   165
-;    MOVWF   PWM11DCL
-
-    MOVLW   11
+    MOVLW   20
+    MOVWF   PWM6DCL
+    MOVLW   5
+    MOVWF   PWM6DCH
+    MOVLW   165
+    MOVWF   PWM11DCL
+    MOVLW   6
     MOVWF   PWM11DCH
-    MOVLW   0x4
+    MOVLW   0x6
     MOVWF   PWMLD
     MOVLW   10
     CALL    _u16Delay
-    MOVLW   12
-    MOVWF   PWM11DCH
-    MOVLW   0x4
-    MOVWF   PWMLD
-    MOVLW   10
-    CALL    _u16Delay
-    MOVLW   13
-    MOVWF   PWM11DCH
-    MOVLW   0x4
-    MOVWF   PWMLD
-    MOVLW   10
-    CALL    _u16Delay
-    bra	    loop
-
     ; RC Servos Stop.
     MOVLB   BANK27
     MOVLW   SERVO_STOP_L
@@ -339,7 +311,6 @@ loop:
     MOVWF   PWMLD
     MOVLW   10
     CALL    _u16Delay
-
     ; RC Servos Stop.
     MOVLB   BANK27
     MOVLW   SERVO_STOP_L
@@ -355,6 +326,7 @@ loop:
     MOVLW   10
     CALL    _u16Delay
 
+;    BRA	    loop
     BRA	    $
 
 ; Functions.
