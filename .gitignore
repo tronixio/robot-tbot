@@ -1,13 +1,14 @@
 .DS_Store
-Diptrace/
 Docs/
-~*.lck
-*.kicad_prl
-*.kicad_sch-bak
+
+# Kicad.
+Kicad/*/*.kicad_prl
+Kicad/*/*.kicad_sch-bak
 Kicad/*/gerber/
-Kicad/*/*backups/
+Kicad/*/main-backups/
 Kicad/*/fp-info-cache
 
-MplabX/*/*
-!MplabX/*/main.c
-!MplabX/*/main.s
+# MplabX.
+MplabX/*/dist/
+MplabX/*/build/
+
