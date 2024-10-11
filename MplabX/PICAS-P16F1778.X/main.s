@@ -18,21 +18,34 @@ CONFIG LPBOR=OFF
 CONFIG LVP=ON
 
 #include <xc.inc>
-; PIC16F1778 - Compile with PIC-AS(v2.45).
+; PIC16F1778 - Compile with PIC-AS(v2.50).
 ; PIC16F1778 - @8MHz Internal Oscillator.
-; -preset_vec=0000h, -pcinit=0005h.
+; Custom Linker Options:
+;   -preset_vec=0000h, -pintentry=0004h, -pcinit=0005h, -pstringtext=3FC0h.
 ; Instruction ~500ns @8MHz.
 
-; TBOT - PWM.
-; RC Servo - Forward 1 second, Stop, Backward 1 second, Stop.
+; TBOT.
+; todo: ADC, EUSART Rx, Urgency (SW/LED)
+; todo: ADC display batterie status dans le splah screen
+;https://github.com/tronixio/robot-tbot/tree/main/Code/adc
+
+; Pinout:
+; MCU.RA6 ->  GPIO.DEBUG.LED.
+; MCU.RB0 <-> GPIO.URGENCY.
+; MCU.RB5 ->  PWM11.SERVO.LEFT.
+; MCU.RB6 ->  EUSART.TX.MCP2221A.URx.
+; MCU.RB7 <-  EUSART.RX.MCP2221A.UTx.
+; MCU.RC5 ->  PWM6.SERVO.RIGHT.
 
 ; GPR BANK0.
 PSECT cstackBANK0,class=BANK0,space=1,delta=1
 u8BANK0:    DS  1
+u8EusartRX: DS	1
 
 ; Common RAM.
 PSECT cstackCOMM,class=COMMON,space=1,delta=1
-u16DELAY:   DS	2
+u8DELAY:    DS	1
+u16DELAY:   DS	1
 
 ; MCU Definitions.
 ; BANKS.
@@ -73,23 +86,31 @@ u16DELAY:   DS	2
 #define	Z	0x2
 
 ; User Definition.
-; LED Debug.
-#define	LED_DEBUG   0x6
+; Debug LED.
+#define	DEBUG_LED	LATA, 0x6
+; Urgency Switch & LED.
+#define URGENCY_LED	TRISB, 0x0
+
 ; RC Servo.
 ; Frequency 50Hz - @8MHz.
-#define SERVO_PERIOD_H	78
-#define SERVO_PERIOD_L	30
+#define SERVO_PERIOD_H	0x4E
+#define SERVO_PERIOD_L	0x20
 ; Duty Cycle.
-; H6/L165 - 1.7ms - @8MHz.
-; H5/L220 - 1.5ms - @8MHz.
-; H5/L20  - 1.3ms - @8MHz.
-#define SERVO_STOP_H	5
-#define SERVO_STOP_L	220
+; H6/L164 0x06A4 - 1.70ms - @8MHz.
+; H5/L220 0x05DC - 1.50ms - @8MHz.
+; H5/L0   0x0500 - 1.30ms - @8MHz.
+#define SERVO_STOP_H	0x05
+#define SERVO_STOP_L	0xDC
 
 ; Reset Vector.
 PSECT reset_vec,class=CODE,space=0,delta=2
 resetVector:
     GOTO    main
+
+    ; ISR Vector.
+PSECT intentry,class=CODE,space=0,delta=2
+interruptVector:
+    GOTO    _ISR
 
 ; Main.
 PSECT cinit,class=CODE,space=0,delta=2
@@ -186,12 +207,20 @@ main:
     MOVLW   0xAA
     MOVWF   PPSLOCK
     BCF	    PPSLOCK, 0x0
+    ; PPS Inputs.
+    MOVLB   BANK28
+    ; RB7 - EUSART.URx.
+    MOVLW   0x0F
+    MOVWF   RXPPS
     ; PPS Outputs.
     MOVLB   BANK29
-    ; RB5 - PWM11.
+    ; RB5 - PWM11 Left.
     MOVLW   0x1F
     MOVWF   RB5PPS
-    ; RC5 - PWM6.
+    ; RB6 - EUSART.UTx.
+    MOVLW   0x24
+    MOVWF   RB6PPS
+    ; RC5 - PWM6 Right.
     MOVLW   0x1E
     MOVWF   RC5PPS
     ; PPS Write Disable.
@@ -201,6 +230,24 @@ main:
     MOVLW   0xAA
     MOVWF   PPSLOCK
     BSF	    PPSLOCK, 0x0
+
+    ; EUSART Settings.
+    ; 9600,8,N,1.
+    MOVLB   BANK3
+    CLRF    RC1REG
+    CLRF    TX1REG
+    MOVLW   12
+    MOVWF   SP1BRGL
+    MOVLW   0
+    MOVWF   SP1BRGH
+    MOVLW   0x10
+    MOVWF   RC1STA
+    MOVLW   0x20
+    MOVWF   TX1STA
+    MOVLW   0x00
+    MOVWF   BAUD1CON
+    ; EUSART Enable.
+    BSF	    SPEN
 
     ; PWM6 Settings.
     MOVLB   BANK27
@@ -220,19 +267,15 @@ main:
     CLRF    PWM6TMRH
     MOVLW   0x0C
     MOVWF   PWM6CON
-    MOVLW   0x00
-    MOVWF   PWM6INTE
-    MOVLW   0x00
-    MOVWF   PWM6INTF
+    CLRF    PWM6INTE
+    CLRF    PWM6INTF
     MOVLW   0x20
     MOVWF   PWM6CLKCON
-    MOVLW   0x00
-    MOVWF   PWM6LDCON
-    MOVLW   0x00
-    MOVWF   PWM6OFCON
+    CLRF    PWM6LDCON
+    CLRF    PWM6OFCON
     ; PWM6 Load & Enable.
     BSF	    PWM6LD
-    BSF	    PWM6EN
+    BCF	    PWM6EN
 
     ; PWM11 Settings.
     MOVLB   BANK27
@@ -252,95 +295,182 @@ main:
     CLRF    PWM11TMRH
     MOVLW   0x0C
     MOVWF   PWM11CON
-    MOVLW   0x00
-    MOVWF   PWM11INTE
-    MOVLW   0x00
-    MOVWF   PWM11INTF
+    CLRF    PWM11INTE
+    CLRF    PWM11INTF
     MOVLW   0x20
     MOVWF   PWM11CLKCON
-    MOVLW   0x00
-    MOVWF   PWM11LDCON
-    MOVLW   0x00
-    MOVWF   PWM11OFCON
+    CLRF    PWM11LDCON
+    CLRF    PWM11OFCON
     ; PWM11 Load & Enable.
     BSF	    PWM11LD
-    BSF	    PWM11EN
+    BCF	    PWM11EN
+
+    ; Splash screen.
+    CALL    writeStringTRONIX
+    CALL    writeStringURL
+    CALL    writeStringTBOT
+    CALL    writeStringREADY
+
+    ; INTERRUPTS Settings.
+    MOVLB   BANK0
+    CLRF    PIR1
+    MOVLB   BANK1
+    MOVLW   0b00100000
+    MOVWF   PIE1
+    ; INTERRUPTS Enable.
+    BSF	    PEIE
+    BSF	    GIE
+
 
 ;    bra	    $
 loop:
-    ; RC Servos Forward.
-    MOVLB   BANK27
-    MOVLW   20
-    MOVWF   PWM6DCL
-    MOVLW   5
-    MOVWF   PWM6DCH
-    MOVLW   165
-    MOVWF   PWM11DCL
-    MOVLW   6
-    MOVWF   PWM11DCH
-    MOVLW   0x6
-    MOVWF   PWMLD
-    MOVLW   10
-    CALL    _u16Delay
-    ; RC Servos Stop.
-    MOVLB   BANK27
-    MOVLW   SERVO_STOP_L
-    MOVWF   PWM6DCL
-    MOVLW   SERVO_STOP_H
-    MOVWF   PWM6DCH
-    MOVLW   SERVO_STOP_L
-    MOVWF   PWM11DCL
-    MOVLW   SERVO_STOP_H
-    MOVWF   PWM11DCH
-    MOVLW   0x6
-    MOVWF   PWMLD
-    MOVLW   10
-    CALL    _u16Delay
+;    movlb   0
+;    movf    u8EusartRX, W
+;    call    _eusartTX
+;    movlw   10
+;    call    _u16Delay
 
-    ; RC Servos Backward.
-    MOVLB   BANK27
-    MOVLW   165
-    MOVWF   PWM6DCL
-    MOVLW   6
-    MOVWF   PWM6DCH
-    MOVLW   20
-    MOVWF   PWM11DCL
-    MOVLW   5
-    MOVWF   PWM11DCH
-    MOVLW   0x6
-    MOVWF   PWMLD
-    MOVLW   10
-    CALL    _u16Delay
-    ; RC Servos Stop.
-    MOVLB   BANK27
-    MOVLW   SERVO_STOP_L
-    MOVWF   PWM6DCL
-    MOVLW   SERVO_STOP_H
-    MOVWF   PWM6DCH
-    MOVLW   SERVO_STOP_L
-    MOVWF   PWM11DCL
-    MOVLW   SERVO_STOP_H
-    MOVWF   PWM11DCH
-    MOVLW   0x6
-    MOVWF   PWMLD
-    MOVLW   10
-    CALL    _u16Delay
+;   Received character.
+;    call    _eusartRX
+;    call    _eusartTX
+;    movlw   10
+;    call    _u16Delay
+    
+;    MOVLB   BANK27
+;    MOVLW   0xa0
+;    MOVWF   PWM11DCL
+;    MOVLW   0x05
+;    MOVWF   PWM11DCH
+;    BSF	    PWM11LD
+;    BSF	    PWM11EN
 
-;    BRA	    loop
+    BRA	    loop
     BRA	    $
 
 ; Functions.
-_u16Delay:
-    MOVWF   u16DELAY
-    MOVLW   255
-    MOVWF   u16DELAY + 1
+_ISR:
+    MOVLB   BANK0
+    BTFSS   RCIF
+    RETFIE
+    CALL    _eusartRX
+    RETFIE
+
+_u8Delay:
+    MOVWF   u8DELAY
     MOVLW   255
     DECFSZ  WREG, F
     BRA	    $-1
-    DECFSZ  u16DELAY + 1, F
+    DECFSZ  u8DELAY, F
+    BRA	    $-3
+    RETURN
+
+_u16Delay:
+    MOVWF   u16DELAY
+    MOVLW   255
+    MOVWF   u8DELAY
+    MOVLW   255
+    DECFSZ  WREG, F
+    BRA	    $-1
+    DECFSZ  u8DELAY, F
     BRA	    $-3
     DECFSZ  u16DELAY, F
     BRA	    $-5
     RETURN
+
+_eusartRX:
+    MOVLB   BANK0
+    BTFSS   RCIF
+    BRA	    $-1
+    MOVLB   BANK3
+    BTFSS   OERR
+    BRA	    $+3
+    BCF	    CREN
+    BSF	    CREN
+    MOVF    RC1REG, W
+    MOVLB   BANK0
+    MOVWF   u8EusartRX
+    RETURN
+
+_eusartTX:
+    MOVLB   BANK3
+    BTFSS   TRMT
+    BRA	    $-1
+    MOVWF   TX1REG
+    RETURN
+
+_eusartTXString:
+    MOVIW   FSR0++
+    ANDLW   0xFF
+    BTFSC   STATUS, Z
+    RETURN
+    CALL    _eusartTX
+    BRA	    $-5
+
+DebugLEDOFF:
+    MOVLB   BANK2
+    BCF	    DEBUG_LED
+    RETURN
+
+DebugLEDON:
+    MOVLB   BANK2
+    BSF	    DEBUG_LED
+    RETURN
+
+writeStringREADY:
+    MOVLW   LOW stringREADY
+    MOVWF   FSR0L
+    MOVLW   HIGH stringREADY + 0x80
+    MOVWF   FSR0H
+    CALL    _eusartTXString
+    RETURN
+
+writeStringTBOT:
+    MOVLW   LOW stringTBOT
+    MOVWF   FSR0L
+    MOVLW   HIGH stringTBOT + 0x80
+    MOVWF   FSR0H
+    CALL    _eusartTXString
+    RETURN
+
+writeStringTRONIX:
+    MOVLW   LOW stringTRONIX
+    MOVWF   FSR0L
+    MOVLW   HIGH stringTRONIX + 0x80
+    MOVWF   FSR0H
+    CALL    _eusartTXString
+    RETURN
+
+writeStringURL:
+    MOVLW   LOW stringURL
+    MOVWF   FSR0L
+    MOVLW   HIGH stringURL + 0x80
+    MOVWF   FSR0H
+    CALL    _eusartTXString
+    RETURN
+
+UrgencyLEDOFF:
+    MOVLB   BANK1
+    BSF	    URGENCY_LED
+    RETURN
+
+UrgencyLEDON:
+    MOVLB   BANK1
+    BCF	    URGENCY_LED
+    RETURN
+
+; FPM Strings.
+PSECT stringtext,class=STRCODE,space=0,delta=2
+
+stringREADY:
+    DB  0xD, 0xA, 'R','e','a','d','y','>',' ', 0x0
+
+stringTBOT:
+    DB  0xD, 0xA, 'T','B','O','T', ' ', '-', ' ', 'v', '0', '.', '1', 0xD, 0xA, 0x0
+
+stringTRONIX:
+    DB  0xD, 0xA, 0xD, 0xA, 'T','r','o','n','i','x',' ','I','/','O','.', 0x0
+
+stringURL:
+    DB  0xD, 0xA, 'w','w','w','.','t','r','o','n','i','x','.','c','o','m', 0x0
 
     END resetVector
