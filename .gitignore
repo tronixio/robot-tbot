@@ -4,6 +4,7 @@ Docs/
 # Kicad.
 Kicad/*/*.kicad_prl
 Kicad/*/*.kicad_sch-bak
+Kicad/*/docs/
 Kicad/*/gerber/
 Kicad/*/*-backups/
 Kicad/*/fp-info-cache
