@@ -1,17 +1,13 @@
 .DS_Store
-Docs/
+Docs
 
 # Kicad.
-Kicad/*/*.kicad_prl
-Kicad/*/*.kicad_sch-bak
-Kicad/*/docs/
-Kicad/*/gerber/
-Kicad/*/*-backups/
-Kicad/*/fp-info-cache
+Kicad/*/*
+!Kicad/*/*kicad_pcb
+!Kicad/*/*kicad_pro
+!Kicad/*/*kicad_sch
 
 # MplabX.
-MplabX/*/build/
-MplabX/*/debug/
-MplabX/*/dist/
-MplabX/*/nbproject/
-MplabX/*/Makefile
+MplabX/*/*
+!MplabX/*/main.c
+!MplabX/*/main.s
